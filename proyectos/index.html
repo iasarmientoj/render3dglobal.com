@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Portafolio de Proyectos | Render 3D Global</title>
+    <meta name="description"
+        content="Galería de proyectos de renderizado 3D. Stands, interiores, arquitectura residencial y comercial.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-cyan': '#00AEEF',
+                        'brand-dark': '#111111',
+                        'brand-gray': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <style>
+        .filter-btn.active {
+            background-color: #00AEEF;
+            color: white;
+            border-color: #00AEEF;
+        }
+    </style>
+</head>
+
+<body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- NAV -->
+    <nav
+        class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../index.html">
+                        <img class="h-10 w-auto md:h-12" src="../assets/branding/render-3d-global-logo-color.png"
+                            alt="Render 3D Global Logo">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Inicio</a>
+                    <a href="../proyectos/" class="text-brand-cyan font-semibold">Portafolio</a>
+                    <a href="../servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
+                    <a href="../nosotros.html"
+                        class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
+                    <a href="../contacto.html"
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">Cotizar
+                        Proyecto</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2"><i
+                            class="fas fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="../index.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Inicio</a>
+                <a href="../proyectos/"
+                    class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Portafolio</a>
+                <a href="../servicios/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Servicios</a>
+                <a href="../nosotros.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
+                <a href="../contacto.html"
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">Cotizar
+                    Ahora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="flex-grow pt-24 pb-12">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
+            <div class="text-center mb-10">
+                <h1 class="text-4xl font-bold text-brand-dark mb-4">Nuestro Trabajo Reciente</h1>
+                <div class="flex flex-wrap justify-center gap-2">
+                    <button
+                        class="filter-btn active border border-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors"
+                        data-filter="all">Todos</button>
+                    <button
+                        class="filter-btn border border-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:border-brand-cyan hover:text-brand-cyan"
+                        data-filter="comercial">Comercial / Stands</button>
+                    <button
+                        class="filter-btn border border-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:border-brand-cyan hover:text-brand-cyan"
+                        data-filter="residencial">Residencial</button>
+                    <button
+                        class="filter-btn border border-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors hover:border-brand-cyan hover:text-brand-cyan"
+                        data-filter="corporativo">Corporativo</button>
+                </div>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6" id="gallery-grid">
+
+                <!-- Project 1: Stand -->
+                <a href="diseno-render-stand-feria-comercial.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
+                    data-category="comercial">
+                    <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png"
+                        alt="Stand"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-brand-cyan px-2 py-1 rounded mb-2 inline-block">Comercial</span>
+                        <h3 class="font-bold text-lg">Stand Ferial</h3>
+                    </div>
+                </a>
+
+                <!-- Project 2: Casa Campestre -->
+                <a href="render-3d-casa-campestre-estilo-colonial.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
+                    data-category="residencial">
+                    <!-- Using placeholder image from folder if exists, or reusing one for now -->
+                    <!-- Check assets later, for now using a generic path that might need fix if folder is empty -->
+                    <!-- Actually I saw a folder 'render-3d-casa-campestre-estilo-colonial' let's assume it has content -->
+                    <img src="../assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png"
+                        onerror="this.src='../assets/projects/visualizacion-paisajismo-jardines-exteriores/visualizacion-paisajismo-jardines-exteriores-01.png'"
+                        alt="Casa Campestre"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-green-500 px-2 py-1 rounded mb-2 inline-block">Residencial</span>
+                        <h3 class="font-bold text-lg">Casa Campestre</h3>
+                    </div>
+                </a>
+
+                <!-- Project 3: Apartamento -->
+                <a href="render-apartamento-interior-vista-panoramica.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
+                    data-category="residencial">
+                    <img src="../assets/projects/render-apartamento-interior-vista-panoramica/render-apartamento-interior-vista-panoramica-01.png"
+                        onerror="this.src='../assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-03.png'"
+                        alt="Apartamento"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-green-500 px-2 py-1 rounded mb-2 inline-block">Residencial</span>
+                        <h3 class="font-bold text-lg">Apartamento Panorámico</h3>
+                    </div>
+                </a>
+
+                <!-- Project 4: Oficinas -->
+                <a href="#" class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
+                    data-category="corporativo">
+                    <img src="../assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png"
+                        alt="Oficinas"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-blue-600 px-2 py-1 rounded mb-2 inline-block">Corporativo</span>
+                        <h3 class="font-bold text-lg">Oficinas Modernas</h3>
+                    </div>
+                </a>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            &copy; 2024 Render 3D Global.
+        </div>
+    </footer>
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+        // Filter Logic
+        const filterBtns = document.querySelectorAll('.filter-btn');
+        const items = document.querySelectorAll('.project-item');
+
+        filterBtns.forEach(btn => {
+            btn.addEventListener('click', () => {
+                // Remove active class
+                filterBtns.forEach(b => b.classList.remove('active'));
+                btn.classList.add('active');
+
+                const filter = btn.getAttribute('data-filter');
+                items.forEach(item => {
+                    const category = item.getAttribute('data-category');
+                    if (filter === 'all' || category === filter) {
+                        item.classList.remove('hidden');
+                    } else {
+                        item.classList.add('hidden');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+
+</html>

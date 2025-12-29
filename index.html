@@ -1,14 +1,16 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Render 3D Global | Acelera la aprobación de tus proyectos</title>
-    <meta name="description" content="Renders utilitarios y rápidos (24-48h) para arquitectos, diseñadores y contratistas. Valida tus ideas antes de construir con Render 3D Global.">
-    
+    <meta name="description"
+        content="Renders utilitarios y rápidos (24-48h) para arquitectos, diseñadores y contratistas. Valida tus ideas antes de construir con Render 3D Global.">
+
     <!-- Tailwind CSS (Framework de diseño moderno y rápido) -->
     <script src="https://cdn.tailwindcss.com"></script>
-    
+
     <!-- Configuración de colores personalizados basados en tu logo -->
     <script>
         tailwind.config = {
@@ -29,41 +31,43 @@
 
     <!-- Fuentes de Google (Inter para limpieza y legibilidad) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
+
     <!-- Iconos (FontAwesome) -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
+    <!-- Custom CSS -->
+    <link rel="stylesheet" href="assets/css/styles.css">
+
     <style>
-        body { font-family: 'Inter', sans-serif; }
-        .hero-overlay {
-            background: linear-gradient(to right, rgba(0,0,0,0.85) 0%, rgba(0,0,0,0.6) 100%);
-        }
-        /* Animación suave para el scroll */
-        html { scroll-behavior: smooth; }
+        /* Estilos adicionales si es necesario que no estén en styles.css o Tailwind */
     </style>
 </head>
+
 <body class="bg-white text-gray-800 antialiased">
 
     <!-- BARRA DE NAVEGACIÓN -->
-    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300" id="navbar">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300"
+        id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
                 <!-- Logo -->
                 <div class="flex-shrink-0 flex items-center">
                     <a href="index.html">
                         <!-- NOTA: Asegúrate de que la ruta de la imagen sea correcta -->
-                        <img class="h-10 w-auto md:h-12" src="logo-color.png" alt="Render 3D Global Logo">
+                        <img class="h-10 w-auto md:h-12" src="assets/branding/logo-color.png"
+                            alt="Render 3D Global Logo">
                     </a>
                 </div>
 
                 <!-- Menú Escritorio -->
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="index.html" class="text-brand-cyan font-semibold">Inicio</a>
-                    <a href="portafolio.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
-                    <a href="servicios.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
+                    <a href="proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
+                    <a href="servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
                     <a href="nosotros.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
                     <!-- Botón CTA en Menú -->
-                    <a href="contacto.html" class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
+                    <a href="contacto.html"
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
                         Cotizar Proyecto
                     </a>
                 </div>
@@ -81,10 +85,14 @@
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
                 <a href="index.html" class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Inicio</a>
-                <a href="portafolio.html" class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
-                <a href="servicios.html" class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Servicios</a>
-                <a href="nosotros.html" class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
-                <a href="contacto.html" class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
+                <a href="proyectos/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
+                <a href="servicios/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Servicios</a>
+                <a href="nosotros.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
+                <a href="contacto.html"
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
                     Cotizar Ahora
                 </a>
             </div>
@@ -96,7 +104,8 @@
     <header class="relative h-screen min-h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
         <!-- Imagen de Fondo -->
         <div class="absolute inset-0 z-0">
-            <img src="image_64f978.jpg" alt="Render de Stand Comercial" class="w-full h-full object-cover opacity-60">
+            <img src="assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png"
+                alt="Render de Stand Comercial" class="w-full h-full object-cover opacity-60">
             <!-- Capa oscura para leer el texto -->
             <div class="absolute inset-0 hero-overlay"></div>
         </div>
@@ -104,20 +113,24 @@
         <!-- Contenido Hero -->
         <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left w-full mt-16">
             <div class="md:w-2/3 lg:w-1/2">
-                <span class="inline-block py-1 px-3 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 text-sm font-bold tracking-wide mb-4 uppercase">
+                <span
+                    class="inline-block py-1 px-3 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 text-sm font-bold tracking-wide mb-4 uppercase">
                     Visualización Arquitectónica Rápida
                 </span>
                 <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
                     Acelera la aprobación de tus <span class="text-brand-cyan">proyectos.</span>
                 </h1>
                 <p class="text-lg md:text-xl text-gray-200 mb-8 font-light leading-relaxed">
-                    Ayudamos a diseñadores y contratistas a vender sus ideas sin dudas. Renders utilitarios y claros en <strong class="text-white">24-48 horas</strong> para que tomes decisiones hoy, no la próxima semana.
+                    Ayudamos a diseñadores y contratistas a vender sus ideas sin dudas. Renders utilitarios y claros en
+                    <strong class="text-white">24-48 horas</strong> para que tomes decisiones hoy, no la próxima semana.
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
-                    <a href="contacto.html" class="bg-brand-cyan text-white px-8 py-4 rounded font-bold text-lg hover:bg-white hover:text-brand-cyan transition-all shadow-lg transform hover:-translate-y-1">
+                    <a href="contacto.html"
+                        class="bg-brand-cyan text-white px-8 py-4 rounded font-bold text-lg hover:bg-white hover:text-brand-cyan transition-all shadow-lg transform hover:-translate-y-1">
                         Cotizar mi Proyecto
                     </a>
-                    <a href="#portafolio" class="px-8 py-4 rounded border border-white text-white font-medium hover:bg-white hover:text-brand-dark transition-all">
+                    <a href="#portafolio"
+                        class="px-8 py-4 rounded border border-white text-white font-medium hover:bg-white hover:text-brand-dark transition-all">
                         Ver Ejemplos
                     </a>
                 </div>
@@ -129,37 +142,45 @@
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-16">
-                <h2 class="text-3xl font-bold text-brand-dark mb-4">No vendemos arte, vendemos <span class="text-brand-cyan">herramientas de venta</span></h2>
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">No vendemos arte, vendemos <span
+                        class="text-brand-cyan">herramientas de venta</span></h2>
                 <p class="text-gray-600 text-lg">
-                    La mayoría de los estudios 3D se enfocan en hacer "arte cinemático" que tarda semanas y cuesta una fortuna. 
+                    La mayoría de los estudios 3D se enfocan en hacer "arte cinemático" que tarda semanas y cuesta una
+                    fortuna.
                     Nosotros entendemos que tú necesitas resolver un problema de comunicación.
                 </p>
             </div>
 
             <div class="grid md:grid-cols-3 gap-8">
                 <!-- Beneficio 1 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow text-center">
+                <div
+                    class="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow text-center">
                     <div class="w-16 h-16 bg-brand-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-clock text-2xl text-brand-cyan"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-brand-dark">Velocidad Extrema</h3>
-                    <p class="text-gray-600">Entregamos imágenes claras en 24-48 horas. Perfecto para cambios de diseño rápidos y aprobaciones urgentes.</p>
+                    <p class="text-gray-600">Entregamos imágenes claras en 24-48 horas. Perfecto para cambios de diseño
+                        rápidos y aprobaciones urgentes.</p>
                 </div>
                 <!-- Beneficio 2 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow text-center">
+                <div
+                    class="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow text-center">
                     <div class="w-16 h-16 bg-brand-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-eye text-2xl text-brand-cyan"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-brand-dark">Claridad Visual</h3>
-                    <p class="text-gray-600">Resolvemos las dudas de tu cliente: "¿Cabe el sofá?", "¿Cómo se ve esa pared?". Sin distracciones innecesarias.</p>
+                    <p class="text-gray-600">Resolvemos las dudas de tu cliente: "¿Cabe el sofá?", "¿Cómo se ve esa
+                        pared?". Sin distracciones innecesarias.</p>
                 </div>
                 <!-- Beneficio 3 -->
-                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow text-center">
+                <div
+                    class="bg-gray-50 p-8 rounded-xl border border-gray-100 hover:shadow-lg transition-shadow text-center">
                     <div class="w-16 h-16 bg-brand-cyan/10 rounded-full flex items-center justify-center mx-auto mb-6">
                         <i class="fas fa-wallet text-2xl text-brand-cyan"></i>
                     </div>
                     <h3 class="text-xl font-bold mb-3 text-brand-dark">Presupuesto Inteligente</h3>
-                    <p class="text-gray-600">No pagues por animaciones que no necesitas. Nuestro flujo de trabajo optimizado reduce costos.</p>
+                    <p class="text-gray-600">No pagues por animaciones que no necesitas. Nuestro flujo de trabajo
+                        optimizado reduce costos.</p>
                 </div>
             </div>
         </div>
@@ -173,38 +194,52 @@
                     <h2 class="text-3xl font-bold mb-2">Proyectos Recientes</h2>
                     <p class="text-gray-400">Soluciones reales para problemas reales.</p>
                 </div>
-                <a href="portafolio.html" class="hidden md:inline-block text-brand-cyan hover:text-white transition-colors font-medium">Ver todo el portafolio <i class="fas fa-arrow-right ml-2"></i></a>
+                <a href="proyectos/"
+                    class="hidden md:inline-block text-brand-cyan hover:text-white transition-colors font-medium">Ver
+                    todo el portafolio <i class="fas fa-arrow-right ml-2"></i></a>
             </div>
 
             <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
                 <!-- Proyecto 1: Recepción -->
                 <div class="group relative overflow-hidden rounded-lg cursor-pointer aspect-[4/3]">
-                    <img src="image_64fc5b.jpg" alt="Render Recepción Clínica Certilingua" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                    <img src="assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png"
+                        alt="Render Recepción Clínica Certilingua"
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90">
+                    </div>
                     <div class="absolute bottom-0 left-0 p-6">
-                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-1 block">Recepción / Corporativo</span>
-                        <h3 class="text-xl font-bold text-white">Clínica Certilingua</h3>
-                        <p class="text-sm text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Entrega: 24 horas</p>
+                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-1 block">Recepción /
+                            Corporativo</span>
+                        <h3 class="text-xl font-bold text-white">Oficinas Modernas</h3>
+                        <p class="text-sm text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Entrega: 24 horas</p>
                     </div>
                 </div>
 
                 <!-- Proyecto 2: Stand Comercial (Reutilizando imagen para demo) -->
                 <!-- NOTA: Cambia 'image_64f978.jpg' por otra imagen de tu carpeta cuando tengas más -->
                 <div class="group relative overflow-hidden rounded-lg cursor-pointer aspect-[4/3]">
-                    <img src="image_64f978.jpg" alt="Render Stand Comercial" class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
-                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90"></div>
+                    <img src="assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.png"
+                        alt="Render Stand Comercial"
+                        class="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-500">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent opacity-90">
+                    </div>
                     <div class="absolute bottom-0 left-0 p-6">
-                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-1 block">Retail / Comercial</span>
+                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-1 block">Retail /
+                            Comercial</span>
                         <h3 class="text-xl font-bold text-white">Kiosco Centro Comercial</h3>
-                        <p class="text-sm text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">Entrega: 36 horas</p>
+                        <p class="text-sm text-gray-300 mt-2 opacity-0 group-hover:opacity-100 transition-opacity">
+                            Entrega: 36 horas</p>
                     </div>
                 </div>
 
                 <!-- Proyecto 3: Placeholder (Caja gris por ahora) -->
-                <div class="group relative overflow-hidden rounded-lg cursor-pointer bg-gray-800 flex items-center justify-center aspect-[4/3] border border-gray-700">
-                     <!-- Cuando tengas la imagen de 'Apartamento', ponla aquí -->
+                <div
+                    class="group relative overflow-hidden rounded-lg cursor-pointer bg-gray-800 flex items-center justify-center aspect-[4/3] border border-gray-700">
+                    <!-- Cuando tengas la imagen de 'Apartamento', ponla aquí -->
                     <div class="text-center p-6">
-                        <i class="fas fa-home text-4xl text-gray-600 mb-4 group-hover:text-brand-cyan transition-colors"></i>
+                        <i
+                            class="fas fa-home text-4xl text-gray-600 mb-4 group-hover:text-brand-cyan transition-colors"></i>
                         <h3 class="text-xl font-bold text-gray-300">Apartamento Modelo</h3>
                         <p class="text-sm text-gray-500 mt-2">Próximamente</p>
                     </div>
@@ -212,7 +247,9 @@
             </div>
 
             <div class="mt-10 text-center md:hidden">
-                <a href="portafolio.html" class="inline-block border border-gray-600 text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors">Ver todo el portafolio</a>
+                <a href="proyectos/"
+                    class="inline-block border border-gray-600 text-white px-6 py-3 rounded hover:bg-gray-800 transition-colors">Ver
+                    todo el portafolio</a>
             </div>
         </div>
     </section>
@@ -220,15 +257,19 @@
     <!-- SECCIÓN CTA FINAL -->
     <section class="py-20 bg-brand-cyan">
         <div class="max-w-5xl mx-auto px-4 text-center">
-            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Listo para validar tu diseño antes de construir?</h2>
+            <h2 class="text-3xl md:text-4xl font-bold text-white mb-6">¿Listo para validar tu diseño antes de construir?
+            </h2>
             <p class="text-xl text-white/90 mb-10 max-w-2xl mx-auto">
-                No gastes un centavo en materiales sin haber visto el resultado final. Obtén una cotización rápida hoy mismo.
+                No gastes un centavo en materiales sin haber visto el resultado final. Obtén una cotización rápida hoy
+                mismo.
             </p>
             <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <a href="https://wa.me/570000000000" target="_blank" class="bg-white text-brand-cyan font-bold px-8 py-4 rounded shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
+                <a href="https://wa.me/570000000000" target="_blank"
+                    class="bg-white text-brand-cyan font-bold px-8 py-4 rounded shadow-lg hover:shadow-xl hover:bg-gray-50 transition-all flex items-center justify-center gap-2">
                     <i class="fab fa-whatsapp text-xl"></i> Hablar por WhatsApp
                 </a>
-                <a href="contacto.html" class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded hover:bg-white/10 transition-all">
+                <a href="contacto.html"
+                    class="bg-transparent border-2 border-white text-white font-bold px-8 py-4 rounded hover:bg-white/10 transition-all">
                     Formulario de Contacto
                 </a>
             </div>
@@ -241,9 +282,11 @@
             <div class="grid md:grid-cols-4 gap-12 mb-12">
                 <!-- Columna 1: Brand -->
                 <div class="col-span-1 md:col-span-1">
-                    <img src="logo-sq-2.jpg" alt="Render 3D Global Logo" class="h-16 w-auto mb-6 rounded shadow-sm opacity-90"> <!-- Usando el logo cuadrado pequeño -->
+                    <img src="assets/branding/render-3d-global-logo-cuadrado-02.jpg" alt="Render 3D Global Logo"
+                        class="h-16 w-auto mb-6 rounded shadow-sm opacity-90"> <!-- Usando el logo cuadrado pequeño -->
                     <p class="text-gray-400 text-sm leading-relaxed">
-                        El puente entre el arquitecto, el cliente y el maestro de obra. Visualización rápida y funcional.
+                        El puente entre el arquitecto, el cliente y el maestro de obra. Visualización rápida y
+                        funcional.
                     </p>
                 </div>
 
@@ -251,10 +294,16 @@
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Empresa</h4>
                     <ul class="space-y-2">
-                        <li><a href="index.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Inicio</a></li>
-                        <li><a href="portafolio.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a></li>
-                        <li><a href="servicios.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Servicios</a></li>
-                        <li><a href="nosotros.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre Nosotros</a></li>
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Inicio</a></li>
+                        <li><a href="proyectos/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a>
+                        </li>
+                        <li><a href="servicios/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Servicios</a></li>
+                        <li><a href="nosotros.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre Nosotros</a>
+                        </li>
                     </ul>
                 </div>
 
@@ -262,10 +311,15 @@
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Servicios</h4>
                     <ul class="space-y-2">
-                        <li><a href="servicios.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders Comerciales</a></li>
-                        <li><a href="servicios.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders de Oficina</a></li>
-                        <li><a href="servicios.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Visualización AR</a></li>
-                        <li><a href="servicios.html" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Planimetría Venta</a></li>
+                        <li><a href="servicios/renders-express-para-stands-comerciales.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders
+                                Comerciales</a></li>
+                        <li><a href="servicios/visualizacion-para-disenadores-interiores.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores &
+                                Oficinas</a></li>
+                        <li><a href="servicios/visualizacion-arquitectonica-para-contratistas.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y
+                                Obra</a></li>
                     </ul>
                 </div>
 
@@ -279,7 +333,8 @@
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-brand-cyan"></i>
-                            <a href="mailto:info@render3dglobal.com" class="text-gray-400 hover:text-white text-sm transition-colors">info@render3dglobal.com</a>
+                            <a href="mailto:info@render3dglobal.com"
+                                class="text-gray-400 hover:text-white text-sm transition-colors">info@render3dglobal.com</a>
                         </li>
                     </ul>
                 </div>
@@ -288,9 +343,12 @@
             <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
                 <p class="text-gray-500 text-sm">© 2024 Render 3D Global. Todos los derechos reservados.</p>
                 <div class="flex space-x-6">
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
-                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i class="fab fa-youtube text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-linkedin text-xl"></i></a>
+                    <a href="#" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-youtube text-xl"></i></a>
                 </div>
             </div>
         </div>
@@ -316,4 +374,5 @@
         });
     </script>
 </body>
+
 </html>

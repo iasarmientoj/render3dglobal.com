@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Visualización para Contratistas | Render 3D Global</title>
+    <meta name="description"
+        content="Ayudamos a contratistas a explicar remodelaciones y obras civiles. Antes y después claro para tus clientes.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-cyan': '#00AEEF',
+                        'brand-dark': '#111111',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
+    <nav class="p-4 border-b border-gray-100 flex justify-between items-center max-w-7xl mx-auto w-full">
+        <a href="../index.html" class="flex items-center gap-2 font-bold text-brand-dark">
+            <img src="../assets/branding/render-3d-global-logo-color.png" class="h-8 w-auto" alt="Logo">
+        </a>
+        <a href="index.html" class="text-sm text-gray-500 hover:text-brand-cyan">&larr; Volver a Servicios</a>
+    </nav>
+
+    <main class="flex-grow max-w-5xl mx-auto px-4 py-12 w-full">
+        <h1 class="text-4xl font-bold text-brand-dark mb-4">Visualización para Contratistas</h1>
+        <p class="text-xl text-gray-600 mb-8 max-w-3xl">Evita malentendidos en obra. Muestra el resultado final antes de
+            demoler el primer muro.</p>
+
+        <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
+            <img src="../assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-04.png"
+                alt="Obra Civil" class="w-full h-auto object-cover max-h-[500px]">
+        </div>
+
+        <div class="grid md:grid-cols-2 gap-12 mb-12">
+            <div>
+                <h2 class="text-2xl font-bold text-brand-dark mb-4">Ventajas en Obra</h2>
+                <ul class="list-disc list-inside space-y-2 text-gray-700">
+                    <li>Aprobación rápida de acabados.</li>
+                    <li>Menos cambios durante la ejecución.</li>
+                    <li>Herramienta de venta para futuros proyectos.</li>
+                </ul>
+            </div>
+            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
+                <h2 class="text-2xl font-bold text-brand-dark mb-4">Cotiza tu Proyecto</h2>
+                <p class="mb-6">Envíanos fotos del estado actual y referencias.</p>
+                <a href="../contacto.html"
+                    class="block text-center bg-brand-cyan text-white font-bold py-3 rounded hover:bg-opacity-90 transition-colors">Contactar</a>
+            </div>
+        </div>
+    </main>
+</body>
+
+</html>

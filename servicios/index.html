@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Servicios de Visualización 3D | Render 3D Global</title>
+    <meta name="description"
+        content="Servicios de renderizado 3D para arquitectos, diseñadores y contratistas. Renders express, stands comerciales y visualización arquitectónica.">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-cyan': '#00AEEF',
+                        'brand-dark': '#111111',
+                        'brand-gray': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- NAV -->
+    <nav
+        class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../index.html">
+                        <img class="h-10 w-auto md:h-12" src="../assets/branding/render-3d-global-logo-color.png"
+                            alt="Render 3D Global Logo">
+                    </a>
+                </div>
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Inicio</a>
+                    <a href="../proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
+                    <a href="../servicios/" class="text-brand-cyan font-semibold">Servicios</a>
+                    <a href="../nosotros.html"
+                        class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
+                    <a href="../contacto.html"
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">Cotizar
+                        Proyecto</a>
+                </div>
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2"><i
+                            class="fas fa-bars text-2xl"></i></button>
+                </div>
+            </div>
+        </div>
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="../index.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Inicio</a>
+                <a href="../proyectos/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
+                <a href="../servicios/"
+                    class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Servicios</a>
+                <a href="../nosotros.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
+                <a href="../contacto.html"
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">Cotizar
+                    Ahora</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- CONTENT -->
+    <main class="flex-grow pt-24 pb-12">
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
+            <div class="text-center max-w-3xl mx-auto">
+                <h1 class="text-4xl font-bold text-brand-dark mb-6">Soluciones para cada <span
+                        class="text-brand-cyan">Profesional</span></h1>
+                <p class="text-xl text-gray-600">Entendemos tu nicho. No es lo mismo vender un apartamento que aprobar
+                    un stand ferial.</p>
+            </div>
+        </section>
+
+        <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-3 gap-8">
+            <!-- Servicio 1: Diseñadores -->
+            <a href="visualizacion-para-disenadores-interiores.html"
+                class="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 block">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <!-- Placeholder, replace with real img -->
+                    <img src="../assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png"
+                        alt="Diseño Interior"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-cyan transition-colors">
+                        Diseñadores de Interiores</h3>
+                    <p class="text-gray-600 text-sm mb-4">Valida texturas, iluminación y mobiliario. Ideal para
+                        moodboards aprobados a la primera.</p>
+                    <span class="text-brand-cyan font-bold text-sm uppercase tracking-wide">Ver Detalles &rarr;</span>
+                </div>
+            </a>
+
+            <!-- Servicio 2: Stands -->
+            <a href="renders-express-para-stands-comerciales.html"
+                class="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 block">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.png"
+                        alt="Stands"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-cyan transition-colors">
+                        Stands Comerciales</h3>
+                    <p class="text-gray-600 text-sm mb-4">Renders express para licitaciones urgentes. Gana el espacio en
+                        la feria con una imagen impactante.</p>
+                    <span class="text-brand-cyan font-bold text-sm uppercase tracking-wide">Ver Detalles &rarr;</span>
+                </div>
+            </a>
+
+            <!-- Servicio 3: Contratistas -->
+            <a href="visualizacion-arquitectonica-para-contratistas.html"
+                class="group bg-white border border-gray-100 rounded-xl overflow-hidden hover:shadow-xl transition-all hover:-translate-y-1 block">
+                <div class="h-48 bg-gray-200 relative overflow-hidden">
+                    <!-- Placeholder using hero img -->
+                    <img src="../assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-04.png"
+                        alt="Contratistas"
+                        class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500">
+                </div>
+                <div class="p-6">
+                    <h3 class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-cyan transition-colors">
+                        Contratistas y Constructores</h3>
+                    <p class="text-gray-600 text-sm mb-4">Muestra el "antes y después". Explica la remodelación sin
+                        planos técnicos confusos.</p>
+                    <span class="text-brand-cyan font-bold text-sm uppercase tracking-wide">Ver Detalles &rarr;</span>
+                </div>
+            </a>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
+            &copy; 2024 Render 3D Global.
+        </div>
+    </footer>
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
+</body>
+
+</html>
