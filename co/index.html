@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="es-CO">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Renders 3D en Colombia | Visualización Arquitectónica</title>
+    <meta name="description"
+        content="Servicio de renderizado 3D en Colombia. Visualiza tus muebles en Madecor, Tablex o Cedro. Atención en Bogotá y Medellín.">
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-cyan': '#00AEEF',
+                        'brand-dark': '#111111',
+                        'brand-gray': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+</head>
+
+<body class="bg-white text-gray-800 antialiased">
+
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Logo -->
+                <div class="flex-shrink-0 flex items-center">
+                    <a href="../index.html">
+                        <img class="h-10 w-auto md:h-12" src="../assets/branding/render-3d-global-logo-color.png"
+                            alt="Render 3D Global Logo">
+                    </a>
+                    <div class="ml-4 flex items-center space-x-2 border-l border-gray-300 pl-4">
+                        <a href="#" class="text-sm font-bold text-brand-dark border-b-2 border-brand-cyan">CO</a>
+                        <a href="../ec/index.html"
+                            class="text-sm text-gray-400 hover:text-brand-dark transition-colors">EC</a>
+                    </div>
+                </div>
+
+                <!-- Menú Escritorio -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Global</a>
+                    <a href="../proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
+                    <a href="../servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
+                    <a href="../contacto.html"
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
+                        Cotizar en Pesos (COP)
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="../index.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Global</a>
+                <a href="../proyectos/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
+                <a href="../ec/index.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Ir a Ecuador
+                    🇪🇨</a>
+                <a href="../contacto.html"
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
+                    Cotizar COP
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HERO SECTION COLOMBIA -->
+    <header class="relative h-screen min-h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
+        <div class="absolute inset-0 z-0">
+            <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png"
+                alt="Render Colombia" class="w-full h-full object-cover opacity-60">
+            <div class="absolute inset-0 hero-overlay"></div>
+        </div>
+
+        <div class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left w-full mt-16">
+            <div class="md:w-2/3 lg:w-1/2">
+                <span
+                    class="inline-block py-1 px-3 rounded bg-brand-cyan/20 text-brand-cyan border border-brand-cyan/30 text-sm font-bold tracking-wide mb-4 uppercase">
+                    Disponible en Bogotá, Medellín y Cali
+                </span>
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-white leading-tight mb-6">
+                    Muestra tus acabados en <span class="text-brand-cyan">Cedro y Madecor</span> antes de cortar.
+                </h1>
+                <p class="text-lg md:text-xl text-gray-200 mb-8 font-light leading-relaxed">
+                    Evita errores costosos en obra gris. Aprobamos tus diseños de carpintería y remodelación con renders
+                    fotorrealistas. Precios ajustados al mercado colombiano.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center md:justify-start">
+                    <a href="../contacto.html"
+                        class="bg-brand-cyan text-white px-8 py-4 rounded font-bold text-lg hover:bg-white hover:text-brand-cyan transition-all shadow-lg">
+                        Cotizar en COP
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- PUNTOS DE DOLOR LOCALES -->
+    <section class="py-20 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center max-w-3xl mx-auto mb-16">
+                <h2 class="text-3xl font-bold text-brand-dark mb-4">Habla el mismo idioma de tu <span
+                        class="text-brand-cyan">Maestro de Obra</span></h2>
+                <p class="text-gray-600 text-lg">
+                    En Colombia, un plano técnico a veces no basta. Un render 3D claro evita que te instalen el Tablex
+                    al revés o que el enchape no cuadre.
+                </p>
+            </div>
+
+            <div class="grid md:grid-cols-3 gap-8">
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 text-center">
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">Carpintería Local</h3>
+                    <p class="text-gray-600">Simulamos texturas de proveedores nacionales: Pelíkano, Vesto, Primadera.
+                    </p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 text-center">
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">Normativa Local</h3>
+                    <p class="text-gray-600">Entendemos los espacios típicos de vivienda VIS y NO VIS.</p>
+                </div>
+                <div class="bg-gray-50 p-8 rounded-xl border border-gray-100 text-center">
+                    <h3 class="text-xl font-bold mb-3 text-brand-dark">Pagos Fáciles</h3>
+                    <p class="text-gray-600">Recibimos Nequi, Daviplata y Bancolombia.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 text-center">
+            <p class="text-gray-500 text-sm">© 2024 Render 3D Global Colombia.</p>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+    </script>
+</body>
+
+</html>

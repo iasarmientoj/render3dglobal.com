@@ -29,6 +29,29 @@
         }
     </script>
 
+    <!-- Geo-Redirection Script (Auto-Redirect CO/EC) -->
+    <script>
+            (function () {
+                // Only redirect once per session to allow manual navigation back to Global
+                if (sessionStorage.getItem('geo_redirect_complete')) return;
+
+                fetch('https://ipapi.co/json/')
+                    .then(r => r.json())
+                    .then(data => {
+                        sessionStorage.setItem('geo_redirect_complete', 'true'); // Mark checked
+                        if (data.country_code === 'CO') {
+                            window.location.href = 'co/index.html';
+                        } else if (data.country_code === 'EC') {
+                            window.location.href = 'ec/index.html';
+                        }
+                    })
+                    .catch(e => {
+                        console.log('Geo-redirect skipped');
+                        sessionStorage.setItem('geo_redirect_complete', 'true'); // Prevent retry on error
+                    });
+            })();
+    </script>
+
     <!-- Fuentes de Google (Inter para limpieza y legibilidad) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
 
@@ -54,9 +77,16 @@
                 <div class="flex-shrink-0 flex items-center">
                     <a href="index.html">
                         <!-- NOTA: Asegúrate de que la ruta de la imagen sea correcta -->
-                        <img class="h-10 w-auto md:h-12" src="assets/branding/logo-color.png"
+                        <img class="h-10 w-auto md:h-12" src="assets/branding/render-3d-global-logo-color.png"
                             alt="Render 3D Global Logo">
                     </a>
+                    <!-- Country Selector -->
+                    <div class="ml-4 flex items-center space-x-2 border-l border-gray-300 pl-4">
+                        <a href="co/index.html" class="text-sm text-gray-400 hover:text-brand-dark transition-colors"
+                            title="Colombia">CO</a>
+                        <a href="ec/index.html" class="text-sm text-gray-400 hover:text-brand-dark transition-colors"
+                            title="Ecuador">EC</a>
+                    </div>
                 </div>
 
                 <!-- Menú Escritorio -->
