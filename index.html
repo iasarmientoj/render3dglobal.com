@@ -134,11 +134,30 @@
     <!-- Usamos la imagen del stand comercial (image_64f978.jpg) porque muestra actividad y comercio -->
     <header class="relative h-screen min-h-[600px] flex items-center justify-center bg-gray-900 overflow-hidden">
         <!-- Imagen de Fondo -->
-        <div class="absolute inset-0 z-0">
+        <!-- Imagenes de Fondo (Slideshow) -->
+        <div id="hero-slider" class="absolute inset-0 z-0">
+            <!-- Slide 1: Stand (Default active) -->
             <img src="assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png"
-                alt="Render de Stand Comercial" class="w-full h-full object-cover opacity-60">
-            <!-- Capa oscura para leer el texto -->
-            <div class="absolute inset-0 hero-overlay"></div>
+                alt="Render Stand Comercial"
+                class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out opacity-100 z-0">
+
+            <!-- Slide 2: Interior Oficina -->
+            <img src="assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png"
+                alt="Render Oficinas Modernas"
+                class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out opacity-0 z-0">
+
+            <!-- Slide 3: Casa Campestre -->
+            <img src="assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png"
+                alt="Render Casa Campestre"
+                class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out opacity-0 z-0">
+
+            <!-- Slide 4: Apartamento Panorámico -->
+            <img src="assets/projects/render-apartamento-interior-vista-panoramica/render-apartamento-interior-vista-panoramica-01.png"
+                alt="Render Apartamento"
+                class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out opacity-0 z-0">
+
+            <!-- Capa oscura ajustada para leer el texto -->
+            <div class="absolute inset-0 hero-overlay z-10"></div>
         </div>
 
         <!-- Contenido Hero -->
@@ -403,6 +422,23 @@
                 navbar.classList.remove('shadow-md');
             }
         });
+
+        // Hero Slider Script
+        const slides = document.querySelectorAll('.hero-slide');
+        let currentSlide = 0;
+        const slideInterval = 5000; // 5 segundos por imagen
+
+        function nextSlide() {
+            slides[currentSlide].classList.remove('opacity-100');
+            slides[currentSlide].classList.add('opacity-0');
+
+            currentSlide = (currentSlide + 1) % slides.length;
+
+            slides[currentSlide].classList.remove('opacity-0');
+            slides[currentSlide].classList.add('opacity-100');
+        }
+
+        setInterval(nextSlide, slideInterval);
     </script>
 </body>
 
