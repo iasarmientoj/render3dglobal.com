@@ -89,6 +89,44 @@ const generatePage = (data, isGlobal = false) => {
         content = replaceAll(content, '{{MAP_EMBED}}', '');
     }
 
+    // Generate Location Menu HTML
+    let menuHtml = `
+    <div class="hidden md:flex relative group">
+        <button class="flex items-center text-gray-500 hover:text-brand-cyan font-medium transition-colors text-sm focus:outline-none">
+            <i class="fas fa-map-marker-alt mr-2 text-brand-cyan"></i> Ubicación <i class="fas fa-chevron-down ml-1 text-xs opacity-70"></i>
+        </button>
+        <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 overflow-hidden">
+    `;
+
+    // Group by Country
+    const countries = { 'CO': 'Colombia 🇨🇴', 'EC': 'Ecuador 🇪🇨' };
+    const citiesByCountry = {};
+    cities.forEach(c => {
+        if (c.id === 'global') return;
+        if (!citiesByCountry[c.countryCode]) citiesByCountry[c.countryCode] = [];
+        citiesByCountry[c.countryCode].push(c);
+    });
+
+    for (const [code, name] of Object.entries(countries)) {
+        if (citiesByCountry[code]) {
+            menuHtml += `<div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">${name}</span>
+                <ul class="space-y-1">`;
+
+            citiesByCountry[code].forEach(c => {
+                const linkFolder = code.toLowerCase(); // co or ec
+                const linkFile = `${c.slug}.html`;
+                const href = `${relativePath}${linkFolder}/${linkFile}`;
+                menuHtml += `<li><a href="${href}" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">${c.city}</a></li>`;
+            });
+
+            menuHtml += `</ul></div>`;
+        }
+    }
+    menuHtml += `</div></div>`;
+
+    content = replaceAll(content, '{{LOCATION_MENU}}', menuHtml);
+
     // Write File
     // If Global, force index.html, else use slug
     const filename = isGlobal ? 'index.html' : `${data.slug}.html`;

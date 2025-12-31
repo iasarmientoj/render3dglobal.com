@@ -65,14 +65,25 @@
         id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <!-- Logo -->
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="../index.html">
-                        <!-- NOTA: Asegúrate de que la ruta de la imagen sea correcta -->
-                        <img class="h-7 w-auto md:h-8" src="../assets/branding/render-3d-global-logo-color.png"
-                            alt="Render 3D Global Logo">
-                    </a>
-
+                <!-- Left Group: Logo + Location -->
+                <div class="flex items-center gap-6">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="../index.html">
+                            <img class="h-7 w-auto md:h-8" src="../assets/branding/render-3d-global-logo-color.png"
+                                alt="Render 3D Global Logo">
+                        </a>
+                    </div>
+                    
+    <div class="hidden md:flex relative group">
+        <button class="flex items-center text-gray-500 hover:text-brand-cyan font-medium transition-colors text-sm focus:outline-none">
+            <i class="fas fa-map-marker-alt mr-2 text-brand-cyan"></i> Ubicación <i class="fas fa-chevron-down ml-1 text-xs opacity-70"></i>
+        </button>
+        <div class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 overflow-hidden">
+    <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Colombia 🇨🇴</span>
+                <ul class="space-y-1"><li><a href="../co/render-3d-bogota.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Bogotá</a></li><li><a href="../co/render-3d-medellin.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Medellín</a></li><li><a href="../co/render-3d-cali.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cali</a></li><li><a href="../co/render-3d-barranquilla.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Barranquilla</a></li><li><a href="../co/render-3d-cartagena.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cartagena</a></li><li><a href="../co/render-3d-santa-marta.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Santa Marta</a></li></ul></div><div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                <span class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Ecuador 🇪🇨</span>
+                <ul class="space-y-1"><li><a href="../ec/render-3d-guayaquil.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Guayaquil</a></li><li><a href="../ec/render-3d-quito.html" class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Quito</a></li></ul></div></div></div>
                 </div>
 
                 <!-- Menú Escritorio -->
