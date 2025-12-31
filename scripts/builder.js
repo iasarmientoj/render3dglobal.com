@@ -17,6 +17,106 @@ const replaceAll = (str, find, replace) => {
     return str.replace(new RegExp(find, 'g'), replace);
 };
 
+// --- HELPER FUNCTIONS ---
+
+const generateSchema = (data) => {
+    const schema = {
+        "@context": "https://schema.org",
+        "@type": "LocalBusiness",
+        "name": "Render 3D Global",
+        "image": "https://render3dglobal.com/assets/branding/render-3d-global-logo-color.png",
+        "telephone": data.phone || "+57 313 2060072",
+        "email": "render3dglobal.com@gmail.com",
+        "address": {
+            "@type": "PostalAddress",
+            "addressLocality": data.city,
+            "addressCountry": data.countryCode
+        },
+        "url": `https://render3dglobal.com/${data.slug}.html`,
+        "priceRange": "$$",
+        "description": data.Meta_Description,
+        "areaServed": {
+            "@type": "City",
+            "name": data.city
+        }
+    };
+
+    // Add FAQ Schema if FAQs exist
+    if (data.FAQs) {
+        schema.mainEntity = {
+            "@type": "FAQPage",
+            "mainEntity": data.FAQs.map(faq => ({
+                "@type": "Question",
+                "name": faq.question,
+                "acceptedAnswer": {
+                    "@type": "Answer",
+                    "text": faq.answer
+                }
+            }))
+        };
+    }
+
+    return JSON.stringify(schema, null, 4);
+};
+
+const generateFAQHtml = (faqs) => {
+    if (!faqs || faqs.length === 0) return '';
+
+    let html = `
+    <section class="py-16 bg-gray-50 border-t border-gray-100" id="faqs">
+        <div class="max-w-4xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center text-brand-dark mb-10">Preguntas Frecuentes</h2>
+            <div class="space-y-4">
+    `;
+
+    faqs.forEach(faq => {
+        html += `
+            <details class="group bg-white rounded-lg shadow-sm border border-gray-100 overflow-hidden text-left">
+                <summary class="flex justify-between items-center font-medium cursor-pointer list-none p-5 text-gray-800 hover:text-brand-cyan transition-colors">
+                    <span>${faq.question}</span>
+                    <span class="transition group-open:rotate-180">
+                        <i class="fas fa-chevron-down text-brand-cyan"></i>
+                    </span>
+                </summary>
+                <div class="text-gray-600 font-light p-5 pt-0 leading-relaxed border-t border-gray-50 group-open:mt-2">
+                    ${faq.answer}
+                </div>
+            </details>
+        `;
+    });
+
+    html += `
+            </div>
+        </div>
+    </section>
+    `;
+    return html;
+};
+
+const generateFloatingCTA = (data) => {
+    const phoneClean = (data.phone || '573132060072').replace(/\D/g, '');
+    return `
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/${phoneClean}?text=Hola,%20me%20interesa%20un%20render%20en%20${data.city}" target="_blank"
+           class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce-slow"
+           title="Chatear por WhatsApp">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+    <style>
+        .animate-bounce-slow { animation: bounce 3s infinite; }
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateY(0);}
+            40% {transform: translateY(-10px);}
+            60% {transform: translateY(-5px);}
+        }
+    </style>
+    `;
+};
+
+// --- END HELPERS ---
+
 const generatePage = (data, isGlobal = false) => {
     let content = template;
 
@@ -60,6 +160,17 @@ const generatePage = (data, isGlobal = false) => {
     content = replaceAll(content, '{{DESCRIPTION}}', data.Meta_Description || `Servicio de renderizado 3D en ${data.city}.`);
     content = replaceAll(content, '{{KEYWORDS}}', data.Keywords_Clave || 'render 3d, visualizacion arquitectonica');
     content = replaceAll(content, '{{AI_INSTRUCTION}}', data.AI_Instruction || '');
+    content = replaceAll(content, '{{SCHEMA_JSON_LD}}', generateSchema(data));
+
+    // Alt Text Injection
+    // Replace {{TITLE}} and {{CITY}} in the template if they exist
+    let altText = data.Alt_Template || `Render 3D en ${data.city}`;
+    altText = altText.replace('{{CITY}}', data.city).replace('{{TITLE}}', data.Titulo);
+    content = replaceAll(content, '{{ALT_TEXT}}', altText);
+
+    // Enriched Sections
+    content = replaceAll(content, '{{FAQ_SECTION}}', generateFAQHtml(data.FAQs));
+    content = replaceAll(content, '{{FLOATING_CTA}}', generateFloatingCTA(data));
 
     // Enhanced Content
     content = replaceAll(content, '{{RESUMEN}}', data.Resumen || '');
@@ -150,5 +261,44 @@ cities.forEach(city => {
     // but the instruction implies we SHOULD generate it from data.
     generatePage(city, isGlobal);
 });
+
+// Generate Sitemap.xml
+const generateSitemap = () => {
+    let xml = `<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
+
+    cities.forEach(city => {
+        const subFolder = (city.countryCode === 'CO') ? 'co/' : (city.countryCode === 'EC' ? 'ec/' : '');
+        const filename = (city.id === 'global') ? 'index.html' : `${city.slug}.html`;
+        // Handle Global Index vs Subfolder Index? 
+        // Global is root/index.html. Subfolder ones are root/co/slug.html.
+
+        let pathUrl = '';
+        if (city.id === 'global') {
+            pathUrl = 'index.html';
+        } else {
+            pathUrl = `${subFolder}${filename}`;
+        }
+
+        const fullUrl = `https://render3dglobal.com/${pathUrl}`;
+        const date = new Date().toISOString().split('T')[0];
+
+        xml += `
+    <url>
+        <loc>${fullUrl}</loc>
+        <lastmod>${date}</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>${city.id === 'global' ? '1.0' : '0.8'}</priority>
+    </url>`;
+    });
+
+    xml += `
+</urlset>`;
+
+    fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), xml);
+    console.log('Generated: sitemap.xml');
+};
+
+generateSitemap();
 
 console.log('Done! Generated city pages in CO/EC folders and Global index.');

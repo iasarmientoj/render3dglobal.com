@@ -14,6 +14,10 @@
     <meta name="author" content="Render 3D Global">
     <meta property="article:published_time" content="{{DATE}}">
     <meta property="article:section" content="{{CATEGORY}}">
+    <!-- Schema JSON-LD -->
+    <script type="application/ld+json">
+        {{SCHEMA_JSON_LD}}
+    </script>
 
     <!-- Tailwind CSS (Framework de diseño moderno y rápido) -->
     <script src="https://cdn.tailwindcss.com"></script>
@@ -128,7 +132,7 @@
         <div id="hero-slider" class="absolute inset-0 z-0">
             <!-- Slide 1: Stand (Default active) -->
             <img src="assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png"
-                alt="Render Stand Comercial"
+                alt="{{ALT_TEXT}}"
                 class="hero-slide absolute inset-0 w-full h-full object-cover transition-opacity duration-2000 ease-in-out opacity-100 z-0">
 
             <!-- Slide 2: Interior Oficina -->
@@ -252,6 +256,9 @@
             </div>
         </div>
     </section>
+
+    <!-- FAQ SECTION (Desplegable) -->
+    {{FAQ_SECTION}}
 
     <!-- MINI PORTAFOLIO -->
     <section id="portafolio" class="py-20 bg-brand-dark text-white">
@@ -458,7 +465,11 @@
                 </div>
             </div>
         </div>
+        </div>
     </footer>
+
+    <!-- Floating WhatsApp CTA -->
+    {{FLOATING_CTA}}
 
     <!-- SCRIPT SIMPLE PARA MENÚ MÓVIL y HERO -->
     <script>
