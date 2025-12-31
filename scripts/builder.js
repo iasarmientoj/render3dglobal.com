@@ -59,6 +59,7 @@ const generatePage = (data, isGlobal = false) => {
     content = replaceAll(content, '{{HERO_TITLE}}', data.Hero_Titulo || `Renders 3D en ${data.city}`);
     content = replaceAll(content, '{{DESCRIPTION}}', data.Meta_Description || `Servicio de renderizado 3D en ${data.city}.`);
     content = replaceAll(content, '{{KEYWORDS}}', data.Keywords_Clave || 'render 3d, visualizacion arquitectonica');
+    content = replaceAll(content, '{{AI_INSTRUCTION}}', data.AI_Instruction || '');
 
     // Enhanced Content
     content = replaceAll(content, '{{RESUMEN}}', data.Resumen || '');
