@@ -13,7 +13,25 @@ const cities = [
         mapLink: 'https://maps.app.goo.gl/6bXvRC51p4ZRmY6CA',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1018804.8967923486!2d-74.081755!3d4.609710!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
-        heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png'
+        heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-BOG-001',
+        Titulo: 'Renders 3D en Bogotá | Visualización Arquitectónica Rápida',
+        Categoria: 'Visualización Arquitectónica',
+        Portada: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+        Galeria: [
+            'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+            'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png'
+        ],
+        Resumen: 'Servicio de renderizado 3D en Bogotá especializado en entregas urgentes (24-48h) para arquitectos y constructoras. Expertos en materiales locales como Madecor y Tablex.',
+        Contenido_Blog: 'En el competitivo mercado inmobiliario de Bogotá, la velocidad lo es todo. Nuestro servicio de render 3D permite a los arquitectos validar acabados en ladrillo, concreto y madera antes de iniciar la obra, ahorrando costos y tiempo en licencias y aprobaciones.',
+        Software: ['3ds Max', 'Corona Renderer', 'Adobe Photoshop', 'AutoCAD'],
+        Testimonio: 'Logramos pre-vender el 80% del proyecto en Chapinero gracias a la calidad de los renders. La entrega fue sorprendentemente rápida.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Cotiza tus Renders 3D en Bogotá. Servicio express 24h para inmobiliarias y arquitectos. Visualización hiperrealista de interiores y fachadas en Colombia.',
+        Keywords_Clave: 'render 3d bogota, visualizacion arquitectonica bogota, renders inmobiliarios colombia, estudio de render bogota, renders express',
+        Problema_Solucion: '¿Necesitas aprobar un diseño urgente en Curaduría o vender sobre planos? Entregamos imágenes de alta calidad en tiempos récord para que no detengas tu obra.'
     },
     {
         id: 'medellin',
@@ -25,10 +43,27 @@ const cities = [
         currency: 'COP',
         currencySymbol: '$',
         phone: '+57 313 2060072',
-        mapLink: '', // Pendiente
+        mapLink: '',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63458.74794860436!2d-75.590553!3d6.244203!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e4428dfb80fad05%3A0x42137cfcc7b53b56!2sMedell%C3%ADn%2C%20Antioquia!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
-        heroImage: 'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png'
+        heroImage: 'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-MED-002',
+        Titulo: 'Renders 3D en Medellín | Renders para Inmobiliarias y Diseño',
+        Categoria: 'Interiorismo y Arquitectura',
+        Portada: 'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png',
+        Galeria: [
+            'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png'
+        ],
+        Resumen: 'Estudio de renderizado 3D en Medellín. Especialistas en paisajismo, interiores modernos y vivienda campestre. Calidad fotográfica para tus ventas en Antioquia.',
+        Contenido_Blog: 'Medellín exige diseños innovadores y verdes. Nuestros renders destacan la integración de la naturaleza con la arquitectura, ayudando a desarrolladores en El Poblado y Llanogrande a visualizar el potencial real de sus terrenos.',
+        Software: ['SketchUp', 'Lumion', 'V-Ray', 'Forest Pack'],
+        Testimonio: 'Excelente interpretación de los materiales. El render capturó perfectamente la iluminación natural que queríamos para el apartamento modelo.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Servicio de Render 3D en Medellín. Potencia tus ventas inmobiliarias con imágenes fotorrealistas. Recorridos virtuales y planos 3D. Cotización inmediata.',
+        Keywords_Clave: 'renders medellin, arquitectura 3d antioquia, renderias medellin, visualizacion 3d, renders apartamentos',
+        Problema_Solucion: '¿Tus clientes no entienden los planos 2D? Convierte tus planos en imágenes vivas que emocionen y cierren ventas inmobiliarias más rápido.'
     },
     {
         id: 'cali',
@@ -43,7 +78,24 @@ const cities = [
         mapLink: 'https://maps.app.goo.gl/Q5QXNETfkvWc7pew6',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63695.666324864!2d-76.531989!3d3.437220!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f0cc4bb3f1%3A0x1f0fb53c0c4f9693!2sCali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
-        heroImage: 'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png'
+        heroImage: 'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-CAL-003',
+        Titulo: 'Renders 3D en Cali | Visualización para Constructores del Valle',
+        Categoria: 'Construcción y Ventas',
+        Portada: 'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png',
+        Galeria: [
+            'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png'
+        ],
+        Resumen: 'Renders arquitectónicos en Cali y el Valle del Cauca. Expertos en casas campestres, condominios y renovación urbana. Muestra tu proyecto antes de construir.',
+        Contenido_Blog: 'El clima de Cali invita a espacios abiertos y frescos. Nuestros renders simulan la iluminación solar precisa del Valle, garantizando que el diseño bioclimático se aprecie correctamente en la etapa de venta.',
+        Software: ['Blender', 'Cycles', 'Revit'],
+        Testimonio: 'Rapidez y compromiso. Necesitábamos un render para una valla publicitaria urgente y cumplieron con la calidad requerida.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Expertos en Render 3D en Cali. Visualización arquitectónica para proyectos residenciales y comerciales. Precios competitivos y entrega veloz.',
+        Keywords_Clave: 'render 3d cali, arquitectura valle del cauca, renders casas campestres, diseño interiores cali',
+        Problema_Solucion: 'Evita malentendidos con el maestro de obra. Un render detallado es la mejor guía técnica para garantizar acabados perfectos.'
     },
     {
         id: 'barranquilla',
@@ -58,7 +110,22 @@ const cities = [
         mapLink: 'https://maps.app.goo.gl/2ghTfWHvC3m8gmnC9',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62656.32757288675!2d-74.806981!3d10.963889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d44d12ae605%3A0x2a58c35275d31!2sBarranquilla%2C%20Atl%C3%A1ntico!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
-        heroImage: 'assets/projects/render-apartamento-interior-vista-panoramica/render-apartamento-interior-vista-panoramica-01.png'
+        heroImage: 'assets/projects/render-apartamento-interior-vista-panoramica/render-apartamento-interior-vista-panoramica-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-BAQ-004',
+        Titulo: 'Renders 3D Barranquilla | Diseño Comercial y Residencial',
+        Categoria: 'Desarrollo Inmobiliario',
+        Portada: 'assets/projects/render-apartamento-interior-vista-panoramica/render-apartamento-interior-vista-panoramica-01.png',
+        Galeria: [],
+        Resumen: 'Soluciones de renderizado en Barranquilla. Especialistas en torres de apartamentos y oficinas con vista al mar. Materiales resistentes al clima costero.',
+        Contenido_Blog: 'Barranquilla crece hacia el cielo. Ayudamos a visualizar rascacielos y proyectos de uso mixto, asegurando que los materiales propuestos resistan la salinidad y humedad visualmente en el modelo 3D.',
+        Software: ['3ds Max', 'V-Ray 6', 'Unreal Engine 5'],
+        Testimonio: 'El recorrido virtual del apartamento modelo fue clave para vender las unidades de lujo antes de iniciar la cimentación.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Estudio de Renders en Barranquilla. Visualización 3D para proyectos en la Costa Atlántica. Calidad 4K. Contáctanos por WhatsApp.',
+        Keywords_Clave: 'renders barranquilla, proyectos inmobiliarios atlantico, diseño 3d costa, renders edificios',
+        Problema_Solucion: '¿Vendes lifestyle? No muestres planos aburridos. Muestra la vista, el confort y el lujo con un render hiperrealista.'
     },
     {
         id: 'cartagena',
@@ -73,7 +140,22 @@ const cities = [
         mapLink: 'https://maps.app.goo.gl/5GsgzirTLNTPXZDK7',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125586.29467770857!2d-75.539322!3d10.391049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625e7ae22c60d%3A0xc3b7cb76059e74!2sCartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
-        heroImage: 'assets/projects/renderizado-3d-fachada-hotel-lujo/renderizado-3d-fachada-hotel-lujo-01.png'
+        heroImage: 'assets/projects/renderizado-3d-fachada-hotel-lujo/renderizado-3d-fachada-hotel-lujo-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-CTG-005',
+        Titulo: 'Renders 3D Cartagena | Hotelería y Restauración',
+        Categoria: 'Hospitality Design',
+        Portada: 'assets/projects/renderizado-3d-fachada-hotel-lujo/renderizado-3d-fachada-hotel-lujo-01.png',
+        Galeria: ['assets/projects/renderizado-3d-fachada-hotel-lujo/renderizado-3d-fachada-hotel-lujo-01.png'],
+        Resumen: 'Especialistas en Renders para hoteles, restaurantes y villas en Cartagena de Indias. Capturamos la magia de la ciudad amurallada en 3D.',
+        Contenido_Blog: 'La restauración patrimonial y los nuevos hoteles boutique requieren una sensibilidad especial. Nuestros artistas 3D recrean texturas coloniales y atmósferas nocturnas que venden la experiencia turística.',
+        Software: ['Lumion 12.5', 'SketchUp Pro', 'Photoshop CC'],
+        Testimonio: 'Pudimos aprobar el diseño de la fachada ante el comité de patrimonio gracias a la precisión del render y su integración con el entorno.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Renders para Hoteles en Cartagena. Visualización arquitectónica de lujo para sector turismo y vivienda vacacional. Cotiza tu proyecto.',
+        Keywords_Clave: 'renders cartagena, arquitectura hotelera, diseño interiores restaurante, renders patrimonio',
+        Problema_Solucion: 'En turismo, la imagen lo es todo. Atrae inversores y huéspedes con imágenes que transmitan calidez, lujo y confort desde el primer vistazo.'
     },
     {
         id: 'santamarta',
@@ -88,7 +170,22 @@ const cities = [
         mapLink: '', // Pendiente
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62590.2312217032!2d-74.211904!3d11.231627!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef4f6693d25d045%3A0xe744e26210214!2sSanta%20Marta%2C%20Magdalena!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
-        heroImage: 'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png'
+        heroImage: 'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-SMR-006',
+        Titulo: 'Renders 3D Santa Marta | Proyectos Turísticos y VIS',
+        Categoria: 'Vivienda y Turismo',
+        Portada: 'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png',
+        Galeria: [],
+        Resumen: 'Visualización arquitectónica en Santa Marta. Desde apartamentos turísticos en El Rodadero hasta vivienda VIS. Calidad y cumplimiento.',
+        Contenido_Blog: 'Santa Marta es un foco de inversión. Ayudamos a estructuradores de proyectos a crear piezas gráficas impactantes para salas de ventas, brochures y marketing digital inmobiliario.',
+        Software: ['D5 Render', 'SketchUp', 'Twinmotion'],
+        Testimonio: 'Un servicio ágil y a muy buen precio. Ideal para las preventas de nuestros proyectos de vivienda de interés social.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Renders Económicos y Profesionales en Santa Marta. Acelera tus ventas inmobiliarias con imágenes 3D de alto impacto. Recorridos virtuales.',
+        Keywords_Clave: 'renders santa marta, inversion inmobiliaria magdalena, diseño 3d rodadero, renders vis',
+        Problema_Solucion: '¿Presupuesto ajustado? Ofrecemos paquetes de renderizado optimizados para constructoras que necesitan volumen y calidad sin romper el banco.'
     },
     // ECUADOR (USD)
     {
@@ -104,7 +201,22 @@ const cities = [
         mapLink: 'https://maps.app.goo.gl/duSVaR6U6Rpy1xUK8',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255142.124577884!2d-79.994246!3d-2.196160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c17b6c5965%3A0x67a36c7a76e1882!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1628100000000!5m2!1ses!2sec',
         terminos: { material: 'Anaqueles y Gypsum', construccion: 'Hormigón' },
-        heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png'
+        heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-GYQ-101',
+        Titulo: 'Renders 3D Guayaquil | Visualización Arquitectónica Moderna',
+        Categoria: 'Arquitectura Comercial',
+        Portada: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+        Galeria: ['assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png'],
+        Resumen: 'Servicio líder de render 3D en Guayaquil. Especialistas en centros comerciales, plazas y urbanizaciones en Samborondón y Vía a la Costa.',
+        Contenido_Blog: 'Guayaquil combina comercio vibrante con urbanismo moderno. Nuestros renders ayudan a vender locales comerciales y stands antes de su fabricación, asegurando la aprobación de las administraciones de centros comerciales.',
+        Software: ['3ds Max', 'Corona', 'Adobe After Effects'],
+        Testimonio: 'Nuestros clientes entendieron el diseño del stand inmediatamente. La aprobación en el Mall del Sol fue rápida gracias a los detalles técnicos visibles en el render.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Cotiza Renders 3D en Guayaquil. Visualización de stands, locales y viviendas. Servicio rápido para arquitectos en Samborondón y Guayas.',
+        Keywords_Clave: 'render 3d guayaquil, renders samborondon, arquitectura ecuador, diseño stands guayaquil',
+        Problema_Solucion: '¿Necesitas vender una idea abstracta? Transformamos tus bosquejos en imágenes fotorrealistas que convencen a inversores y clientes exigentes.'
     },
     {
         id: 'quito',
@@ -116,10 +228,59 @@ const cities = [
         currency: 'USD',
         currencySymbol: '$',
         phone: '+57 313 2060072',
-        mapLink: '', // Pendiente
+        mapLink: '',
         mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d127670.334795244!2d-78.524948!3d-0.180653!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91d59a400242229b%3A0x88022b7933973c9c!2sQuito%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1628100000000!5m2!1ses!2sec',
         terminos: { material: 'Anaqueles y Gypsum', construccion: 'Hormigón' },
-        heroImage: 'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png'
+        heroImage: 'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-UIO-102',
+        Titulo: 'Renders 3D Quito | Diseño Interior y Arquitectura de Altura',
+        Categoria: 'Diseño Residencial',
+        Portada: 'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png',
+        Galeria: ['assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png'],
+        Resumen: 'Estudio de visualización 3D en Quito. Renders de alta gama para edificios verticales, lofts y renovaciones en Cumbayá y el norte de la ciudad.',
+        Contenido_Blog: 'La topografía y vistas de Quito son únicas. Potenciamos tus proyectos mostrando cómo se integran con el paisaje andino y la luz natural de altura, factores decisivos para el comprador quiteño.',
+        Software: ['Revit', 'Lumion', 'Photoshop'],
+        Testimonio: 'La calidad del render ayudó a pre-vender los departamentos de lujo en la González Suárez. Muy recomendados por su profesionalismo.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Renders Arquitectónicos en Quito. Visualización 3D para inmobiliarias y diseñadores. Calidad fotográfica en Cumbayá y Tumbaco. Cotiza aquí.',
+        Keywords_Clave: 'renders quito, diseño interiores ecuador, arquitectura cumbaya, visualizacion 3d pichincha',
+        Problema_Solucion: '¿Tu cliente no visualiza los espacios? Muestrales exactamente cómo quedará su cocina, sala o fachada con un render que no deja lugar a dudas.'
+    },
+    // GLOBAL (Index)
+    {
+        id: 'global',
+        country: 'Global',
+        countryCode: 'GLOBAL',
+        flag: '🌎',
+        city: 'Global',
+        slug: 'index',
+        currency: 'USD',
+        currencySymbol: '$',
+        phone: '+57 313 2060072',
+        mapLink: '',
+        mapEmbed: '',
+        terminos: { material: 'Materiales', construccion: 'Construcción' },
+        heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+
+        // SEO & Conversion Params
+        AID: 'RDG-GLB-000',
+        Titulo: 'Render 3D Global | Servicio de Visualización Arquitectónica Express',
+        Categoria: 'Servicio Global Online',
+        Portada: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+        Galeria: [
+            'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
+            'assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png'
+        ],
+        Resumen: 'Agencia de renderizado 3D online. Atendemos arquitectos y diseñadores en todo el mundo hispano. Entregas rápidas en 24-48 horas, precios competitivos y sin complicaciones.',
+        Contenido_Blog: 'En un mundo globalizado, no necesitas un renderista en tu oficina. Render 3D Global es tu departamento de visualización remoto. Enviamos avances diarios, ajustamos según tu feedback y entregamos imágenes finales listas para imprimir o postear, todo vía WhatsApp y Email.',
+        Software: ['3ds Max', 'Corona Renderer', 'Unreal Engine', 'Lumion', 'Blender'],
+        Testimonio: 'Trabajar con Render 3D Global ha sido la mejor decisión para nuestro estudio. Tiempos de respuesta increíbles y una calidad que supera a proveedores locales costosos.',
+        Fecha: '2025-01-01',
+        Meta_Description: 'Render 3D Global: Tu aliado en visualización arquitectónica. Renders exteriores, interiores y recorridos virtuales 360. Servicio rápido y profesional.',
+        Keywords_Clave: 'render 3d online, servicio de renders, visualizacion arquitectonica, renders economicos, agencia renders',
+        Problema_Solucion: '¿Cansado de renderistas que no cumplen los tiempos? Nosotros garantizamos entregas puntuales para que tú quedes bien con tus clientes. Calidad garantizada.'
     }
 ];
 
