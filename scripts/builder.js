@@ -138,6 +138,12 @@ const generatePage = (data, isGlobal = false) => {
     // Fix Assets and Links with Relative Path
     // Assets
     content = replaceAll(content, 'assets/', relativePath + 'assets/');
+    content = replaceAll(content, 'proyectos/', relativePath + 'proyectos/');
+    content = replaceAll(content, 'servicios/', relativePath + 'servicios/');
+    content = replaceAll(content, 'nosotros.html', relativePath + 'nosotros.html');
+    content = replaceAll(content, 'contacto.html', relativePath + 'contacto.html');
+    content = replaceAll(content, 'href="index.html"', 'href="' + relativePath + 'index.html"');
+    // Note: 'href="index.html"' prevents replacing just 'index.html' text if it appeared elsewhere, though unlikely.
     // Navigation Links
     content = replaceAll(content, 'href="index.html"', 'href="' + relativePath + 'index.html"');
     content = replaceAll(content, 'href="proyectos/"', 'href="' + relativePath + 'proyectos/"');
@@ -289,6 +295,26 @@ const generateSitemap = () => {
         <lastmod>${date}</lastmod>
         <changefreq>weekly</changefreq>
         <priority>${city.id === 'global' ? '1.0' : '0.8'}</priority>
+    </url>`;
+    });
+
+    // Add Static Project Pages
+    const projectPages = [
+        'proyectos/index.html',
+        'proyectos/diseno-render-stand-feria-comercial.html',
+        'proyectos/render-interiorismo-oficinas-modernas.html',
+        'proyectos/visualizacion-arquitectonica-residencia-moderna.html'
+    ];
+
+    projectPages.forEach(page => {
+        const fullUrl = `https://render3dglobal.com/${page}`;
+        const date = new Date().toISOString().split('T')[0];
+        xml += `
+    <url>
+        <loc>${fullUrl}</loc>
+        <lastmod>${date}</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
     </url>`;
     });
 
