@@ -7,8 +7,15 @@ body {
 
 /* Utilities */
 .hero-overlay {
-    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.2) 100%);
+    background: linear-gradient(to right, rgba(0, 0, 0, 0.7) 0%, rgba(0, 0, 0, 0.1) 100%);
     /* Más visibilidad al render, suficiente contraste */
+}
+
+/* Mobile Hero adjustment: Extend dark gradient to improve text readability */
+@media (max-width: 768px) {
+    .hero-overlay {
+        background: rgba(0, 0, 0, 0.6);
+    }
 }
 
 html {
