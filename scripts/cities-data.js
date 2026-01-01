@@ -11,7 +11,7 @@ const cities = [
         currencySymbol: '$',
         phone: '+57 313 2060072',
         mapLink: 'https://maps.app.goo.gl/6bXvRC51p4ZRmY6CA',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1018804.8967923486!2d-74.081755!3d4.609710!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3976.665147103609!2d-74.0690937!3d4.6536715!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9be5b38b9b7d%3A0x76058a8c71d0f6fd!2sRender%203D%20Global%20-%20Bogot%C3%A1!5e0!3m2!1ses!2sec!4v1767280424772!5m2!1ses!2sec',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
         heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
 
@@ -111,7 +111,7 @@ const cities = [
         currencySymbol: '$',
         phone: '+57 313 2060072',
         mapLink: 'https://maps.app.goo.gl/Q5QXNETfkvWc7pew6',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d63695.666324864!2d-76.531989!3d3.437220!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a6f0cc4bb3f1%3A0x1f0fb53c0c4f9693!2sCali%2C%20Valle%20del%20Cauca!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3982.540825803616!2d-76.53213660000002!3d3.4611310999999993!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e30a7fc4dea6251%3A0x48e992e5093bfb6d!2sRender%203D%20Global%20-%20Cali!5e0!3m2!1ses!2sec!4v1767280494080!5m2!1ses!2sec',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
         heroImage: 'assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png',
 
@@ -161,7 +161,7 @@ const cities = [
         currencySymbol: '$',
         phone: '+57 313 2060072',
         mapLink: 'https://maps.app.goo.gl/2ghTfWHvC3m8gmnC9',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d62656.32757288675!2d-74.806981!3d10.963889!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42d44d12ae605%3A0x2a58c35275d31!2sBarranquilla%2C%20Atl%C3%A1ntico!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3916.4439372544093!2d-74.81002509999999!3d11.005280799999998!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef42dfd037bb6a5%3A0x4eacf22cdebb774b!2sRender%203D%20Global%20-%20Barranquilla!5e0!3m2!1ses!2sec!4v1767280520097!5m2!1ses!2sec',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
         heroImage: 'assets/projects/render-apartamento-interior-vista-panoramica/render-apartamento-interior-vista-panoramica-01.png',
 
@@ -211,7 +211,7 @@ const cities = [
         currencySymbol: '$',
         phone: '+57 313 2060072',
         mapLink: 'https://maps.app.goo.gl/5GsgzirTLNTPXZDK7',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d125586.29467770857!2d-75.539322!3d10.391049!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef625e7ae22c60d%3A0xc3b7cb76059e74!2sCartagena%2C%20Bol%C3%ADvar!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3924.2352039076895!2d-75.55457059999999!3d10.4028849!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8ef62f8aec78d593%3A0xa37a01a9fde64fa1!2sRender%203D%20Global%20-%20Cartagena!5e0!3m2!1ses!2sec!4v1767280543791!5m2!1ses!2sec',
         terminos: { material: 'Madecor y Tablex', construccion: 'Mampostería' },
         heroImage: 'assets/projects/renderizado-3d-fachada-hotel-lujo/renderizado-3d-fachada-hotel-lujo-01.png',
 
@@ -312,7 +312,7 @@ const cities = [
         currencySymbol: '$',
         phone: '+593 95 903 5265',
         mapLink: 'https://maps.app.goo.gl/duSVaR6U6Rpy1xUK8',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d255142.124577884!2d-79.994246!3d-2.196160!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d13c17b6c5965%3A0x67a36c7a76e1882!2sGuayaquil%2C%20Ecuador!5e0!3m2!1ses!2sec!4v1628100000000!5m2!1ses!2sec',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3986.9721155010348!2d-79.9425625!3d-2.1643125!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x902d11e87c13d521%3A0x5974096579e2e50e!2sRender%203D%20Global%20-%20Guayaquil!5e0!3m2!1ses!2sec!4v1767280573104!5m2!1ses!2sec',
         terminos: { material: 'Anaqueles y Gypsum', construccion: 'Hormigón' },
         heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
 
@@ -412,8 +412,8 @@ const cities = [
         currency: 'COP y USD',
         currencySymbol: '$',
         phone: '+57 313 2060072',
-        mapLink: 'https://maps.app.goo.gl/6bXvRC51p4ZRmY6CA',
-        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d1018804.8967923486!2d-74.081755!3d4.609710!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e3f9bfd2da6cb29%3A0x239d635520a33914!2sBogot%C3%A1%2C%20Colombia!5e0!3m2!1ses!2sco!4v1628100000000!5m2!1ses!2sco',
+        mapLink: 'https://maps.app.goo.gl/4da7qk2AR2xnZGCg9',
+        mapEmbed: 'https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d16257427.6530137!2d-85.03512467176711!3d5.841732749416186!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x8e15a43aae1594a3%3A0x9a0d9a04eff2a340!2sColombia!5e0!3m2!1ses!2sec!4v1767280308180!5m2!1ses!2sec',
         terminos: { material: 'Materiales', construccion: 'Construcción' },
         heroImage: 'assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png',
 
