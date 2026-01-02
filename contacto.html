@@ -32,36 +32,97 @@
 
 <body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
 
-    <!-- NAV -->
-    <nav
-        class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300">
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300"
+        id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html">
-                        <img class="h-7 w-auto md:h-8" src="assets/branding/render-3d-global-logo-color.png"
-                            alt="Render 3D Global Logo">
-                    </a>
+                <!-- Left Group: Logo + Location -->
+                <div class="flex items-center gap-6">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html">
+                            <img class="h-7 w-auto md:h-8" src="assets/branding/render-3d-global-logo-color.png"
+                                alt="Render 3D Global Logo">
+                        </a>
+                    </div>
+
+                    <div class="hidden md:flex relative group">
+                        <button
+                            class="flex items-center text-gray-500 hover:text-brand-cyan font-medium transition-colors text-sm focus:outline-none">
+                            <i class="fas fa-map-marker-alt mr-2 text-brand-cyan"></i> Ubicación <i
+                                class="fas fa-chevron-down ml-1 text-xs opacity-70"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 overflow-hidden">
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Colombia
+                                    🇨🇴</span>
+                                <ul class="space-y-1">
+                                    <li><a href="co/render-3d-bogota.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Bogotá</a>
+                                    </li>
+                                    <li><a href="co/render-3d-medellin.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Medellín</a>
+                                    </li>
+                                    <li><a href="co/render-3d-cali.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cali</a>
+                                    </li>
+                                    <li><a href="co/render-3d-barranquilla.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Barranquilla</a>
+                                    </li>
+                                    <li><a href="co/render-3d-cartagena.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cartagena</a>
+                                    </li>
+                                    <li><a href="co/render-3d-santa-marta.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Santa
+                                            Marta</a></li>
+                                </ul>
+                            </div>
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Ecuador
+                                    🇪🇨</span>
+                                <ul class="space-y-1">
+                                    <li><a href="ec/render-3d-guayaquil.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Guayaquil</a>
+                                    </li>
+                                    <li><a href="ec/render-3d-quito.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Quito</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Menú Escritorio -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Inicio</a>
+                    <a href="index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Global</a>
                     <a href="proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
                     <a href="servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
                     <a href="nosotros.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
+                    <!-- Botón CTA en Menú -->
                     <a href="contacto.html"
-                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">Cotizar
-                        Proyecto</a>
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
+                        Cotizar en Cualquier parte del Mundo
+                    </a>
                 </div>
+
+                <!-- Botón Menú Móvil -->
                 <div class="flex items-center md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2"><i
-                            class="fas fa-bars text-2xl"></i></button>
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <!-- Menú Móvil Desplegable -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
                 <a href="index.html"
-                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Inicio</a>
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Global</a>
                 <a href="proyectos/"
                     class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
                 <a href="servicios/"
@@ -69,8 +130,9 @@
                 <a href="nosotros.html"
                     class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
                 <a href="contacto.html"
-                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">Cotizar
-                    Ahora</a>
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
+                    Cotizar Ahora
+                </a>
             </div>
         </div>
     </nav>
@@ -80,54 +142,232 @@
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="text-center max-w-3xl mx-auto mb-12">
                 <h1 class="text-4xl font-bold text-brand-dark mb-4">Hablemos de tu Proyecto</h1>
-                <p class="text-xl text-gray-600">Tienes prisa. Nosotros también. Elige el medio más rápido para ti.</p>
+                <p class="text-xl text-gray-600">Elige el canal directo según tu ubicación para una atención más rápida.
+                </p>
             </div>
 
-            <div class="grid md:grid-cols-2 gap-12 max-w-5xl mx-auto items-center">
-                <!-- WhatsApp Option -->
-                <div
-                    class="bg-gray-50 p-10 rounded-xl border border-gray-100 flex flex-col justify-center items-center text-center shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
-                    <div class="w-24 h-24 bg-green-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fab fa-whatsapp text-5xl text-green-600"></i>
-                    </div>
-                    <h3 class="text-3xl font-bold text-brand-dark mb-4">WhatsApp</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Respuesta inmediata. Envía tus planos, bocetos o audios para
-                        una cotización al instante.</p>
-                    <a href="https://wa.me/573132060072" target="_blank"
-                        class="bg-green-600 text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-green-700 transition-colors w-full flex items-center justify-center gap-3">
-                        <i class="fab fa-whatsapp"></i> +57 313 2060072
-                    </a>
-                </div>
+            <!-- WhatsApp Location Selector -->
+            <div class="max-w-6xl mx-auto mb-16">
+                <div class="grid md:grid-cols-2 gap-8">
 
-                <!-- Email Option -->
-                <div
-                    class="bg-white p-10 rounded-xl border border-gray-100 flex flex-col justify-center items-center text-center shadow-md hover:shadow-lg transition-shadow transform hover:-translate-y-1">
-                    <div class="w-24 h-24 bg-blue-100 rounded-full flex items-center justify-center mb-6">
-                        <i class="fas fa-envelope text-5xl text-blue-600"></i>
+                    <!-- Option 1: Colombia & Global -->
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <i class="fas fa-globe-americas text-9xl text-brand-cyan"></i>
+                        </div>
+
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-4xl">🇨🇴</span>
+                                <span class="text-2xl text-gray-300">|</span>
+                                <span class="text-4xl">🌎</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-brand-dark mb-2">Colombia y Global</h3>
+                            <p class="text-gray-500 mb-6 text-sm">Si estás en Colombia o en cualquier otro lugar del
+                                mundo.</p>
+
+                            <a href="https://wa.me/573132060072?text=Hola,%20quisiera%20cotizar%20un%20proyecto..."
+                                target="_blank"
+                                class="flex items-center justify-center gap-3 bg-green-600 text-white w-full py-4 rounded-xl font-bold text-lg hover:bg-green-700 transition-colors shadow-md hover:shadow-green-200">
+                                <i class="fab fa-whatsapp text-2xl"></i>
+                                Chatear con Bogotá
+                            </a>
+                            <p class="mt-4 text-center text-gray-400 text-sm font-mono">+57 313 2060072</p>
+                        </div>
                     </div>
-                    <h3 class="text-3xl font-bold text-brand-dark mb-4">Correo Electrónico</h3>
-                    <p class="text-gray-600 mb-8 text-lg">Ideal para enviar archivos pesados (WeTransfer) o paquetes de
-                        proyectos grandes.</p>
-                    <a href="mailto:render3dglobal.com@gmail.com"
-                        class="bg-blue-600 text-white px-8 py-4 rounded-full font-bold text-xl hover:bg-blue-700 transition-colors w-full flex items-center justify-center gap-3">
-                        <i class="fas fa-envelope"></i> Enviar Correo
-                    </a>
-                    <p class="mt-4 text-sm text-gray-500 font-medium">render3dglobal.com@gmail.com</p>
+
+                    <!-- Option 2: Ecuador -->
+                    <div
+                        class="bg-white p-8 rounded-2xl border border-gray-100 shadow-lg hover:shadow-xl transition-all duration-300 transform hover:-translate-y-1 relative overflow-hidden group">
+                        <div class="absolute top-0 right-0 p-4 opacity-10 group-hover:opacity-20 transition-opacity">
+                            <i class="fas fa-map-marked-alt text-9xl text-yellow-500"></i>
+                        </div>
+
+                        <div class="relative z-10">
+                            <div class="flex items-center gap-3 mb-6">
+                                <span class="text-4xl">🇪🇨</span>
+                            </div>
+
+                            <h3 class="text-2xl font-bold text-brand-dark mb-2">Ecuador</h3>
+                            <p class="text-gray-500 mb-6 text-sm">Atención exclusiva y directa para nuestros clientes en
+                                Ecuador.</p>
+
+                            <a href="https://wa.me/593959035265?text=Hola,%20quisiera%20cotizar%20un%20proyecto%20en%20Ecuador..."
+                                target="_blank"
+                                class="flex items-center justify-center gap-3 bg-brand-dark text-white w-full py-4 rounded-xl font-bold text-lg hover:bg-gray-800 transition-colors shadow-md">
+                                <i class="fab fa-whatsapp text-2xl text-green-400"></i>
+                                Chatear con Ecuador
+                            </a>
+                            <p class="mt-4 text-center text-gray-400 text-sm font-mono">+593 95 903 5265</p>
+                        </div>
+                    </div>
+
                 </div>
             </div>
+
+            <!-- Email Section -->
+            <div class="max-w-4xl mx-auto bg-gray-50 rounded-2xl p-8 md:p-12 border border-gray-100 text-center">
+                <div
+                    class="w-16 h-16 bg-blue-100 text-blue-600 rounded-full flex items-center justify-center mx-auto mb-6 text-2xl">
+                    <i class="fas fa-envelope"></i>
+                </div>
+                <h3 class="text-2xl font-bold text-brand-dark mb-3">Correo Electrónico</h3>
+                <p class="text-gray-600 mb-8 max-w-xl mx-auto">Ideal para enviar archivos pesados (WeTransfer), planos
+                    completos o solicitudes formales. Revisamos nuestra bandeja constantemente.</p>
+
+                <a href="mailto:render3dglobal.com@gmail.com"
+                    class="inline-flex items-center gap-2 text-brand-cyan font-bold text-xl hover:text-blue-700 transition-colors border-b-2 border-brand-cyan pb-1 hover:border-blue-700">
+                    render3dglobal.com@gmail.com
+                </a>
+            </div>
+
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-white mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
-            &copy; 2024 Render 3D Global.
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Columna 1: Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="assets/branding/render-3d-global-logo-cuadrado-3d.jpg" alt="Render 3D Global Logo"
+                        class="h-16 w-auto mb-6 rounded shadow-sm opacity-90">
+                    <!-- Usando el logo cuadrado pequeño -->
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        El puente entre el arquitecto, el cliente y el maestro de obra en Cualquier parte del Mundo.
+                        Visualización rápida
+                        y
+                        funcional.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Empresa</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Inicio</a>
+                        </li>
+                        <li><a href="proyectos/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a>
+                        </li>
+                        <li><a href="servicios/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Servicios</a>
+                        </li>
+                        <li><a href="nosotros.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre
+                                Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="servicios/renders-express-para-stands-comerciales.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders
+                                Comerciales</a></li>
+                        <li><a href="servicios/visualizacion-para-disenadores-interiores.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores &
+                                Oficinas</a></li>
+                        <li><a href="servicios/visualizacion-arquitectonica-para-contratistas.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y
+                                Obra</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-cyan"></i>
+                            <span class="text-gray-400 text-sm">Cualquier parte del Mundo, Global<br>Servicio
+                                Global</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-cyan"></i>
+                            <a href="mailto:render3dglobal.com@gmail.com"
+                                class="text-gray-400 hover:text-white text-sm transition-colors">render3dglobal.com@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Render 3D Global Global. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/render3dglobal/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl"></i></a>
+                    <!--a href="https://www.linkedin.com/company/render-3d-global/" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i
+                        class="fab fa-linkedin text-xl"></i></a-->
+                    <!--a href="https://www.youtube.com/@render3dglobal" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i
+                        class="fab fa-youtube text-xl"></i></a-->
+                </div>
+            </div>
+        </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp CTA -->
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/573132060072?text=Hola,%20me%20interesa%20un%20render%20en%20Cualquier parte del Mundo"
+            target="_blank"
+            class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce-slow"
+            title="Chatear por WhatsApp">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+    <style>
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+
+
+    <!-- SCRIPT SIMPLE PARA MENÚ MÓVIL y HERO -->
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
     </script>
 </body>
 

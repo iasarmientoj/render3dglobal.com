@@ -33,38 +33,97 @@
 
 <body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
 
-    <!-- NAV -->
-    <nav
-        class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300">
+    <!-- BARRA DE NAVEGACIÓN -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300"
+        id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="index.html">
-                        <img class="h-7 w-auto md:h-8" src="assets/branding/render-3d-global-logo-color.png"
-                            alt="Render 3D Global Logo">
-                    </a>
+                <!-- Left Group: Logo + Location -->
+                <div class="flex items-center gap-6">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="index.html">
+                            <img class="h-7 w-auto md:h-8" src="assets/branding/render-3d-global-logo-color.png"
+                                alt="Render 3D Global Logo">
+                        </a>
+                    </div>
+
+                    <div class="hidden md:flex relative group">
+                        <button
+                            class="flex items-center text-gray-500 hover:text-brand-cyan font-medium transition-colors text-sm focus:outline-none">
+                            <i class="fas fa-map-marker-alt mr-2 text-brand-cyan"></i> Ubicación <i
+                                class="fas fa-chevron-down ml-1 text-xs opacity-70"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 overflow-hidden">
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Colombia
+                                    🇨🇴</span>
+                                <ul class="space-y-1">
+                                    <li><a href="co/render-3d-bogota.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Bogotá</a>
+                                    </li>
+                                    <li><a href="co/render-3d-medellin.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Medellín</a>
+                                    </li>
+                                    <li><a href="co/render-3d-cali.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cali</a>
+                                    </li>
+                                    <li><a href="co/render-3d-barranquilla.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Barranquilla</a>
+                                    </li>
+                                    <li><a href="co/render-3d-cartagena.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cartagena</a>
+                                    </li>
+                                    <li><a href="co/render-3d-santa-marta.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Santa
+                                            Marta</a></li>
+                                </ul>
+                            </div>
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Ecuador
+                                    🇪🇨</span>
+                                <ul class="space-y-1">
+                                    <li><a href="ec/render-3d-guayaquil.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Guayaquil</a>
+                                    </li>
+                                    <li><a href="ec/render-3d-quito.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Quito</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Menú Escritorio -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Inicio</a>
+                    <a href="index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Global</a>
                     <a href="proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
                     <a href="servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
                     <a href="nosotros.html" class="text-brand-cyan font-semibold">Nosotros</a>
+                    <!-- Botón CTA en Menú -->
                     <a href="contacto.html"
-                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">Cotizar
-                        Proyecto</a>
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
+                        Cotizar en Cualquier parte del Mundo
+                    </a>
                 </div>
-                <!-- Mobile Menu Button Placeholder -->
+
+                <!-- Botón Menú Móvil -->
                 <div class="flex items-center md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2"><i
-                            class="fas fa-bars text-2xl"></i></button>
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
-        <!-- Mobile Menu -->
+
+        <!-- Menú Móvil Desplegable -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
                 <a href="index.html"
-                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Inicio</a>
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Global</a>
                 <a href="proyectos/"
                     class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
                 <a href="servicios/"
@@ -72,94 +131,292 @@
                 <a href="nosotros.html"
                     class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Nosotros</a>
                 <a href="contacto.html"
-                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">Cotizar
-                    Ahora</a>
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
+                    Cotizar Ahora
+                </a>
             </div>
         </div>
     </nav>
 
     <!-- CONTENT -->
     <main class="flex-grow pt-24 pb-12">
+        <!-- HEADER SECTION -->
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-16">
-            <div class="text-center max-w-3xl mx-auto">
-                <h1 class="text-4xl font-bold text-brand-dark mb-6">Nuestra Obsesión: <span class="text-brand-cyan">Tu
-                        Tiempo</span></h1>
-                <p class="text-xl text-gray-600 leading-relaxed">
-                    No somos artistas frustrados buscando fama. Somos técnicos en comunicación visual que entienden el
-                    valor del "ahora".
+            <div class="text-center max-w-4xl mx-auto">
+                <h1 class="text-4xl md:text-5xl font-bold text-brand-dark mb-6">Ingeniería de Procesos + <span
+                        class="text-brand-cyan">Sensibilidad Arquitectónica</span></h1>
+                <p class="text-xl text-gray-600 leading-relaxed max-w-3xl mx-auto font-medium mb-12">
+                    No creamos imágenes decorativas; diseñamos herramientas visuales para la toma de decisiones.
                 </p>
+
+                <div class="text-left space-y-6 text-gray-600 leading-relaxed md:px-12">
+                    <p>
+                        En Render 3D Global, entendemos que un render no es un fin en sí mismo, sino un medio para que
+                        un proyecto se haga realidad. Nuestra identidad nace de la unión entre la precisión técnica del
+                        desarrollo de software y el lenguaje profundo de la arquitectura.
+                    </p>
+                    <p>
+                        Nacimos para resolver el problema de la lentitud y la falta de comunicación visual en el sector,
+                        entregando claridad en tiempos que el mercado tradicional no puede ofrecer.
+                    </p>
+
+                    <div class="bg-gray-50 border-l-4 border-brand-cyan p-6 rounded-r-lg mt-8">
+                        <h3 class="text-lg font-bold text-brand-dark mb-2">Nuestra Misión</h3>
+                        <p class="text-sm md:text-base leading-relaxed">
+                            Transformar planos y conceptos en herramientas de comunicación visual que faciliten la toma
+                            de decisiones estéticas y aceleren el cierre de negocios. Al especializarnos exclusivamente
+                            en la representación visual del diseño, garantizamos una interpretación fiel de la
+                            espacialidad y los materiales, permitiendo que el arquitecto o constructor lidere la
+                            ejecución técnica mientras nosotros proporcionamos la claridad visual necesaria para
+                            convencer y emocionar al cliente final.
+                        </p>
+                    </div>
+                </div>
             </div>
         </section>
 
-        <section class="bg-gray-50 py-16">
-            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-12 items-center">
-                <div>
-                    <h2 class="text-3xl font-bold text-brand-dark mb-4">¿Por qué la velocidad es nuestra ley?</h2>
-                    <p class="text-gray-600 mb-4">
-                        En el mundo de la construcción y el diseño, un día de retraso es dinero perdido. Entendemos que
-                        cuando pides un render, usualmente es porque debiste haberlo entregado "ayer".
-                    </p>
-                    <p class="text-gray-600 mb-4">
-                        Hemos optimizado nuestro flujo de trabajo eliminando la burocracia innecesaria. Sin reuniones
-                        eternas, sin procesos complejos. Tú envías planos, nosotros enviamos imágenes.
-                    </p>
-                    <ul class="space-y-3 mt-6">
-                        <li class="flex items-center text-brand-dark"><i
-                                class="fas fa-check-circle text-brand-cyan mr-3"></i> Equipos de renderizado de alta
-                            potencia.</li>
-                        <li class="flex items-center text-brand-dark"><i
-                                class="fas fa-check-circle text-brand-cyan mr-3"></i> Biblioteca de activos lista para
-                            usar.</li>
-                        <li class="flex items-center text-brand-dark"><i
-                                class="fas fa-check-circle text-brand-cyan mr-3"></i> Comunicación directa por WhatsApp.
-                        </li>
-                    </ul>
+        <!-- TEAM PROFILES -->
+        <section class="py-12 bg-white border-t border-gray-100">
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+                <h2 class="text-3xl font-bold text-center text-brand-dark mb-16">Liderazgo Técnico y Creativo</h2>
+
+                <div class="grid md:grid-cols-2 gap-12 lg:gap-20">
+
+                    <!-- Profile 1: Iván -->
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-full md:w-1/3 flex-shrink-0">
+                            <div class="rounded-2xl overflow-hidden shadow-lg bg-gray-100 aspect-[3/4] relative group">
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center bg-brand-dark/5 text-gray-400">
+                                    <i class="fas fa-code text-5xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-2xl font-bold text-brand-dark">Iván Alejandro Sarmiento</h3>
+                            <p class="text-brand-cyan font-bold text-xs md:text-sm tracking-wide uppercase mb-4">
+                                Ingeniero Mecatrónico | Estrategia Tecnológica y Automatización</p>
+
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm">
+                                Iván es el arquitecto de la eficiencia en nuestro estudio. Con más de 8 años de
+                                experiencia liderando proyectos de innovación digital y sistemas de alta seguridad, su
+                                enfoque trasciende la imagen; él diseña el motor que la genera.
+                            </p>
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm">
+                                Su trayectoria en desarrollo de software y sistemas web le permite integrar flujos de
+                                trabajo optimizados con Inteligencia Artificial, garantizando que Render 3D Global sea
+                                sinónimo de puntualidad y seguridad de datos. Iván no se limita a procesar renders;
+                                diseña procesos automatizados que permiten que nuestro servicio sea extremadamente ágil,
+                                asegurando que la tecnología trabaje siempre a favor del cronograma de nuestros
+                                clientes.
+                            </p>
+
+                            <div class="flex gap-4 mt-4 text-sm font-medium">
+                                <a href="https://github.com/iasarmientoj" target="_blank"
+                                    class="text-gray-500 hover:text-brand-cyan flex items-center gap-2 transition-colors"><i
+                                        class="fab fa-github"></i> GitHub</a>
+                                <a href="https://www.linkedin.com/in/iasarmientoj/" target="_blank"
+                                    class="text-gray-500 hover:text-brand-cyan flex items-center gap-2 transition-colors"><i
+                                        class="fab fa-linkedin"></i> LinkedIn</a>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Profile 2: Miranda -->
+                    <div class="flex flex-col md:flex-row gap-6 items-start">
+                        <div class="w-full md:w-1/3 flex-shrink-0">
+                            <div class="rounded-2xl overflow-hidden shadow-lg bg-gray-100 aspect-[3/4] relative group">
+                                <div
+                                    class="absolute inset-0 flex items-center justify-center bg-brand-dark/5 text-gray-400">
+                                    <i class="fas fa-pencil-ruler text-5xl"></i>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="w-full md:w-2/3">
+                            <h3 class="text-2xl font-bold text-brand-dark">Miranda Tatiana Sarmiento Jimenez</h3>
+                            <p class="text-brand-cyan font-bold text-xs md:text-sm tracking-wide uppercase mb-4">
+                                Arquitecta (Univ. Piloto de Colombia) | Dirección Creativa y Lenguaje Visual</p>
+
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm">
+                                Miranda es el alma arquitectónica de nuestro equipo. Egresada de la Universidad Piloto
+                                de Colombia, ha dedicado los últimos 7 años a la visualización profesional,
+                                convirtiéndose en una experta en la interpretación de la intención de diseño.
+                            </p>
+                            <p class="text-gray-600 mb-4 leading-relaxed text-sm">
+                                Su rol es vital: traduce planos técnicos en imágenes con propósito. Gracias a su
+                                formación académica, entiende al instante la espacialidad, la incidencia de la luz y la
+                                aplicación de materiales, asegurando que cada herramienta visual mantenga el rigor que
+                                la arquitectura exige. Su capacidad para leer un proyecto garantiza que el resultado
+                                final sea una extensión coherente de la visión del diseñador, aportando la sensibilidad
+                                estética que convierte un espacio en una experiencia visual.
+                            </p>
+                        </div>
+                    </div>
+
                 </div>
-                <!-- Placeholder for Team/Office Image -->
-                <div class="rounded-lg overflow-hidden shadow-lg h-80 bg-gray-200 flex items-center justify-center">
-                    <span class="text-gray-400">Imagen del Equipo / Oficina</span>
+            </div>
+        </section>
+
+        <!-- WHY US -->
+        <section class="py-16 bg-gray-50">
+            <div class="max-w-4xl mx-auto px-4 text-center">
+                <h2 class="text-3xl font-bold text-brand-dark mb-8">¿Por qué elegir nuestro enfoque?</h2>
+                <p class="text-lg text-gray-600 mb-8 leading-relaxed">
+                    Porque unimos la velocidad de la ingeniería con el criterio de la arquitectura. Mientras la
+                    industria tradicional se detiene en procesos manuales, nosotros implementamos tecnología de
+                    vanguardia para que tú obtengas una herramienta visual potente, clara y puntual.
+                </p>
+                <div
+                    class="inline-block bg-brand-cyan text-white px-8 py-4 rounded-lg shadow-lg font-bold text-xl transform hover:-translate-y-1 transition-transform">
+                    No vendemos arte, vendemos herramientas para cerrar tus negocios.
                 </div>
             </div>
         </section>
     </main>
 
+
     <!-- FOOTER -->
-    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center md:text-left">
-            <div class="grid md:grid-cols-4 gap-8">
-                <div class="col-span-1">
-                    <img src="assets/branding/render-3d-global-logo-cuadrado-02.jpg" alt="Logo"
-                        class="h-12 w-auto mb-4 opacity-90 mx-auto md:mx-0">
-                    <p class="text-sm text-gray-400">Atención global, calidad local.</p>
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Columna 1: Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="assets/branding/render-3d-global-logo-cuadrado-3d.jpg" alt="Render 3D Global Logo"
+                        class="h-16 w-auto mb-6 rounded shadow-sm opacity-90">
+                    <!-- Usando el logo cuadrado pequeño -->
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        El puente entre el arquitecto, el cliente y el maestro de obra en Cualquier parte del Mundo.
+                        Visualización rápida
+                        y
+                        funcional.
+                    </p>
                 </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
                 <div>
-                    <h4 class="font-bold mb-4 uppercase text-sm">Empresa</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="index.html" class="hover:text-brand-cyan">Inicio</a></li>
-                        <li><a href="nosotros.html" class="hover:text-brand-cyan">Nosotros</a></li>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Empresa</h4>
+                    <ul class="space-y-2">
+                        <li><a href="index.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Inicio</a>
+                        </li>
+                        <li><a href="proyectos/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a>
+                        </li>
+                        <li><a href="servicios/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Servicios</a>
+                        </li>
+                        <li><a href="nosotros.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre
+                                Nosotros</a>
+                        </li>
                     </ul>
                 </div>
+
+                <!-- Columna 3: Servicios -->
                 <div>
-                    <h4 class="font-bold mb-4 uppercase text-sm">Legal</h4>
-                    <ul class="space-y-2 text-sm text-gray-400">
-                        <li><a href="#" class="hover:text-brand-cyan">Privacidad</a></li>
-                        <li><a href="#" class="hover:text-brand-cyan">Términos</a></li>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="servicios/renders-express-para-stands-comerciales.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders
+                                Comerciales</a></li>
+                        <li><a href="servicios/visualizacion-para-disenadores-interiores.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores &
+                                Oficinas</a></li>
+                        <li><a href="servicios/visualizacion-arquitectonica-para-contratistas.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y
+                                Obra</a></li>
                     </ul>
                 </div>
+
+                <!-- Columna 4: Contacto -->
                 <div>
-                    <a href="contacto.html"
-                        class="inline-block bg-brand-cyan text-white px-6 py-3 rounded font-bold hover:bg-white hover:text-brand-cyan transition-colors">Contáctanos</a>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-cyan"></i>
+                            <span class="text-gray-400 text-sm">Cualquier parte del Mundo, Global<br>Servicio
+                                Global</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-cyan"></i>
+                            <a href="mailto:render3dglobal.com@gmail.com"
+                                class="text-gray-400 hover:text-white text-sm transition-colors">render3dglobal.com@gmail.com</a>
+                        </li>
+                    </ul>
                 </div>
             </div>
-            <div class="mt-8 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
-                &copy; 2024 Render 3D Global.
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Render 3D Global Global. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/render3dglobal/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl"></i></a>
+                    <!--a href="https://www.linkedin.com/company/render-3d-global/" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-linkedin text-xl"></i></a-->
+                    <!--a href="https://www.youtube.com/@render3dglobal" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-youtube text-xl"></i></a-->
+                </div>
             </div>
         </div>
+        </div>
     </footer>
+
+    <!-- Floating WhatsApp CTA -->
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/573132060072?text=Hola,%20me%20interesa%20un%20render%20en%20Cualquier parte del Mundo"
+            target="_blank"
+            class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce-slow"
+            title="Chatear por WhatsApp">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+    <style>
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+
+
+    <!-- SCRIPT SIMPLE PARA MENÚ MÓVIL y HERO -->
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
-        btn.addEventListener('click', () => { menu.classList.toggle('hidden'); });
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
     </script>
 </body>
 
