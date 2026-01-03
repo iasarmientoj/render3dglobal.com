@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Renders de Stands Comerciales | Render 3D Global</title>
     <meta name="description"
-        content="Gana licitaciones con renders impactantes de stands y ferias. Entrega en tiempos récord.">
+        content="Gana licitaciones con renders de stands impactantes. Visualización 3D express para ferias y centros comerciales.">
+
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
         tailwind.config = {
@@ -15,6 +16,7 @@
                     colors: {
                         'brand-cyan': '#00AEEF',
                         'brand-dark': '#111111',
+                        'brand-gray': '#F3F4F6',
                     },
                     fontFamily: {
                         sans: ['Inter', 'sans-serif'],
@@ -24,48 +26,303 @@
         }
     </script>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="../assets/css/styles.css">
     <link rel="shortcut icon" href="../assets/branding/render-3d-global-favicon.ico" type="image/x-icon">
 </head>
 
 <body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
-    <nav class="p-4 border-b border-gray-100 flex justify-between items-center max-w-7xl mx-auto w-full">
-        <a href="../index.html" class="flex items-center gap-2 font-bold text-brand-dark">
-            <img src="../assets/branding/render-3d-global-logo-color.png" class="h-7 w-auto md:h-8" alt="Logo">
-        </a>
-        <a href="index.html" class="text-sm text-gray-500 hover:text-brand-cyan">&larr; Volver a Servicios</a>
-    </nav>
 
-    <main class="flex-grow max-w-5xl mx-auto px-4 py-12 w-full">
-        <h1 class="text-4xl font-bold text-brand-dark mb-4">Renders Express para Stands Comerciales</h1>
-        <p class="text-xl text-gray-600 mb-8 max-w-3xl">Las ferias no esperan. Nosotros tampoco. Renders listos antes de
-            que cierre la convocatoria.</p>
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Left Group: Logo + Location -->
+                <div class="flex items-center gap-6">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="../index.html">
+                            <img class="h-7 w-auto md:h-8" src="../assets/branding/render-3d-global-logo-color.png"
+                                alt="Render 3D Global Logo">
+                        </a>
+                    </div>
 
-        <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
-            <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.png"
-                alt="Stand Comercial" class="w-full h-auto object-cover max-h-[500px]">
+                    <div class="hidden md:flex relative group">
+                        <button
+                            class="flex items-center text-gray-500 hover:text-brand-cyan font-medium transition-colors text-sm focus:outline-none">
+                            <i class="fas fa-map-marker-alt mr-2 text-brand-cyan"></i> Ubicación <i
+                                class="fas fa-chevron-down ml-1 text-xs opacity-70"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 overflow-hidden">
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Colombia
+                                    🇨🇴</span>
+                                <ul class="space-y-1">
+                                    <li><a href="../co/render-3d-bogota.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Bogotá</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-medellin.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Medellín</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-cali.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cali</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-barranquilla.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Barranquilla</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-cartagena.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cartagena</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-santa-marta.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Santa
+                                            Marta</a></li>
+                                </ul>
+                            </div>
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Ecuador
+                                    🇪🇨</span>
+                                <ul class="space-y-1">
+                                    <li><a href="../ec/render-3d-guayaquil.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Guayaquil</a>
+                                    </li>
+                                    <li><a href="../ec/render-3d-quito.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Quito</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menú Escritorio -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Global</a>
+                    <a href="../proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
+                    <a href="../servicios/" class="text-brand-cyan font-bold">Servicios</a>
+                    <a href="../nosotros.html"
+                        class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
+                    <!-- Botón CTA en Menú -->
+                    <a href="../contacto.html"
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
+                        Cotizar en Global
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
         </div>
 
-        <div class="grid md:grid-cols-2 gap-12 mb-12">
-            <div>
-                <h2 class="text-2xl font-bold text-brand-dark mb-4">¿Por qué elegirnos?</h2>
-                <p class="mb-4">Sabemos que necesitas:</p>
-                <ul class="list-disc list-inside space-y-2 text-gray-700">
-                    <li>Vistas aéreas para distribución.</li>
-                    <li>Vistas a nivel de ojo para experiencia de usuario.</li>
-                    <li>Branding aplicado correctamente.</li>
-                    <li>Velocidad de entrega (24-48h).</li>
-                </ul>
-            </div>
-            <div class="bg-gray-50 p-6 rounded-lg border border-gray-100">
-                <h2 class="text-2xl font-bold text-brand-dark mb-4">Solicita tu Cotización</h2>
-                <p class="mb-6">Envíanos el plano en planta y tu logo.</p>
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="../index.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Global</a>
+                <a href="../proyectos/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
+                <a href="../servicios/"
+                    class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Servicios</a>
+                <a href="../nosotros.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
                 <a href="../contacto.html"
-                    class="block text-center bg-brand-cyan text-white font-bold py-3 rounded hover:bg-opacity-90 transition-colors">Cotizar
-                    Stand</a>
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
+                    Cotizar Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <main class="flex-grow pt-24 pb-12">
+        <div class="max-w-5xl mx-auto px-4 py-8 w-full">
+            <div class="flex items-center gap-2 mb-8 text-sm">
+                <a href="index.html" class="text-gray-500 hover:text-brand-cyan transition-colors"><i
+                        class="fas fa-arrow-left mr-1"></i> Volver a Servicios</a>
+            </div>
+
+            <h1 class="text-4xl font-bold text-brand-dark mb-4">Stands Comerciales</h1>
+            <p class="text-xl text-gray-600 mb-8 max-w-3xl">Gana tu lugar en la feria. Presenta una imagen profesional
+                que destaque sobre la competencia.</p>
+
+            <div class="bg-gray-50 p-6 rounded-lg mb-10 border-l-4 border-brand-cyan">
+                <p class="text-lg text-gray-700">Ideal para propuestas urgentes donde necesitas una aprobación rápida
+                    para empezar a fabricar.</p>
+                <!-- SEO Oculto -->
+                <div class="hidden">
+                    Especialistas en <strong>renders para stands de ferias</strong> y kioscos en centros comerciales.
+                    Visualización 3D express para licitaciones y concursos. Diseño de stands publicitarios y
+                    arquitectura efímera. Renders de alta calidad para ventas y aprobación de marca en espacios
+                    comerciales.
+                </div>
+            </div>
+
+            <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
+                <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.png"
+                    alt="Stand Comercial" class="w-full h-auto object-cover max-h-[600px]">
+            </div>
+
+            <div class="grid md:grid-cols-2 gap-12 mb-12">
+                <div>
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4">Por qué nuestros renders ganan concursos</h2>
+                    <ul class="space-y-3 text-gray-700">
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-cyan mt-1"></i> Iluminación
+                            estratégica para destacar la marca.</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-cyan mt-1"></i> Vistas
+                            aéreas y peatonales para entender el flujo.</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-cyan mt-1"></i> Aplicación
+                            precisa de branding y logotipos.</li>
+                        <li class="flex items-start gap-2"><i class="fas fa-check text-brand-cyan mt-1"></i> Entregas
+                            express para cumplir con fechas límite.</li>
+                    </ul>
+                </div>
+                <div
+                    class="bg-brand-gray/50 p-8 rounded-xl border border-gray-100 flex flex-col justify-center text-center">
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4">¿Tienes una licitación urgente?</h2>
+                    <p class="mb-6 text-gray-600">No pierdas la oportunidad por falta de visualización.</p>
+                    <a href="../contacto.html"
+                        class="inline-block bg-brand-cyan text-white font-bold py-4 px-8 rounded hover:bg-brand-dark transition-colors shadow-lg">
+                        Cotizar Stand Express
+                    </a>
+                </div>
             </div>
         </div>
     </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Columna 1: Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="../assets/branding/render-3d-global-logo-cuadrado-3d.jpg" alt="Render 3D Global Logo"
+                        class="h-16 w-auto mb-6 rounded shadow-sm opacity-90"> <!-- Usando el logo cuadrado pequeño -->
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        El puente entre el arquitecto, el cliente y el maestro de obra en Cualquier parte del Mundo.
+                        Visualización rápida
+                        y
+                        funcional.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Empresa</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Inicio</a></li>
+                        <li><a href="../proyectos/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a>
+                        </li>
+                        <li><a href="../servicios/" class="text-brand-cyan text-sm transition-colors">Servicios</a></li>
+                        <li><a href="../nosotros.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="renders-express-para-stands-comerciales.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders
+                                Comerciales</a></li>
+                        <li><a href="visualizacion-para-disenadores-interiores.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores &
+                                Oficinas</a></li>
+                        <li><a href="visualizacion-arquitectonica-para-contratistas.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y
+                                Obra</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-cyan"></i>
+                            <span class="text-gray-400 text-sm">Cualquier parte del Mundo, Global<br>Servicio
+                                Global</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-cyan"></i>
+                            <a href="mailto:render3dglobal.com@gmail.com"
+                                class="text-gray-400 hover:text-white text-sm transition-colors">render3dglobal.com@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Render 3D Global Global. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/render3dglobal/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Floating WhatsApp CTA -->
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/573132060072?text=Hola,%20necesito%20un%20render%20para%20un%20stand" target="_blank"
+            class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce-slow"
+            title="Chatear por WhatsApp">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+    <style>
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
 </body>
 
 </html>
