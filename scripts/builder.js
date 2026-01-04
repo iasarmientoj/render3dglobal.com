@@ -115,6 +115,60 @@ const generateFloatingCTA = (data) => {
     `;
 };
 
+
+const generateRedirectScript = (citiesData) => {
+    // 1. Build a map of "City Name" -> "URL path"
+    // We only care about specific cities, not Global.
+    // Example: "Bogotá" -> "co/render-3d-bogota.html"
+
+    let mapping = {};
+    citiesData.forEach(c => {
+        if (c.id === 'global') return;
+
+        let subFolder = '';
+        if (c.countryCode === 'CO') subFolder = 'co/';
+        else if (c.countryCode === 'EC') subFolder = 'ec/';
+
+        // Normalize city name for safer matching (uppercase)
+        const normalizedCity = c.city.toUpperCase();
+        mapping[normalizedCity] = `${subFolder}${c.slug}.html`;
+    });
+
+    const mappingJson = JSON.stringify(mapping);
+
+    // 2. Return the script string
+    // Uses ipapi.co to get city/country.
+    // Fallback logic could be added, but keeping it simple as per request.
+    return `
+    <script>
+        (function() {
+            // Check if we have already redirected or user manually selected "Global" (optional safety)
+            // For now, just run on load.
+            
+            const cityMapping = ${mappingJson};
+            
+            fetch('https://ipapi.co/json/')
+                .then(response => response.json())
+                .then(data => {
+                    if (data && data.city) {
+                        const userCity = data.city.toUpperCase();
+                        // Direct City Match
+                        if (cityMapping[userCity]) {
+                            console.log('Redirecting to city page:', cityMapping[userCity]);
+                            window.location.href = cityMapping[userCity];
+                        } 
+                        // Country Fallback could go here if we had country index pages
+                        // else if (data.country_code === 'CO') { ... } 
+                    }
+                })
+                .catch(error => {
+                    console.log('Geo-redirect skipped:', error);
+                });
+        })();
+    </script>
+    `;
+};
+
 // --- END HELPERS ---
 
 const generatePage = (data, isGlobal = false) => {
@@ -205,6 +259,13 @@ const generatePage = (data, isGlobal = false) => {
     } else {
         // Fallback or remove iframe if no map (Generic Global)
         content = replaceAll(content, '{{MAP_EMBED}}', '');
+    }
+
+    // Redirect Script (Only for Global Index)
+    if (isGlobal) {
+        content = replaceAll(content, '{{REDIRECT_SCRIPT}}', generateRedirectScript(cities));
+    } else {
+        content = replaceAll(content, '{{REDIRECT_SCRIPT}}', '');
     }
 
     // Generate Location Menu HTML

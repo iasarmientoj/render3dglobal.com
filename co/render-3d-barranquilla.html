@@ -88,12 +88,7 @@
         }
     </script>
 
-    <!-- Geo-Redirection Script (Auto-Redirect CO/EC) - Only relevant for Global index really, but generic check is fine or just remove if builder handles subfolders. The builder creates individual files, so we probably DON'T want the redirect script in the specific city pages as they are already specific. But for the index.html generated for Global, it might be useful. However, the requirement is "copiar toda la estructura". I will comment it out or keep it? The user said "ajustando donde se requiera". Sub-pages shouldn't redirect. This script detects CO/EC and redirects. If I am already in CO, I don't want to redirect again or infinite loop.
-    I will REMOVE this block because the builder generates specific pages. The Global Index (generated) might need it, but the builder generates it as 'index.html'.
-    Actually, let's look at the original index logic: "if (data.country_code === 'CO') window.location.href = 'co/index.html'".
-    If I am generating 'co/render-3d-bogota.html', I don't want this.
-    I will remove it for the template, as the template is for specific pages too.
-    -->
+    
 
     <!-- Fuentes de Google (Inter para limpieza y legibilidad) -->
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
