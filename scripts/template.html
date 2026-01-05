@@ -259,7 +259,17 @@
             </div>
         </div>
 
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative group">
+            <!-- Mobile Navigation Buttons (Absolute Positioned) -->
+            <button id="prevBtnMobile"
+                class="md:hidden absolute left-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-brand-dark border border-gray-100 focus:outline-none">
+                <i class="fas fa-chevron-left"></i>
+            </button>
+            <button id="nextBtnMobile"
+                class="md:hidden absolute right-2 top-1/2 -translate-y-1/2 z-20 w-10 h-10 rounded-full bg-white/90 shadow-lg flex items-center justify-center text-brand-dark border border-gray-100 focus:outline-none">
+                <i class="fas fa-chevron-right"></i>
+            </button>
+
             <div id="services-carousel"
                 class="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-8 scrollbar-hide scroll-smooth">
 
@@ -293,7 +303,7 @@
                     <div class="p-6 flex-grow flex flex-col">
                         <h3
                             class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-cyan transition-colors">
-                            Stands y Ferias</h3>
+                            Renders para Stands Comerciales</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-3">Gana tu lugar en la feria. Presenta una
                             imagen profesional que destaque sobre la competencia.</p>
                         <span class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto">Ver Detalles
@@ -312,7 +322,7 @@
                     <div class="p-6 flex-grow flex flex-col">
                         <h3
                             class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-cyan transition-colors">
-                            Remodelación y Obra</h3>
+                            Renders para Remodelaciones y Adecuaciones</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-3">Cierra el trato sin planos confusos. Muestra
                             la foto de cómo quedará la obra terminada.</p>
                         <span class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto">Ver Detalles
@@ -331,7 +341,7 @@
                     <div class="p-6 flex-grow flex flex-col">
                         <h3
                             class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-cyan transition-colors">
-                            Fotomontaje y Entorno</h3>
+                            Proyección sobre Entorno Existente</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-3">Visualiza cambios sobre fotos reales. Ideal
                             para paisajismo y fachadas.</p>
                         <span class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto">Ver Detalles
@@ -350,7 +360,7 @@
                     <div class="p-6 flex-grow flex flex-col">
                         <h3
                             class="text-xl font-bold text-brand-dark mb-2 group-hover:text-brand-cyan transition-colors">
-                            Optimización de Espacios</h3>
+                            Renders para Optimización de Espacios</h3>
                         <p class="text-gray-600 text-sm mb-4 line-clamp-3">Maximiza cada m². Demuestra que el mobiliario
                             cabe perfectamente.</p>
                         <span class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto">Ver Detalles
@@ -445,7 +455,7 @@
                                 alt="Stands" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 md:p-10 flex flex-col justify-center">
-                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Stands y Ferias</h3>
+                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Renders para Stands Comerciales</h3>
                             <p class="text-gray-600 mb-6 leading-relaxed">
                                 Gana la licitación con una propuesta visual impactante. Mostramos tu marca destacando en
                                 el recinto ferial.
@@ -481,7 +491,8 @@
                                 alt="Obra" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 md:p-10 flex flex-col justify-center">
-                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Remodelación y Obra</h3>
+                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Renders para Remodelaciones y
+                                Adecuaciones</h3>
                             <p class="text-gray-600 mb-6 leading-relaxed">
                                 Evita malentendidos en obra. Entrega una imagen clara de lo que vas a construir para que
                                 el cliente apruebe sin dudas.
@@ -517,7 +528,7 @@
                                 alt="Entorno" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 md:p-10 flex flex-col justify-center">
-                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Fotomontaje y Entorno</h3>
+                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Proyección sobre Entorno Existente</h3>
                             <p class="text-gray-600 mb-6 leading-relaxed">
                                 Insertamos tu proyecto en una fotografía real del sitio. Perfecto para ventas
                                 inmobiliarias y aprobación de fachadas.
@@ -553,7 +564,8 @@
                                 alt="Espacios" class="w-full h-full object-cover">
                         </div>
                         <div class="p-8 md:p-10 flex flex-col justify-center">
-                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Optimización de Espacios</h3>
+                            <h3 class="text-3xl font-bold text-brand-dark mb-4">Renders para Optimización de Espacios
+                            </h3>
                             <p class="text-gray-600 mb-6 leading-relaxed">
                                 Demuestra la funcionalidad del layout. Validamos que el mobiliario y la circulación
                                 funcionen perfectamente en el espacio disponible.
@@ -710,7 +722,7 @@
                         <div class="p-8 md:p-10 flex flex-col justify-center">
                             <span class="text-brand-cyan font-bold text-sm uppercase tracking-wider mb-2">Caso de
                                 Estudio</span>
-                            <h3 class="text-3xl font-bold text-brand-dark mb-6">Apartamento Moderno</h3>
+                            <h3 class="text-3xl font-bold text-brand-dark mb-6">Apartamento Remodelado</h3>
 
                             <div class="space-y-6 mb-8 text-gray-700">
                                 <div>
@@ -803,6 +815,8 @@
                 const carousel = document.getElementById('services-carousel');
                 const prevBtn = document.getElementById('prevBtn');
                 const nextBtn = document.getElementById('nextBtn');
+                const prevBtnMobile = document.getElementById('prevBtnMobile');
+                const nextBtnMobile = document.getElementById('nextBtnMobile');
                 let autoScrollInterval;
 
                 if (carousel) {
@@ -837,6 +851,21 @@
 
                     if (nextBtn) {
                         nextBtn.addEventListener('click', () => {
+                            carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                            resetAutoScroll();
+                        });
+                    }
+
+                    // Mobile Buttons Logic
+                    if (prevBtnMobile) {
+                        prevBtnMobile.addEventListener('click', () => {
+                            carousel.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                            resetAutoScroll();
+                        });
+                    }
+
+                    if (nextBtnMobile) {
+                        nextBtnMobile.addEventListener('click', () => {
                             carousel.scrollBy({ left: scrollAmount, behavior: 'smooth' });
                             resetAutoScroll();
                         });
@@ -958,7 +987,7 @@
                             <i class="fas fa-plus text-lg"></i>
                         </div>
                         <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-2">Residencial</span>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Apartamento Moderno</h3>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Apartamento Remodelado</h3>
                         <p class="text-gray-500 text-sm mb-4 line-clamp-3">Venta sobre planos con ambientación
                             fotorrealista.</p>
                         <span
