@@ -40,45 +40,106 @@
 <body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
 
     <!-- NAV -->
-    <nav
-        class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300">
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300"
+        id="navbar">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
             <div class="flex justify-between items-center h-20">
-                <div class="flex-shrink-0 flex items-center">
-                    <a href="../index.html">
-                        <img class="h-7 w-auto md:h-8" src="../assets/branding/render-3d-global-logo-color.png"
-                            alt="Render 3D Global Logo">
-                    </a>
+                <!-- Left Group: Logo + Location -->
+                <div class="flex items-center gap-6">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="../index.html">
+                            <img class="h-7 w-auto md:h-8" src="../assets/branding/render-3d-global-logo-color.png"
+                                alt="Render 3D Global Logo">
+                        </a>
+                    </div>
+
+                    <div class="hidden md:flex relative group">
+                        <button
+                            class="flex items-center text-gray-500 hover:text-brand-cyan font-medium transition-colors text-sm focus:outline-none">
+                            <i class="fas fa-map-marker-alt mr-2 text-brand-cyan"></i> Ubicación <i
+                                class="fas fa-chevron-down ml-1 text-xs opacity-70"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 overflow-hidden">
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Colombia
+                                    🇨🇴</span>
+                                <ul class="space-y-1">
+                                    <li><a href="../co/render-3d-bogota.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Bogotá</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-medellin.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Medellín</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-cali.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cali</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-barranquilla.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Barranquilla</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-cartagena.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cartagena</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-santa-marta.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Santa
+                                            Marta</a></li>
+                                </ul>
+                            </div>
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Ecuador
+                                    🇪🇨</span>
+                                <ul class="space-y-1">
+                                    <li><a href="../ec/render-3d-guayaquil.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Guayaquil</a>
+                                    </li>
+                                    <li><a href="../ec/render-3d-quito.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Quito</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
                 </div>
+
+                <!-- Menú Escritorio -->
                 <div class="hidden md:flex space-x-8 items-center">
-                    <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Inicio</a>
-                    <a href="../proyectos/" class="text-brand-cyan font-semibold">Portafolio</a>
+                    <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Global</a>
+                    <a href="./" class="text-brand-cyan font-semibold">Portafolio</a>
                     <a href="../servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
                     <a href="../nosotros.html"
                         class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
+                    <!-- Botón CTA en Menú -->
                     <a href="../contacto.html"
-                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">Cotizar
-                        Proyecto</a>
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
+                        Cotizar en Cualquier parte del Mundo
+                    </a>
                 </div>
+
+                <!-- Botón Menú Móvil -->
                 <div class="flex items-center md:hidden">
-                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2"><i
-                            class="fas fa-bars text-2xl"></i></button>
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
                 </div>
             </div>
         </div>
+
+        <!-- Menú Móvil Desplegable -->
         <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
             <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
                 <a href="../index.html"
-                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Inicio</a>
-                <a href="../proyectos/"
-                    class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Portafolio</a>
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Global</a>
+                <a href="./" class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Portafolio</a>
                 <a href="../servicios/"
                     class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Servicios</a>
                 <a href="../nosotros.html"
                     class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
                 <a href="../contacto.html"
-                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">Cotizar
-                    Ahora</a>
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
+                    Cotizar Ahora
+                </a>
             </div>
         </div>
     </nav>
@@ -88,6 +149,13 @@
         <section class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 mb-12">
             <div class="text-center mb-10">
                 <h1 class="text-4xl font-bold text-brand-dark mb-4">Nuestro Trabajo Reciente</h1>
+                <p class="text-gray-600 max-w-2xl mx-auto">
+                    Explora nuestra colección de visualizaciones arquitectónicas. Desde <span
+                        class="text-brand-cyan font-bold">stands comerciales</span> que capturan la atención, hasta
+                    <span class="text-brand-cyan font-bold">resorts ecoturísticos</span> y <span
+                        class="text-brand-cyan font-bold">desarrollos urbanos</span>. Cada render es una herramienta
+                    diseñada para comunicar valor y cerrar negocios.
+                </p>
                 <div class="flex flex-wrap justify-center gap-2">
                     <button
                         class="filter-btn active border border-gray-300 px-4 py-2 rounded-full text-sm font-medium transition-colors"
@@ -108,7 +176,7 @@
 
                 <!-- Project 1: Stand -->
                 <a href="diseno-render-stand-feria-comercial.html"
-                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
                     data-category="comercial">
                     <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.png"
                         alt="Stand"
@@ -125,13 +193,9 @@
 
                 <!-- Project 2: Casa Campestre -->
                 <a href="render-3d-casa-campestre-estilo-colonial.html"
-                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
                     data-category="residencial">
-                    <!-- Using placeholder image from folder if exists, or reusing one for now -->
-                    <!-- Check assets later, for now using a generic path that might need fix if folder is empty -->
-                    <!-- Actually I saw a folder 'render-3d-casa-campestre-estilo-colonial' let's assume it has content -->
                     <img src="../assets/projects/render-3d-casa-campestre-estilo-colonial/render-3d-casa-campestre-estilo-colonial-01.png"
-                        onerror="this.src='../assets/projects/visualizacion-paisajismo-jardines-exteriores/visualizacion-paisajismo-jardines-exteriores-01.png'"
                         alt="Casa Campestre"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div
@@ -144,27 +208,26 @@
                     </div>
                 </a>
 
-                <!-- Project 3: Apartamento -->
-                <a href="render-apartamento-interior-vista-panoramica.html"
-                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
-                    data-category="residencial">
-                    <img src="../assets/projects/render-apartamento-interior-vista-panoramica/render-apartamento-interior-vista-panoramica-01.png"
-                        onerror="this.src='../assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-03.png'"
-                        alt="Apartamento"
+                <!-- Project 3: Oficina Flexible -->
+                <a href="render-oficina-flexible-auditorio-salas.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
+                    data-category="corporativo">
+                    <img src="../assets/projects/render-oficina-flexible-auditorio-salas/render-oficina-flexible-auditorio-salas-01.png"
+                        alt="Oficina Flexible"
                         class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
                     <div
                         class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
                     </div>
                     <div class="absolute bottom-0 left-0 p-6 text-white">
                         <span
-                            class="text-xs font-bold bg-green-500 px-2 py-1 rounded mb-2 inline-block">Residencial</span>
-                        <h3 class="font-bold text-lg">Apartamento Panorámico</h3>
+                            class="text-xs font-bold bg-blue-600 px-2 py-1 rounded mb-2 inline-block">Corporativo</span>
+                        <h3 class="font-bold text-lg">Oficina Flexible & Auditorio</h3>
                     </div>
                 </a>
 
                 <!-- Project 4: Oficinas -->
                 <a href="render-interiorismo-oficinas-modernas.html"
-                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3]"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
                     data-category="corporativo">
                     <img src="../assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.png"
                         alt="Oficinas"
@@ -179,16 +242,213 @@
                     </div>
                 </a>
 
+                <!-- Project 5: Residencia Moderna -->
+                <a href="visualizacion-arquitectonica-residencia-moderna.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
+                    data-category="residencial">
+                    <img src="../assets/projects/visualizacion-arquitectonica-residencia-moderna/visualizacion-arquitectonica-residencia-moderna-01.png"
+                        onerror="this.src='../assets/projects/visualizacion-arquitectonica-residencia-moderna/visualizacion-arquitectonica-residencia-moderna-03.png'"
+                        alt="Residencia Moderna"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-green-500 px-2 py-1 rounded mb-2 inline-block">Residencial</span>
+                        <h3 class="font-bold text-lg">Residencia Moderna</h3>
+                    </div>
+                </a>
+
+                <!-- Project 6: Espacio Público -->
+                <a href="render-arquitectura-espacio-publico-parqueadero.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
+                    data-category="urbano">
+                    <img src="../assets/projects/render-arquitectura-espacio-publico-parqueadero/render-arquitectura-espacio-publico-parqueadero-01.png"
+                        alt="Espacio Público"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span class="text-xs font-bold bg-gray-500 px-2 py-1 rounded mb-2 inline-block">Urbano</span>
+                        <h3 class="font-bold text-lg">Espacio Público</h3>
+                    </div>
+                </a>
+
+                <!-- Project 7: Hotel Lujo -->
+                <a href="renderizado-3d-fachada-hotel-lujo.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
+                    data-category="comercial">
+                    <img src="../assets/projects/renderizado-3d-fachada-hotel-lujo/renderizado-3d-fachada-hotel-lujo-01.png"
+                        alt="Hotel Lujo"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-brand-cyan px-2 py-1 rounded mb-2 inline-block">Comercial</span>
+                        <h3 class="font-bold text-lg">Hotel de Lujo</h3>
+                    </div>
+                </a>
+
+                <!-- Project 8: Ecoturismo -->
+                <a href="renderizado-proyecto-hotelero-ecoturismo.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
+                    data-category="comercial">
+                    <img src="../assets/projects/renderizado-proyecto-hotelero-ecoturismo/renderizado-proyecto-hotelero-ecoturismo-01.png"
+                        alt="Ecoturismo"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-brand-cyan px-2 py-1 rounded mb-2 inline-block">Ecoturismo</span>
+                        <h3 class="font-bold text-lg">Glamping & Resort</h3>
+                    </div>
+                </a>
+
+                <!-- Project 9: Paisajismo -->
+                <a href="visualizacion-paisajismo-jardines-exteriores.html"
+                    class="project-item group block relative overflow-hidden rounded-lg aspect-[4/3] shadow-md hover:shadow-xl transition-all"
+                    data-category="urbano">
+                    <img src="../assets/projects/visualizacion-paisajismo-jardines-exteriores/visualizacion-paisajismo-jardines-exteriores-01.png"
+                        alt="Paisajismo"
+                        class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500">
+                    <div
+                        class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent opacity-80">
+                    </div>
+                    <div class="absolute bottom-0 left-0 p-6 text-white">
+                        <span
+                            class="text-xs font-bold bg-green-600 px-2 py-1 rounded mb-2 inline-block">Paisajismo</span>
+                        <h3 class="font-bold text-lg">Jardines Exteriores</h3>
+                    </div>
+                </a>
+
             </div>
         </section>
     </main>
 
     <!-- FOOTER -->
-    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-white mt-auto">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center text-sm text-gray-500">
-            &copy; 2024 Render 3D Global.
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Columna 1: Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="../assets/branding/render-3d-global-logo-cuadrado-3d.jpg" alt="Render 3D Global Logo"
+                        class="h-16 w-auto mb-6 rounded shadow-sm opacity-90"> <!-- Usando el logo cuadrado pequeño -->
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        El puente entre el arquitecto, el cliente y el maestro de obra en Cualquier parte del Mundo.
+                        Visualización rápida
+                        y
+                        funcional.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Empresa</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Inicio</a></li>
+                        <li><a href="./"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a>
+                        </li>
+                        <li><a href="../servicios/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Servicios</a></li>
+                        <li><a href="../nosotros.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../servicios/renders-express-para-stands-comerciales.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders
+                                Comerciales</a></li>
+                        <li><a href="../servicios/visualizacion-para-disenadores-interiores.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores &
+                                Oficinas</a></li>
+                        <li><a href="../servicios/visualizacion-arquitectonica-para-contratistas.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y
+                                Obra</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-cyan"></i>
+                            <span class="text-gray-400 text-sm">Cualquier parte del Mundo, Global<br>Servicio
+                                Global</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-cyan"></i>
+                            <a href="mailto:render3dglobal.com@gmail.com"
+                                class="text-gray-400 hover:text-white text-sm transition-colors">render3dglobal.com@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Render 3D Global Global. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/render3dglobal/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl"></i></a>
+                    <!--a href="https://www.linkedin.com/company/render-3d-global/" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-linkedin text-xl"></i></a-->
+                    <!--a href="https://www.youtube.com/@render3dglobal" target="_blank" class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-youtube text-xl"></i></a-->
+                </div>
+            </div>
+        </div>
         </div>
     </footer>
+
+    <!-- Floating WhatsApp CTA -->
+
+    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
+        <!-- WhatsApp Button -->
+        <a href="https://wa.me/573132060072?text=Hola,%20me%20interesa%20un%20render%20en%20Cualquier parte del Mundo"
+            target="_blank"
+            class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce-slow"
+            title="Chatear por WhatsApp">
+            <i class="fab fa-whatsapp text-3xl"></i>
+        </a>
+    </div>
+    <style>
+        .animate-bounce-slow {
+            animation: bounce 3s infinite;
+        }
+
+        @keyframes bounce {
+
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
+                transform: translateY(0);
+            }
+
+            40% {
+                transform: translateY(-10px);
+            }
+
+            60% {
+                transform: translateY(-5px);
+            }
+        }
+    </style>
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
