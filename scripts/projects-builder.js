@@ -58,6 +58,7 @@ projectsData.forEach(project => {
     content = content.replace(/{{KEYWORDS}}/g, project.keywords.join(', '));
     content = content.replace(/{{AI_INSTRUCTIONS}}/g, project.aiInstructions);
     content = content.replace(/{{SEO_HIDDEN_TEXT}}/g, project.seoHiddenText);
+    content = content.replace(/{{SOFTWARE}}/g, project.software);
 
     // Blog Content
     content = content.replace(/{{BLOG_CHALLENGE}}/g, project.blogContent.challenge);
