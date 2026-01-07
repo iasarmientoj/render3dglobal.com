@@ -68,7 +68,7 @@
                     <!-- Botón CTA en Menú -->
                     <a href="../contacto.html"
                         class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
-                        Cotizar en Global
+                        Cotizar en Cualquier Parte del Mundo
                     </a>
                 </div>
 
@@ -115,60 +115,89 @@
                 <p class="text-lg text-gray-700">Diseño y renderizado de stands para ferias internacionales. Maximizamos la visibilidad de marca y flujo de visitantes mediante recorridos virtuales y visualización fotorrealista.</p>
             </div>
 
-            <!-- Blog Case Study Section -->
-            <div class="mb-12 grid gap-6 md:grid-cols-3">
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+            <!-- Main Gallery Layout -->
+            <div class="mb-12">
+                <!-- Main Image Display Container -->
+                <div class="rounded-xl overflow-hidden shadow-2xl mb-6 bg-gray-100 relative w-full"
+                    style="padding-top: 56.25%;"> <!-- Aspect Ratio 16:9 -->
+                    <!-- Zoom Container -->
+                    <div id="zoom-container" class="absolute inset-0 w-full h-full cursor-zoom-in overflow-hidden"
+                        onmousemove="zoom(event)" onmouseenter="this.style.backgroundSize = '250%'"
+                        onmouseleave="this.style.backgroundSize = 'cover'; this.style.backgroundPosition = 'center'"
+                        style="background-image: url('../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.webp'); background-position: center; background-size: cover; transition: background-size 0.3s ease;">
+                        <img id="main-gallery-image" src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.webp" alt="Impacto Comercial para Stands Feriales"
+                            class="w-full h-full object-cover opacity-0">
+                    </div>
+                </div>
+
+                <!-- Carousel Thumbs -->
+                <div class="relative group px-12">
+                    <!-- Navigation Buttons -->
+                    <button id="gallery-prev"
+                        class="absolute left-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-500 hover:text-brand-cyan border border-gray-200 focus:outline-none transition-transform hover:scale-110">
+                        <i class="fas fa-chevron-left"></i>
+                    </button>
+                    <button id="gallery-next"
+                        class="absolute right-0 top-1/2 -translate-y-1/2 z-10 w-10 h-10 rounded-full bg-white shadow-lg flex items-center justify-center text-gray-500 hover:text-brand-cyan border border-gray-200 focus:outline-none transition-transform hover:scale-110">
+                        <i class="fas fa-chevron-right"></i>
+                    </button>
+
+                    <!-- Thumbnails Container -->
+                    <div id="gallery-thumbs"
+                        class="flex gap-4 overflow-x-auto snap-x snap-mandatory py-4 scrollbar-hide scroll-smooth">
+                        
+                     <div class="snap-start shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-cyan cursor-pointer transition-all" 
+                          onclick="updateMainImage('../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.webp')">
+                        <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.webp" alt="Thumbnail 1" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
+                    </div>
+                
+                     <div class="snap-start shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-cyan cursor-pointer transition-all" 
+                          onclick="updateMainImage('../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.webp')">
+                        <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.webp" alt="Thumbnail 2" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
+                    </div>
+                
+                     <div class="snap-start shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-cyan cursor-pointer transition-all" 
+                          onclick="updateMainImage('../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-03.webp')">
+                        <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-03.webp" alt="Thumbnail 3" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
+                    </div>
+                
+                     <div class="snap-start shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-cyan cursor-pointer transition-all" 
+                          onclick="updateMainImage('../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-04.webp')">
+                        <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-04.webp" alt="Thumbnail 4" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
+                    </div>
+                
+                     <div class="snap-start shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-cyan cursor-pointer transition-all" 
+                          onclick="updateMainImage('../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-05.webp')">
+                        <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-05.webp" alt="Thumbnail 5" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
+                    </div>
+                
+                    </div>
+                </div>
+            </div>
+
+            <!-- Blog Case Study Section (Reordered below gallery) -->
+            <div class="mb-12 grid gap-6 md:grid-cols-2">
+                <!-- Row 1: Reto & Solución -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-1">
                     <h3 class="text-brand-cyan font-bold mb-2 flex items-center gap-2">
                         <i class="fas fa-exclamation-circle"></i> El Reto
                     </h3>
                     <p class="text-gray-600 text-sm">El cliente necesitaba aprobar un diseño de stand para una feria internacional en 48 horas para no perder el cupo de inscripción y asegurar la ubicación estratégica.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-1">
                     <h3 class="text-brand-cyan font-bold mb-2 flex items-center gap-2">
                         <i class="fas fa-cogs"></i> La Solución
                     </h3>
                     <p class="text-gray-600 text-sm">Implementamos un flujo de trabajo ágil con modelado en tiempo real, permitiendo cambios de branding y materiales al instante durante la reunión de revisión.</p>
                 </div>
-                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
+
+                <!-- Row 2: Resultado (Full Width) -->
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-gray-100 md:col-span-2">
                     <h3 class="text-brand-cyan font-bold mb-2 flex items-center gap-2">
                         <i class="fas fa-check-circle"></i> El Resultado
                     </h3>
                     <p class="text-gray-600 text-sm">Aprobación inmediata del diseño, reserva exitosa del espacio y reducción del 30% en costos de montaje al detectar incongruencias estructurales en la fase digital.</p>
                 </div>
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-8 mb-12">
-                
-                <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-                    <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-01.webp"
-                        alt="Impacto Comercial para Stands Feriales - Vista 1" 
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
-            
-                <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-                    <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.webp"
-                        alt="Impacto Comercial para Stands Feriales - Vista 2" 
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
-            
-                <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-                    <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-03.webp"
-                        alt="Impacto Comercial para Stands Feriales - Vista 3" 
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
-            
-                <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-                    <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-04.webp"
-                        alt="Impacto Comercial para Stands Feriales - Vista 4" 
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
-            
-                <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-                    <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-05.webp"
-                        alt="Impacto Comercial para Stands Feriales - Vista 5" 
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
-            
             </div>
 
             <div
@@ -262,6 +291,19 @@
                 transform: translateY(-5px);
             }
         }
+
+        /* Hide scrollbar for Chrome, Safari and Opera */
+        .scrollbar-hide::-webkit-scrollbar {
+            display: none;
+        }
+
+        /* Hide scrollbar for IE, Edge and Firefox */
+        .scrollbar-hide {
+            -ms-overflow-style: none;
+            /* IE and Edge */
+            scrollbar-width: none;
+            /* Firefox */
+        }
     </style>
 
     <script>
@@ -280,6 +322,42 @@
             } else {
                 navbar.classList.remove('shadow-md');
             }
+        });
+
+        // Gallery Logic with Zoom
+        function updateMainImage(src) {
+            const zoomContainer = document.getElementById('zoom-container');
+            const mainImage = document.getElementById('main-gallery-image');
+
+            // Update URL for zoom background
+            zoomContainer.style.backgroundImage = `url('${src}')`;
+
+            // If the image is visible for layout purposes, update its src too
+            if (mainImage) {
+                mainImage.src = src;
+            }
+        }
+
+        function zoom(e) {
+            const zoomer = e.currentTarget;
+            e.offsetX ? offsetX = e.offsetX : offsetX = e.touches[0].pageX;
+            e.offsetY ? offsetY = e.offsetY : offsetX = e.touches[0].pageX;
+            x = offsetX / zoomer.offsetWidth * 100;
+            y = offsetY / zoomer.offsetHeight * 100;
+            zoomer.style.backgroundPosition = x + '% ' + y + '%';
+        }
+
+        // Carousel Logic
+        const slider = document.getElementById('gallery-thumbs');
+        const nextBtn = document.getElementById('gallery-next');
+        const prevBtn = document.getElementById('gallery-prev');
+
+        nextBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: 300, behavior: 'smooth' });
+        });
+
+        prevBtn.addEventListener('click', () => {
+            slider.scrollBy({ left: -300, behavior: 'smooth' });
         });
     </script>
 </body>

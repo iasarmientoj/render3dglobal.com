@@ -11,30 +11,36 @@ const ASSETS_DIR = path.join(__dirname, '../assets/projects');
 const template = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
 
 // Function to generate gallery HTML
-function generateGalleryHtml(folderName, projectTitle) {
+function generateGalleryData(folderName, projectTitle) {
     const projectAssetsPath = path.join(ASSETS_DIR, folderName);
-    let html = '';
+    let mainImageUrl = '';
+    let thumbnailsHtml = '';
 
     if (fs.existsSync(projectAssetsPath)) {
         const files = fs.readdirSync(projectAssetsPath);
         // Filter for images (webp, jpg, png)
         const images = files.filter(file => /\.(webp|jpg|png|jpeg)$/i.test(file));
 
-        images.forEach((image, index) => {
-            const imagePath = `../assets/projects/${folderName}/${image}`;
-            html += `
-                <div class="rounded-xl overflow-hidden shadow-lg border border-gray-100 group">
-                    <img src="${imagePath}"
-                        alt="${projectTitle} - Vista ${index + 1}" 
-                        class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
-                </div>
-            `;
-        });
+        if (images.length > 0) {
+            // Set Main Image (First one)
+            mainImageUrl = `../assets/projects/${folderName}/${images[0]}`;
+
+            // Generate Thumbnails
+            images.forEach((image, index) => {
+                const imagePath = `../assets/projects/${folderName}/${image}`;
+                thumbnailsHtml += `
+                     <div class="snap-start shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-cyan cursor-pointer transition-all" 
+                          onclick="updateMainImage('${imagePath}')">
+                        <img src="${imagePath}" alt="Thumbnail ${index + 1}" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
+                    </div>
+                `;
+            });
+        }
     } else {
         console.warn(`Warning: Assets folder not found for ${folderName}`);
-        html = '<p class="text-red-500">Galería no disponible (Carpeta de assets no encontrada)</p>';
     }
-    return html;
+
+    return { mainImageUrl, thumbnailsHtml };
 }
 
 // Build Process
@@ -43,9 +49,12 @@ console.log('Starting Project Pages Build...');
 projectsData.forEach(project => {
     let content = template;
 
+    // Gallery Data
+    const { mainImageUrl, thumbnailsHtml } = generateGalleryData(project.folderName, project.title);
+
     // Replacements
     content = content.replace(/{{TITLE}}/g, project.title);
-    content = content.replace(/{{DESCRIPTION}}/g, project.seoHiddenText.substring(0, 160)); // Meta description limit
+    content = content.replace(/{{DESCRIPTION}}/g, project.seoHiddenText.substring(0, 160));
     content = content.replace(/{{KEYWORDS}}/g, project.keywords.join(', '));
     content = content.replace(/{{AI_INSTRUCTIONS}}/g, project.aiInstructions);
     content = content.replace(/{{SEO_HIDDEN_TEXT}}/g, project.seoHiddenText);
@@ -56,10 +65,9 @@ projectsData.forEach(project => {
     content = content.replace(/{{BLOG_RESULT}}/g, project.blogContent.result);
     content = content.replace(/{{SUMMARY_PHRASE}}/g, project.summaryPhrase);
 
-
-    // Gallery
-    const galleryHtml = generateGalleryHtml(project.folderName, project.title);
-    content = content.replace(/{{GALLERY_IMAGES}}/g, galleryHtml);
+    // Gallery Replacements
+    content = content.replace(/{{MAIN_IMAGE_URL}}/g, mainImageUrl);
+    content = content.replace(/{{THUMBNAILS_HTML}}/g, thumbnailsHtml);
 
     // Write File
     const fileName = `${project.id}.html`;
