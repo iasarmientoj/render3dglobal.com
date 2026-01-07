@@ -1,81 +1,240 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-    <url>
-        <loc>https://render3dglobal.com/co/render-3d-bogota.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://render3dglobal.com/co/render-3d-medellin.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://render3dglobal.com/co/render-3d-cali.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://render3dglobal.com/co/render-3d-barranquilla.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://render3dglobal.com/co/render-3d-cartagena.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://render3dglobal.com/co/render-3d-santa-marta.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://render3dglobal.com/ec/render-3d-guayaquil.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
-    <url>
-        <loc>https://render3dglobal.com/ec/render-3d-quito.html</loc>
-        <lastmod>2026-01-05</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>0.8</priority>
-    </url>
+    <!-- Main Pages -->
     <url>
         <loc>https://render3dglobal.com/index.html</loc>
-        <lastmod>2026-01-05</lastmod>
+        <lastmod>2026-01-07</lastmod>
         <changefreq>weekly</changefreq>
         <priority>1.0</priority>
     </url>
     <url>
+        <loc>https://render3dglobal.com/nosotros.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/contacto.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Project Section -->
+    <url>
         <loc>https://render3dglobal.com/proyectos/index.html</loc>
-        <lastmod>2026-01-05</lastmod>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/diseno-render-stand-feria-comercial.html</loc>
+        <lastmod>2026-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
-        <loc>https://render3dglobal.com/proyectos/diseno-render-stand-feria-comercial.html</loc>
-        <lastmod>2026-01-05</lastmod>
+        <loc>https://render3dglobal.com/proyectos/render-3d-casa-campestre-estilo-colonial.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/render-apartamento-moderno-interior.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/render-arquitectura-espacio-publico-parqueadero.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/render-car-wash-el-dorado.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/render-concesionario-chevrolet.html</loc>
+        <lastmod>2026-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://render3dglobal.com/proyectos/render-interiorismo-oficinas-modernas.html</loc>
-        <lastmod>2026-01-05</lastmod>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/render-oficina-flexible-auditorio-salas.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/renderizado-3d-fachada-hotel-lujo.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/renderizado-proyecto-hotelero-ecoturismo.html</loc>
+        <lastmod>2026-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
     <url>
         <loc>https://render3dglobal.com/proyectos/visualizacion-arquitectonica-residencia-moderna.html</loc>
-        <lastmod>2026-01-05</lastmod>
+        <lastmod>2026-01-07</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/proyectos/visualizacion-paisajismo-jardines-exteriores.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Service Section -->
+    <url>
+        <loc>https://render3dglobal.com/servicios/index.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/diseno-locales-guayaquil.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/diseno-stands-corferias.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/recorridos-virtuales-360.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/render-cocinas-bogota.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/render-conjuntos-cerrados.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/render-precio-ecuador.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/render-remodelacion-oficinas-samborondon.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/renders-express-para-stands-comerciales.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/renders-flipping-inmobiliario.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/renders-optimizacion-espacios.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/visualizacion-arquitectonica-para-contratistas.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/visualizacion-paisajismo-jardines-exteriores.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/servicios/visualizacion-para-disenadores-interiores.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>monthly</changefreq>
+        <priority>0.7</priority>
+    </url>
+
+    <!-- Geographic Landing Pages (Colombia) -->
+    <url>
+        <loc>https://render3dglobal.com/co/render-3d-barranquilla.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/co/render-3d-bogota.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/co/render-3d-cali.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/co/render-3d-cartagena.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/co/render-3d-medellin.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/co/render-3d-santa-marta.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+
+    <!-- Geographic Landing Pages (Ecuador) -->
+    <url>
+        <loc>https://render3dglobal.com/ec/render-3d-guayaquil.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
+    </url>
+    <url>
+        <loc>https://render3dglobal.com/ec/render-3d-quito.html</loc>
+        <lastmod>2026-01-07</lastmod>
+        <changefreq>weekly</changefreq>
+        <priority>0.8</priority>
     </url>
 </urlset>
