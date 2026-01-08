@@ -136,33 +136,102 @@ const generateRedirectScript = (citiesData) => {
 
     const mappingJson = JSON.stringify(mapping);
 
-    // 2. Return the script string
-    // Uses ipapi.co to get city/country.
-    // Fallback logic could be added, but keeping it simple as per request.
+    // 2. Return the script string including the Modal HTML/CSS/JS
+    // This solves the Google Ads "cloaking" issue by asking the user instead of auto-redirecting.
     return `
+    <!-- Geo-Location Modal -->
+    <div id="geo-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity duration-300 opacity-0 font-sans">
+        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform scale-95 transition-transform duration-300 mobile-modal-fix">
+            <div class="bg-gray-900 p-6 text-white relative overflow-hidden">
+                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-cyan-500 rounded-full opacity-20 blur-xl"></div>
+                <h3 class="text-xl font-bold relative z-10 flex items-center gap-2">
+                    <i class="fas fa-map-marker-alt text-cyan-400"></i> 
+                    Ubicación Detectada
+                </h3>
+            </div>
+            <div class="p-6">
+                <p class="text-gray-600 mb-8 text-lg leading-relaxed">
+                    Hemos detectado que nos visitas desde <span id="geo-city-name" class="font-bold text-gray-900">tu ciudad</span>. 
+                    <br>
+                    ¿Te gustaría ver la versión personalizada para tu ubicación?
+                </p>
+                <div class="flex flex-col sm:flex-row gap-3">
+                    <button id="geo-confirm-btn" class="flex-1 bg-cyan-500 text-white font-bold py-3 px-4 rounded-xl hover:bg-cyan-600 transition-colors shadow-lg hover:shadow-cyan-500/30 flex justify-center items-center gap-2 group">
+                        <span>Sí, ir allí</span> <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                    </button>
+                    <button id="geo-cancel-btn" class="flex-1 bg-gray-100 text-gray-600 font-bold py-3 px-4 rounded-xl hover:bg-gray-200 transition-colors">
+                        No, quedarme aquí
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <style>
+        #geo-modal.visible { display: flex; opacity: 1; }
+        #geo-modal.visible .mobile-modal-fix { transform: scale(100%); }
+    </style>
+
     <script>
         (function() {
-            // Check if we have already redirected or user manually selected "Global" (optional safety)
-            // For now, just run on load.
-            
             const cityMapping = ${mappingJson};
             
-            fetch('https://ipapi.co/json/')
+            // Function to show modal
+            function showGeoModal(city, url) {
+                const modal = document.getElementById('geo-modal');
+                const citySpan = document.getElementById('geo-city-name');
+                const confirmBtn = document.getElementById('geo-confirm-btn');
+                const cancelBtn = document.getElementById('geo-cancel-btn');
+
+                if(!modal) return;
+
+                // Set text
+                citySpan.textContent = city;
+
+                // Setup actions
+                confirmBtn.onclick = function() {
+                    window.location.href = url;
+                };
+
+                cancelBtn.onclick = function() {
+                    modal.classList.remove('visible');
+                    setTimeout(() => {
+                        modal.classList.add('hidden');
+                    }, 300);
+                    // Optional: Remember choice in sessionStorage so we don't annoy them again this session
+                    sessionStorage.setItem('geo-choice-made', 'true');
+                };
+
+                // Show modal
+                modal.classList.remove('hidden');
+                // Small delay to allow display:flex to apply before opacity transition
+                requestAnimationFrame(() => {
+                    modal.classList.add('visible');
+                });
+            }
+
+            // Check if user already made a choice this session
+            if (sessionStorage.getItem('geo-choice-made')) {
+                return;
+            }
+
+            fetch('https://get.geojs.io/v1/ip/geo.json')
                 .then(response => response.json())
                 .then(data => {
                     if (data && data.city) {
                         const userCity = data.city.toUpperCase();
                         // Direct City Match
                         if (cityMapping[userCity]) {
-                            console.log('Redirecting to city page:', cityMapping[userCity]);
-                            window.location.href = cityMapping[userCity];
+                            // Check if we are ALREADY on that page? 
+                            // This script is only injected in GLOBAL index, so we are likely not on the city page.
+                            // But just in case, logic handles it by design (script only in global).
+                            
+                            console.log('Location matched:', userCity);
+                            showGeoModal(data.city, cityMapping[userCity]);
                         } 
-                        // Country Fallback could go here if we had country index pages
-                        // else if (data.country_code === 'CO') { ... } 
                     }
                 })
                 .catch(error => {
-                    console.log('Geo-redirect skipped:', error);
+                    console.warn('Geo-check skipped (network/cors):', error);
                 });
         })();
     </script>
