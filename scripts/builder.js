@@ -329,63 +329,6 @@ cities.forEach(city => {
     generatePage(city, isGlobal);
 });
 
-// Generate Sitemap.xml
-const generateSitemap = () => {
-    let xml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">`;
 
-    cities.forEach(city => {
-        const subFolder = (city.countryCode === 'CO') ? 'co/' : (city.countryCode === 'EC' ? 'ec/' : '');
-        const filename = (city.id === 'global') ? 'index.html' : `${city.slug}.html`;
-        // Handle Global Index vs Subfolder Index? 
-        // Global is root/index.html. Subfolder ones are root/co/slug.html.
-
-        let pathUrl = '';
-        if (city.id === 'global') {
-            pathUrl = 'index.html';
-        } else {
-            pathUrl = `${subFolder}${filename}`;
-        }
-
-        const fullUrl = `https://render3dglobal.com/${pathUrl}`;
-        const date = new Date().toISOString().split('T')[0];
-
-        xml += `
-    <url>
-        <loc>${fullUrl}</loc>
-        <lastmod>${date}</lastmod>
-        <changefreq>weekly</changefreq>
-        <priority>${city.id === 'global' ? '1.0' : '0.8'}</priority>
-    </url>`;
-    });
-
-    // Add Static Project Pages
-    const projectPages = [
-        'proyectos/index.html',
-        'proyectos/diseno-render-stand-feria-comercial.html',
-        'proyectos/render-interiorismo-oficinas-modernas.html',
-        'proyectos/visualizacion-arquitectonica-residencia-moderna.html'
-    ];
-
-    projectPages.forEach(page => {
-        const fullUrl = `https://render3dglobal.com/${page}`;
-        const date = new Date().toISOString().split('T')[0];
-        xml += `
-    <url>
-        <loc>${fullUrl}</loc>
-        <lastmod>${date}</lastmod>
-        <changefreq>monthly</changefreq>
-        <priority>0.7</priority>
-    </url>`;
-    });
-
-    xml += `
-</urlset>`;
-
-    fs.writeFileSync(path.join(outputDir, 'sitemap.xml'), xml);
-    console.log('Generated: sitemap.xml');
-};
-
-generateSitemap();
 
 console.log('Done! Generated city pages in CO/EC folders and Global index.');
