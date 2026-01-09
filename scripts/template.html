@@ -187,6 +187,8 @@
         </div>
     </header>
 
+
+
     <!-- SECCIÓN FILOSOFÍA / PROBLEMA -->
     <section class="py-20 bg-white">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -233,9 +235,106 @@
             </div>
         </div>
         </div>
+    </section>
 
+    <!-- MINI PORTAFOLIO -->
+    <section id="portafolio" class="py-20 bg-brand-dark text-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl font-bold mb-2">Proyectos Recientes</h2>
+                <p class="text-gray-400">Soluciones reales para problemas reales.</p>
+            </div>
+
+            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Proyecto 1: Oficinas Modernas -->
+                <div onclick="openServiceModal('modal-proyecto-oficinas')"
+                    class="bg-white rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.webp"
+                            alt="Oficinas Modernas"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col relative">
+                        <div
+                            class="absolute -top-10 right-6 w-12 h-12 bg-brand-cyan rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-plus text-lg"></i>
+                        </div>
+                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-2">Corporativo</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Oficinas Modernas</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">Visualización detallada de iluminación y
+                            mobiliario corporativo.</p>
+                        <span
+                            class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto group-hover:translate-x-2 transition-transform duration-300 inline-block">Ver
+                            Caso de Estudio &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Proyecto 2: Kiosco Comercial -->
+                <div onclick="openServiceModal('modal-proyecto-kiosco')"
+                    class="bg-white rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.webp"
+                            alt="Kiosco Comercial"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col relative">
+                        <div
+                            class="absolute -top-10 right-6 w-12 h-12 bg-brand-cyan rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-plus text-lg"></i>
+                        </div>
+                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-2">Retail</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kiosco Centro Comercial</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">Diseño y aprobación express para espacios
+                            comerciales.</p>
+                        <span
+                            class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto group-hover:translate-x-2 transition-transform duration-300 inline-block">Ver
+                            Caso de Estudio &rarr;</span>
+                    </div>
+                </div>
+
+                <!-- Proyecto 3: Apartamento Moderno -->
+                <div onclick="openServiceModal('modal-proyecto-apartamento')"
+                    class="bg-white rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col">
+                    <div class="h-64 overflow-hidden relative">
+                        <img src="assets/projects/visualizacion-arquitectonica-residencia-moderna/visualizacion-arquitectonica-residencia-moderna-03.webp"
+                            alt="Apartamento Moderno"
+                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
+                        </div>
+                    </div>
+                    <div class="p-6 flex-grow flex flex-col relative">
+                        <div
+                            class="absolute -top-10 right-6 w-12 h-12 bg-brand-cyan rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
+                            <i class="fas fa-plus text-lg"></i>
+                        </div>
+                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-2">Residencial</span>
+                        <h3 class="text-xl font-bold text-gray-900 mb-2">Apartamento Remodelado</h3>
+                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">Venta sobre planos con ambientación
+                            fotorrealista.</p>
+                        <span
+                            class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto group-hover:translate-x-2 transition-transform duration-300 inline-block">Ver
+                            Caso de Estudio &rarr;</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="mt-16 text-center">
+                <a href="proyectos/"
+                    class="inline-flex items-center justify-center px-8 py-3 border border-brand-cyan text-brand-cyan font-bold rounded-lg hover:bg-brand-cyan hover:text-white transition-all duration-300 shadow-sm hover:shadow-md bg-transparent">
+                    Ver todos los proyectos
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- SECCIÓN FILOSOFÍA PARTE 2 -->
+    <section class="py-20 bg-white">
         <!-- Blog Content Expansion -->
-        <div class="mt-16 max-w-4xl mx-auto">
+        <div class="max-w-4xl mx-auto">
             <div class="bg-brand-gray/30 rounded-2xl p-8 md:p-10 border border-brand-gray">
                 <h3 class="text-2xl font-bold text-brand-dark mb-4 text-center">¿Por qué elegirnos en {{CITY}}?</h3>
                 <p class="text-gray-700 leading-relaxed text-lg text-center font-light">
@@ -923,99 +1022,7 @@
     <!-- FAQ SECTION (Desplegable) -->
     {{FAQ_SECTION}}
 
-    <!-- MINI PORTAFOLIO -->
-    <section id="portafolio" class="py-20 bg-brand-dark text-white">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div class="text-center mb-12">
-                <h2 class="text-3xl font-bold mb-2">Proyectos Recientes</h2>
-                <p class="text-gray-400">Soluciones reales para problemas reales.</p>
-            </div>
 
-            <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-                <!-- Proyecto 1: Oficinas Modernas -->
-                <div onclick="openServiceModal('modal-proyecto-oficinas')"
-                    class="bg-white rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="assets/projects/render-interiorismo-oficinas-modernas/render-interiorismo-oficinas-modernas-01.webp"
-                            alt="Oficinas Modernas"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col relative">
-                        <div
-                            class="absolute -top-10 right-6 w-12 h-12 bg-brand-cyan rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-plus text-lg"></i>
-                        </div>
-                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-2">Corporativo</span>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Oficinas Modernas</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">Visualización detallada de iluminación y
-                            mobiliario corporativo.</p>
-                        <span
-                            class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto group-hover:translate-x-2 transition-transform duration-300 inline-block">Ver
-                            Caso de Estudio &rarr;</span>
-                    </div>
-                </div>
-
-                <!-- Proyecto 2: Kiosco Comercial -->
-                <div onclick="openServiceModal('modal-proyecto-kiosco')"
-                    class="bg-white rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.webp"
-                            alt="Kiosco Comercial"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col relative">
-                        <div
-                            class="absolute -top-10 right-6 w-12 h-12 bg-brand-cyan rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-plus text-lg"></i>
-                        </div>
-                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-2">Retail</span>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Kiosco Centro Comercial</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">Diseño y aprobación express para espacios
-                            comerciales.</p>
-                        <span
-                            class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto group-hover:translate-x-2 transition-transform duration-300 inline-block">Ver
-                            Caso de Estudio &rarr;</span>
-                    </div>
-                </div>
-
-                <!-- Proyecto 3: Apartamento Moderno -->
-                <div onclick="openServiceModal('modal-proyecto-apartamento')"
-                    class="bg-white rounded-xl overflow-hidden cursor-pointer hover:shadow-2xl transition-all duration-300 hover:-translate-y-2 group h-full flex flex-col">
-                    <div class="h-64 overflow-hidden relative">
-                        <img src="assets/projects/visualizacion-arquitectonica-residencia-moderna/visualizacion-arquitectonica-residencia-moderna-03.webp"
-                            alt="Apartamento Moderno"
-                            class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
-                        <div class="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors duration-300">
-                        </div>
-                    </div>
-                    <div class="p-6 flex-grow flex flex-col relative">
-                        <div
-                            class="absolute -top-10 right-6 w-12 h-12 bg-brand-cyan rounded-full flex items-center justify-center text-white shadow-lg group-hover:scale-110 transition-transform duration-300">
-                            <i class="fas fa-plus text-lg"></i>
-                        </div>
-                        <span class="text-brand-cyan text-xs font-bold uppercase tracking-wider mb-2">Residencial</span>
-                        <h3 class="text-xl font-bold text-gray-900 mb-2">Apartamento Remodelado</h3>
-                        <p class="text-gray-500 text-sm mb-4 line-clamp-3">Venta sobre planos con ambientación
-                            fotorrealista.</p>
-                        <span
-                            class="text-brand-cyan font-bold text-sm uppercase tracking-wide mt-auto group-hover:translate-x-2 transition-transform duration-300 inline-block">Ver
-                            Caso de Estudio &rarr;</span>
-                    </div>
-                </div>
-            </div>
-
-            <div class="mt-16 text-center">
-                <a href="proyectos/"
-                    class="inline-flex items-center justify-center px-8 py-3 border border-brand-cyan text-brand-cyan font-bold rounded-lg hover:bg-brand-cyan hover:text-white transition-all duration-300 shadow-sm hover:shadow-md bg-transparent">
-                    Ver todos los proyectos
-                </a>
-            </div>
-        </div>
-    </section>
 
     <!-- UBICACIÓN / MAPA (Agregado para mantener la estructura vieja pero con mapa) -->
     <section class="py-20 bg-white">
