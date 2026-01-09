@@ -1,0 +1,9 @@
+User-agent: *
+Allow: /
+
+# Bloquea carpetas de scripts o archivos internos que no son contenido para usuarios
+Disallow: /scripts/
+Disallow: /css/
+
+# Indica la ubicación de tu sitemap
+Sitemap: https://render3dglobal.com/sitemap.xml
