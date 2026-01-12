@@ -283,6 +283,17 @@ const generatePage = (data, isGlobal = false) => {
     content = replaceAll(content, '{{COUNTRY_CODE}}', data.countryCode ? data.countryCode.toLowerCase() : 'es');
     content = replaceAll(content, '{{SLUG}}', data.slug);
 
+    // Canonical URL
+    let canonicalUrl = 'https://render3dglobal.com/';
+    if (isGlobal) {
+        canonicalUrl += 'index.html';
+    } else {
+        if (data.countryCode === 'CO') canonicalUrl += 'co/';
+        else if (data.countryCode === 'EC') canonicalUrl += 'ec/';
+        canonicalUrl += `${data.slug}.html`;
+    }
+    content = replaceAll(content, '{{CANONICAL_URL}}', canonicalUrl);
+
     // SEO & Meta
     content = replaceAll(content, '{{TITLE}}', data.Titulo || `Renders 3D en ${data.city} | Visualización Arquitectónica`);
     content = replaceAll(content, '{{HERO_TITLE}}', data.Hero_Titulo || `Renders 3D en ${data.city}`);

@@ -60,6 +60,10 @@ projectsData.forEach(project => {
     content = content.replace(/{{SEO_HIDDEN_TEXT}}/g, project.seoHiddenText);
     content = content.replace(/{{SOFTWARE}}/g, project.software);
 
+    // Canonical URL
+    const canonicalUrl = `https://render3dglobal.com/proyectos/${project.id}.html`;
+    content = content.replace(/{{CANONICAL_URL}}/g, canonicalUrl);
+
     // Blog Content
     content = content.replace(/{{BLOG_CHALLENGE}}/g, project.blogContent.challenge);
     content = content.replace(/{{BLOG_SOLUTION}}/g, project.blogContent.solution);
