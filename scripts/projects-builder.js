@@ -28,10 +28,11 @@ function generateGalleryData(folderName, projectTitle) {
             // Generate Thumbnails
             images.forEach((image, index) => {
                 const imagePath = `../assets/projects/${folderName}/${image}`;
+                const thumbnailPath = `../assets/projects-thumbnails/${folderName}/${image}`;
                 thumbnailsHtml += `
                      <div class="snap-start shrink-0 w-32 h-24 rounded-lg overflow-hidden border-2 border-transparent hover:border-brand-cyan cursor-pointer transition-all" 
                           onclick="updateMainImage('${imagePath}')">
-                        <img src="${imagePath}" alt="Thumbnail ${index + 1}" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
+                        <img src="${thumbnailPath}" alt="Thumbnail ${index + 1}" loading="lazy" class="w-full h-full object-cover hover:opacity-80 transition-opacity">
                     </div>
                 `;
             });
