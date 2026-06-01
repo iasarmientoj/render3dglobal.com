@@ -29,14 +29,15 @@ Este comando lee `project-template.html` y `projects-data.js` para generar las p
 ```powershell
 node scripts/projects-builder.js
 ```
+### 3. Actualizar Servicios (Carpeta `/servicios`)
+Este comando lee `service-template.html` y `services-data.js` para generar las páginas de detalles de servicios de forma automática dentro de la carpeta `/servicios`.
 
-### 3. Página de Servicios (Carpeta `/servicios`)
-A diferencia de las ciudades y los proyectos, la carpeta `/servicios` **no utiliza un generador automático**. Estas páginas son archivos HTML estáticos individuales que deben ser editados directamente si se requiere un cambio manual.
+```powershell
+node scripts/services-builder.js
+```
 
-- **Index de Servicios**: `servicios/index.html` (Contiene la cuadrícula de servicios).
-- **Detalles de Servicio**: Cada archivo `.html` dentro de `/servicios` es una página independiente diseñada específicamente para un nicho (ej: `render-cocinas-bogota.html`).
-
-**Importante**: Si realizas cambios en el menú de navegación o el footer en las plantillas (`template.html` o `project-template.html`), estos cambios **no se reflejarán automáticamente** en la carpeta `/servicios`. Deberás copiar y pegar esos bloques de código manualmente o utilizar una herramienta de reemplazo masivo.
+- **Index de Servicios**: `servicios/index.html` (Contiene la cuadrícula de servicios principal, se edita manualmente).
+- **Detalles de Servicio**: Cada archivo de detalle `.html` dentro de `/servicios` (como `render-cocinas-bogota.html`) se autogenera mediante el compilador a partir de su objeto en `services-data.js`.
 
 ---
 
