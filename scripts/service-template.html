@@ -14,9 +14,9 @@
     <script src="../scripts/analytics-events.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Diseño y Render de Stands para Corferias | Render 3D Global</title>
-    <meta name="description" content="Diseñador de stands para ferias en Corferias Bogotá. Renders impactantes para aprobación y montaje. Destaque su marca.">
-    <link rel="canonical" href="https://render3dglobal.com/servicios/diseno-stands-corferias.html" />
+    <title>{{TITLE}}</title>
+    <meta name="description" content="{{META_DESCRIPTION}}">
+    <link rel="canonical" href="{{CANONICAL_URL}}" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -156,54 +156,29 @@
                         class="fas fa-arrow-left mr-1"></i> Volver a Servicios</a>
             </div>
 
-            <h1 class="text-4xl font-bold text-brand-dark mb-4">Diseño y Render de Stands para Corferias</h1>
-            <p class="text-xl text-gray-600 mb-8 max-w-3xl">Llega a Corferias con un diseño ganador. Visualización de alto impacto para ferias y exposiciones.</p>
+            <h1 class="text-4xl font-bold text-brand-dark mb-4">{{H1}}</h1>
+            {{SUBTITLE_HTML}}
 
-            
-            <div class="bg-gray-50 p-6 rounded-lg mb-10 border-l-4 border-brand-cyan">
-                <p class="text-lg text-gray-700">Conocemos los estándares de montaje. Renders que te ayudan a ganar la licitación y asegurar el mejor espacio.</p>
-                <!-- SEO Oculto -->
-                <div class="hidden">Servicio de <strong>diseño de stands 3D</strong> para ferias en Bogotá (Corferias). Renders para Expocamacol, Feria del Hogar, FILBo y eventos corporativos. Diseño de arquitectura efímera, kioscos y puntos de venta. Visualización para montaje de eventos y escenografía.</div>
-            </div>
-          
+            {{ALERT_HTML}}
 
             <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
-                <img src="../assets/projects/diseno-render-stand-feria-comercial/diseno-render-stand-feria-comercial-02.webp" alt="Diseño Stand Corferias" class="w-full h-auto object-cover max-h-[600px]" loading="lazy">
+                <img src="{{MAIN_IMAGE_URL}}" alt="{{MAIN_IMAGE_ALT}}" class="w-full h-auto object-cover max-h-[600px]" loading="lazy">
             </div>
 
             <div class="grid md:grid-cols-2 gap-12 mb-12">
                 <div>
-                    <h2 class="text-2xl font-bold text-brand-dark mb-4">Servicios para Expositores</h2>
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4">{{LEFT_TITLE}}</h2>
                     <ul class="space-y-3 text-gray-700">
-                        
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Propuestas de diseño innovadoras y funcionales.
-            </li>
-          
-
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Renders de alta resolución para aprobación interna.
-            </li>
-          
-
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Renders que sirven como guía visual para los montadores.
-            </li>
-          
-
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Adaptación estricta a la identidad de tu marca.
-            </li>
-          
+                        {{BENEFITS_HTML}}
                     </ul>
                 </div>
                 <div
                     class="bg-brand-gray/50 p-8 rounded-xl border border-gray-100 flex flex-col justify-center text-center">
-                    <h2 class="text-2xl font-bold text-brand-dark mb-4">¿Se acerca la feria?</h2>
-                    <p class="mb-6 text-gray-600">Tenemos tiempos de entrega express para licitaciones.</p>
+                    <h2 class="text-2xl font-bold text-brand-dark mb-4">{{RIGHT_TITLE}}</h2>
+                    <p class="mb-6 text-gray-600">{{RIGHT_TEXT}}</p>
                     <a href="../contacto.html"
                         class="inline-block bg-brand-cyan text-white font-bold py-4 px-8 rounded hover:bg-brand-dark transition-colors shadow-lg">
-                        Cotizar Stand
+                        {{CTA_TEXT}}
                     </a>
                 </div>
             </div>
@@ -284,7 +259,7 @@
     <!-- Floating WhatsApp CTA -->
     <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
         <!-- WhatsApp Button -->
-        <a href="https://wa.me/573132060072?text=Hola%2C%20necesito%20un%20stand%20para%20feria" target="_blank"
+        <a href="https://wa.me/{{WHATSAPP_NUMBER}}?text={{WHATSAPP_MESSAGE}}" target="_blank"
             class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce-slow"
             title="Chatear por WhatsApp">
             <i class="fab fa-whatsapp text-3xl"></i>
