@@ -39,6 +39,13 @@ node scripts/services-builder.js
 - **Index de Servicios**: `servicios/index.html` (Contiene la cuadrícula de servicios principal, se edita manualmente).
 - **Detalles de Servicio**: Cada archivo de detalle `.html` dentro de `/servicios` (como `render-cocinas-bogota.html`) se autogenera mediante el compilador a partir de su objeto en `services-data.js`.
 
+### 4. Actualizar Blog (Carpeta `/blog`)
+Este comando lee `blog-template.html` y `blog-data.js` para generar las páginas individuales de artículos instructivos y el índice general del blog de forma automática dentro de la carpeta `/blog`.
+
+```powershell
+node scripts/blog-builder.js
+```
+
 ---
 
 ## Recomendaciones Técnicas Aplicadas

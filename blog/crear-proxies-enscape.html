@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-9JDB4H3LJ4"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-9JDB4H3LJ4');
+    </script>
+    <script src="../scripts/analytics-events.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Proxies en Enscape 3D: Optimización Extrema en SketchUp | Render 3D Global</title>
+    <meta name="description" content="Tutorial rápido y buenas prácticas para configurar custom assets y proxies en Enscape 3D v4 manteniendo tu archivo de SketchUp ultra liviano.">
+    <link rel="canonical" href="https://render3dglobal.com/blog/crear-proxies-enscape.html" />
+
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        'brand-cyan': '#00AEEF',
+                        'brand-dark': '#111111',
+                        'brand-gray': '#F3F4F6',
+                    },
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="../assets/css/styles.css">
+    <link rel="shortcut icon" href="../assets/branding/render-3d-global-favicon.ico" type="image/x-icon">
+</head>
+
+<body class="bg-white text-gray-800 antialiased flex flex-col min-h-screen">
+
+    <!-- NAV -->
+    <nav class="fixed w-full z-50 bg-white/95 backdrop-blur-sm border-b border-gray-100 shadow-sm transition-all duration-300"
+        id="navbar">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between items-center h-20">
+                <!-- Left Group: Logo + Location -->
+                <div class="flex items-center gap-6">
+                    <div class="flex-shrink-0 flex items-center">
+                        <a href="../index.html">
+                            <img class="h-7 w-auto md:h-8" src="../assets/branding/render-3d-global-logo-color.png"
+                                alt="Render 3D Global Logo">
+                        </a>
+                    </div>
+
+                    <div class="hidden md:flex relative group">
+                        <button
+                            class="flex items-center text-gray-500 hover:text-brand-cyan font-medium transition-colors text-sm focus:outline-none">
+                            <i class="fas fa-map-marker-alt mr-2 text-brand-cyan"></i> Ubicación <i
+                                class="fas fa-chevron-down ml-1 text-xs opacity-70"></i>
+                        </button>
+                        <div
+                            class="absolute top-full left-0 mt-2 w-64 bg-white border border-gray-100 rounded-xl shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 transform origin-top-left z-50 overflow-hidden">
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Colombia
+                                    🇨🇴</span>
+                                <ul class="space-y-1">
+                                    <li><a href="../co/render-3d-bogota.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Bogotá</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-medellin.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Medellín</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-cali.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cali</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-barranquilla.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Barranquilla</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-cartagena.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Cartagena</a>
+                                    </li>
+                                    <li><a href="../co/render-3d-santa-marta.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Santa
+                                            Marta</a></li>
+                                </ul>
+                            </div>
+                            <div class="px-5 py-3 border-b border-gray-50 last:border-0 bg-white">
+                                <span
+                                    class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2 block">Ecuador
+                                    🇪🇨</span>
+                                <ul class="space-y-1">
+                                    <li><a href="../ec/render-3d-guayaquil.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Guayaquil</a>
+                                    </li>
+                                    <li><a href="../ec/render-3d-quito.html"
+                                            class="block text-sm text-gray-600 hover:text-brand-cyan hover:bg-gray-50 rounded px-2 py-1 transition-colors">Quito</a>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Menú Escritorio -->
+                <div class="hidden md:flex space-x-8 items-center">
+                    <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Inicio</a>
+                    <a href="../proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
+                    <a href="../servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
+                    <a href="index.html" class="text-brand-cyan font-bold">Blog</a>
+                    <a href="../nosotros.html"
+                        class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
+                    <!-- Botón CTA en Menú -->
+                    <a href="../contacto.html"
+                        class="bg-brand-dark text-white px-5 py-2.5 rounded hover:bg-brand-cyan transition-colors font-medium text-sm">
+                        Cotizar mi Proyecto
+                    </a>
+                </div>
+
+                <!-- Botón Menú Móvil -->
+                <div class="flex items-center md:hidden">
+                    <button id="mobile-menu-btn" class="text-gray-600 hover:text-brand-cyan focus:outline-none p-2">
+                        <i class="fas fa-bars text-2xl"></i>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <!-- Menú Móvil Desplegable -->
+        <div id="mobile-menu" class="hidden md:hidden bg-white border-t border-gray-100">
+            <div class="px-4 pt-2 pb-6 space-y-2 shadow-lg">
+                <a href="../index.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Inicio</a>
+                <a href="../proyectos/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
+                <a href="../servicios/"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Servicios</a>
+                <a href="index.html"
+                    class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Blog</a>
+                <a href="../nosotros.html"
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
+                <a href="../contacto.html"
+                    class="block w-full text-center mt-4 bg-brand-cyan text-white px-3 py-3 rounded font-bold">
+                    Cotizar Ahora
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- HEADER / HERO DEL POST -->
+    <header class="bg-gray-50 pt-36 pb-20 border-b border-gray-100">
+        <div class="max-w-4xl mx-auto px-4 text-center">
+            <div class="flex items-center justify-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">
+                <span class="bg-brand-cyan/10 text-brand-cyan px-3 py-1 rounded-full border border-brand-cyan/20">Enscape & Render</span>
+                <span>•</span>
+                <span>1 de Junio, 2026</span>
+                <span>•</span>
+                <span>3 min lectura</span>
+            </div>
+            <h1 class="text-3xl md:text-5xl font-bold text-brand-dark leading-tight mb-6 max-w-3xl mx-auto">
+                Crear Proxies en Enscape 3D: Optimización Extrema en SketchUp
+            </h1>
+            <p class="text-lg md:text-xl text-gray-600 font-light leading-relaxed max-w-2xl mx-auto">
+                Trabajar con geometría de alta densidad en SketchUp puede ralentizar tu flujo de trabajo de forma drástica. Utilizar proxies de Enscape te permite tener representaciones livianas en tu modelo de SketchUp mientras que a la hora de renderizar se cargan los modelos FBX fotorrealistas originales.
+            </p>
+            <div class="mt-8 flex items-center justify-center gap-2">
+                <a href="index.html" class="text-sm font-semibold text-gray-500 hover:text-brand-cyan transition-colors">
+                    <i class="fas fa-arrow-left mr-1"></i> Volver a Todos los Blogs
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- CUERPO DEL TUTORIAL / PASOS -->
+    <main class="flex-grow py-16 bg-white">
+        <div class="max-w-4xl mx-auto px-4">
+            
+            <div class="space-y-16">
+                
+            <div class="flex flex-col md:flex-row gap-8 items-start relative group">
+                <!-- Step Counter Badging -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-cyan to-cyan-600 text-white font-bold flex items-center justify-center shadow-lg shadow-cyan-500/20 text-lg">
+                    1
+                </div>
+                <!-- Step Details -->
+                <div class="flex-grow space-y-4">
+                    <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
+                        Configurar las carpetas de almacenamiento local
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed font-light">
+                        Define y configura las carpetas en tu disco de forma organizada. Lo recomendado es establecer una ruta limpia como 'Enscape 3D v4 Offline Assets' con dos subcarpetas esenciales: '/assets' y '/exported'. Esto asegurará que el motor localice siempre las texturas sin problemas.
+                    </p>
+                    
+                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
+                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 1</span>
+                    <h4 class="text-sm font-semibold text-white/95 mb-3">Configurar las carpetas de almacenamiento local</h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
+                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
+                    </p>
+                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-proxies-enscape/paso-1.webp</code>
+                </div>
+            
+                </div>
+            </div>
+        
+
+            <div class="flex flex-col md:flex-row gap-8 items-start relative group">
+                <!-- Step Counter Badging -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-cyan to-cyan-600 text-white font-bold flex items-center justify-center shadow-lg shadow-cyan-500/20 text-lg">
+                    2
+                </div>
+                <!-- Step Details -->
+                <div class="flex-grow space-y-4">
+                    <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
+                        Iniciar el Custom Asset Creator
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed font-light">
+                        Abre SketchUp, ingresa al panel de Custom Asset Editor de Enscape y haz clic en el botón de añadir (+). Esto iniciará el asistente de configuración para tu nuevo asset personalizado.
+                    </p>
+                    
+                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
+                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 2</span>
+                    <h4 class="text-sm font-semibold text-white/95 mb-3">Iniciar el Custom Asset Creator</h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
+                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
+                    </p>
+                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-proxies-enscape/paso-2.webp</code>
+                </div>
+            
+                </div>
+            </div>
+        
+
+            <div class="flex flex-col md:flex-row gap-8 items-start relative group">
+                <!-- Step Counter Badging -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-cyan to-cyan-600 text-white font-bold flex items-center justify-center shadow-lg shadow-cyan-500/20 text-lg">
+                    3
+                </div>
+                <!-- Step Details -->
+                <div class="flex-grow space-y-4">
+                    <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
+                        Importar geometría (FBX)
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed font-light">
+                        Haz clic en la opción 'Import Geometry' y selecciona el archivo .fbx de alta densidad que exportaste en tu flujo de modelado (por ejemplo, el generado en el instructivo de IA). Enscape cargará la geometría y sus materiales asociados.
+                    </p>
+                    
+                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
+                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 3</span>
+                    <h4 class="text-sm font-semibold text-white/95 mb-3">Importar geometría (FBX)</h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
+                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
+                    </p>
+                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-proxies-enscape/paso-3.webp</code>
+                </div>
+            
+                </div>
+            </div>
+        
+
+            <div class="flex flex-col md:flex-row gap-8 items-start relative group">
+                <!-- Step Counter Badging -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-cyan to-cyan-600 text-white font-bold flex items-center justify-center shadow-lg shadow-cyan-500/20 text-lg">
+                    4
+                </div>
+                <!-- Step Details -->
+                <div class="flex-grow space-y-4">
+                    <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
+                        Capturar la miniatura representativa
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed font-light">
+                        Usa la cámara integrada del editor para tomar una captura del objeto, o carga una imagen personalizada para el visor. Esta miniatura (thumbnail) será la que verás en tu biblioteca de assets dentro de SketchUp.
+                    </p>
+                    
+                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
+                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 4</span>
+                    <h4 class="text-sm font-semibold text-white/95 mb-3">Capturar la miniatura representativa</h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
+                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
+                    </p>
+                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-proxies-enscape/paso-4.webp</code>
+                </div>
+            
+                </div>
+            </div>
+        
+
+            <div class="flex flex-col md:flex-row gap-8 items-start relative group">
+                <!-- Step Counter Badging -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-cyan to-cyan-600 text-white font-bold flex items-center justify-center shadow-lg shadow-cyan-500/20 text-lg">
+                    5
+                </div>
+                <!-- Step Details -->
+                <div class="flex-grow space-y-4">
+                    <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
+                        Guardar y exportar el Proxie
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed font-light">
+                        Haz clic en guardar. Enscape creará un componente proxy liviano que podrás colocar ilimitadas veces en SketchUp. Al momento de presionar el botón de renderizado, Enscape reemplazará automáticamente estas cajas simples por el archivo .fbx fotorrealista de alto detalle, manteniendo tu SketchUp súper rápido.
+                    </p>
+                    
+                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
+                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 5</span>
+                    <h4 class="text-sm font-semibold text-white/95 mb-3">Guardar y exportar el Proxie</h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
+                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
+                    </p>
+                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-proxies-enscape/paso-5.webp</code>
+                </div>
+            
+                </div>
+            </div>
+        
+            </div>
+
+            <!-- CTA FINAL DEL POST -->
+            <div class="mt-20 bg-brand-gray/40 border border-gray-100 p-8 sm:p-12 rounded-3xl text-center max-w-3xl mx-auto shadow-sm">
+                <span class="inline-block bg-brand-cyan/10 text-brand-cyan text-xs font-bold px-3.5 py-1.5 rounded-full uppercase tracking-wider mb-4 border border-brand-cyan/20">
+                    Siguiente Nivel
+                </span>
+                <h3 class="text-2xl sm:text-3xl font-bold text-brand-dark mb-4">¿Quieres delegar tu renderizado 3D?</h3>
+                <p class="text-gray-600 font-light max-w-lg mx-auto mb-8 text-sm sm:text-base leading-relaxed">
+                    Si tienes proyectos con cronogramas exigentes, confía en profesionales. Entregamos visualizaciones estéticas de alto impacto en tiempo récord.
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center gap-4">
+                    <a href="../contacto.html" class="bg-brand-dark text-white font-bold px-8 py-4 rounded-xl hover:bg-brand-cyan transition-all duration-300 shadow-md">
+                        Cotizar mi Proyecto
+                    </a>
+                    <a href="https://wa.me/573132060072?text=Hola%20le%C3%AD%20el%20art%C3%ADculo%20sobre%20Crear Proxies en Enscape 3D: Optimización Extrema en SketchUp%20y%20me%20interesa%20su%20servicio" target="_blank" class="bg-green-500 text-white font-bold px-8 py-4 rounded-xl hover:bg-green-600 transition-all duration-300 shadow-md flex items-center justify-center gap-2">
+                        <i class="fab fa-whatsapp text-lg"></i> Chatear por WhatsApp
+                    </a>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="bg-gray-900 border-t border-gray-800 pt-16 pb-8 text-white mt-auto">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-4 gap-12 mb-12">
+                <!-- Columna 1: Brand -->
+                <div class="col-span-1 md:col-span-1">
+                    <img src="../assets/branding/render-3d-global-logo-cuadrado-3d.jpg" alt="Render 3D Global Logo"
+                        class="h-16 w-auto mb-6 rounded shadow-sm opacity-90" loading="lazy"> <!-- Usando el logo cuadrado pequeño -->
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        El puente entre el arquitecto, el cliente y el maestro de obra en Cualquier parte del Mundo.
+                        Visualización rápida y funcional.
+                    </p>
+                </div>
+
+                <!-- Columna 2: Enlaces Rápidos -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Empresa</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../index.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Inicio</a></li>
+                        <li><a href="../proyectos/"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a>
+                        </li>
+                        <li><a href="../servicios/" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Servicios</a></li>
+                        <li><a href="index.html" class="text-brand-cyan text-sm transition-colors">Blog</a></li>
+                        <li><a href="../nosotros.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre Nosotros</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Columna 3: Servicios -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Servicios</h4>
+                    <ul class="space-y-2">
+                        <li><a href="../servicios/renders-express-para-stands-comerciales.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders Comerciales</a></li>
+                        <li><a href="../servicios/visualizacion-para-disenadores-interiores.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores & Oficinas</a></li>
+                        <li><a href="../servicios/visualizacion-arquitectonica-para-contratistas.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y Obra</a></li>
+                    </ul>
+                </div>
+
+                <!-- Columna 4: Contacto -->
+                <div>
+                    <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Contacto</h4>
+                    <ul class="space-y-4">
+                        <li class="flex items-start gap-3">
+                            <i class="fas fa-map-marker-alt mt-1 text-brand-cyan"></i>
+                            <span class="text-gray-400 text-sm">Cualquier parte del Mundo, Global<br>Servicio Global</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fas fa-envelope text-brand-cyan"></i>
+                            <a href="mailto:render3dglobal.com@gmail.com"
+                                class="text-gray-400 hover:text-white text-sm transition-colors">render3dglobal.com@gmail.com</a>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+                <p class="text-gray-500 text-sm">© 2026 Render 3D Global Global. Todos los derechos reservados.</p>
+                <div class="flex space-x-6">
+                    <a href="https://www.instagram.com/render3dglobal/" target="_blank"
+                        class="text-gray-400 hover:text-white transition-colors"><i
+                            class="fab fa-instagram text-xl"></i></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        const btn = document.getElementById('mobile-menu-btn');
+        const menu = document.getElementById('mobile-menu');
+
+        btn.addEventListener('click', () => {
+            menu.classList.toggle('hidden');
+        });
+
+        // Cambiar estilo del navbar al hacer scroll
+        window.addEventListener('scroll', () => {
+            const navbar = document.getElementById('navbar');
+            if (window.scrollY > 50) {
+                navbar.classList.add('shadow-md');
+            } else {
+                navbar.classList.remove('shadow-md');
+            }
+        });
+    </script>
+</body>
+
+</html>

@@ -1,22 +1,169 @@
-<!DOCTYPE html>
+const fs = require('fs');
+const path = require('path');
+const { blogPosts } = require('./blog-data.js');
+
+const TEMPLATE_PATH = path.join(__dirname, 'blog-template.html');
+const BLOG_DIR = path.join(__dirname, '../blog');
+const ASSETS_DIR = path.join(__dirname, '../assets/blog');
+
+// Ensure blog directory exists
+if (!fs.existsSync(BLOG_DIR)) {
+    fs.mkdirSync(BLOG_DIR, { recursive: true });
+}
+
+// Read Template
+if (!fs.existsSync(TEMPLATE_PATH)) {
+    console.error('Blog template not found:', TEMPLATE_PATH);
+    process.exit(1);
+}
+const template = fs.readFileSync(TEMPLATE_PATH, 'utf-8');
+
+// Helper to convert plain text URLs into clickable HTML links
+const linkify = (text) => {
+    const urlRegex = /(https?:\/\/[^\s\)]+)/g;
+    return text.replace(urlRegex, '<a href="$1" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">$1</a>');
+};
+
+console.log('Starting Blog Build...');
+
+// 1. Build Individual Blog Pages
+blogPosts.forEach(post => {
+    let content = template;
+
+    // Generate Steps HTML
+    const stepsHtml = post.steps.map(step => {
+        // Check if the image file exists locally
+        const localImagePath = path.join(__dirname, '../', step.image);
+        let imageElementHtml = '';
+
+        if (fs.existsSync(localImagePath)) {
+            // Image exists! Render normal img tag
+            imageElementHtml = `
+                <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                    <img src="../${step.image}" alt="${step.title}" class="w-full h-auto object-cover" loading="lazy">
+                </div>
+            `;
+        } else {
+            // Image is missing! Show a beautiful gradient card placeholder
+            imageElementHtml = `
+                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
+                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
+                        <i class="fas fa-image text-xl"></i>
+                    </div>
+                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso ${step.stepNumber}</span>
+                    <h4 class="text-sm font-semibold text-white/95 mb-3">${step.title}</h4>
+                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
+                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
+                    </p>
+                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">${step.image}</code>
+                </div>
+            `;
+        }
+
+        return `
+            <div class="flex flex-col md:flex-row gap-8 items-start relative group">
+                <!-- Step Counter Badging -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-cyan to-cyan-600 text-white font-bold flex items-center justify-center shadow-lg shadow-cyan-500/20 text-lg">
+                    ${step.stepNumber}
+                </div>
+                <!-- Step Details -->
+                <div class="flex-grow space-y-4">
+                    <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
+                        ${step.title}
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed font-light">
+                        ${linkify(step.text)}
+                    </p>
+                    ${imageElementHtml}
+                </div>
+            </div>
+        `;
+    }).join('\n');
+
+    // Replace single post template tags
+    const canonicalUrl = `https://render3dglobal.com/blog/${post.id}.html`;
+    content = content.replace(/{{TITLE}}/g, post.title);
+    content = content.replace(/{{SEO_DESCRIPTION}}/g, post.seoDescription);
+    content = content.replace(/{{CANONICAL_URL}}/g, canonicalUrl);
+    content = content.replace(/{{CATEGORY}}/g, post.category);
+    content = content.replace(/{{DATE}}/g, post.date);
+    content = content.replace(/{{READ_TIME}}/g, post.readTime);
+    content = content.replace(/{{INTRO}}/g, post.intro);
+    content = content.replace(/{{STEPS_HTML}}/g, stepsHtml);
+
+    // Write File
+    const fileName = `${post.id}.html`;
+    fs.writeFileSync(path.join(BLOG_DIR, fileName), content, 'utf8');
+    console.log(`Generated blog post: blog/${fileName}`);
+});
+
+
+// 2. Generate Blog Index / Directory Page (blog/index.html)
+const generateBlogIndex = () => {
+    const postCardsHtml = blogPosts.map(post => {
+        // Image or elegant visual thumbnail block
+        const localHeroPath = path.join(__dirname, '../', post.heroImage);
+        let thumbnailHtml = '';
+
+        if (fs.existsSync(localHeroPath)) {
+            thumbnailHtml = `
+                <img src="../${post.heroImage}" alt="${post.title}" 
+                     class="w-full h-full object-cover transform group-hover:scale-110 transition-transform duration-700">
+            `;
+        } else {
+            // Elegant gradient hero placeholder if missing
+            thumbnailHtml = `
+                <div class="w-full h-full bg-gradient-to-br from-slate-900 to-cyan-950 flex flex-col items-center justify-center p-6 text-center select-none">
+                    <div class="w-10 h-10 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-2 text-brand-cyan">
+                        <i class="fas fa-book-open"></i>
+                    </div>
+                    <span class="text-[10px] font-bold uppercase tracking-widest text-slate-400">Guía Práctica</span>
+                </div>
+            `;
+        }
+
+        return `
+            <a href="${post.id}.html" class="bg-white border border-gray-100 rounded-3xl overflow-hidden hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 flex flex-col group h-full cursor-pointer">
+                <div class="h-52 bg-brand-gray overflow-hidden relative">
+                    ${thumbnailHtml}
+                    <span class="absolute top-4 left-4 bg-brand-cyan/90 text-white font-bold text-xs uppercase px-3.5 py-1.5 rounded-full backdrop-blur-sm tracking-wider">
+                        ${post.category}
+                    </span>
+                </div>
+                <div class="p-6 sm:p-8 flex-grow flex flex-col">
+                    <span class="text-xs font-semibold text-gray-400 mb-2">${post.date} • ${post.readTime}</span>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3 group-hover:text-brand-cyan transition-colors duration-300 line-clamp-2">
+                        ${post.title}
+                    </h3>
+                    <p class="text-gray-500 text-sm font-light leading-relaxed mb-6 line-clamp-3">
+                        ${post.intro}
+                    </p>
+                    <span class="text-brand-cyan font-bold text-sm uppercase tracking-wider mt-auto inline-flex items-center gap-1.5 group-hover:translate-x-1.5 transition-transform duration-300">
+                        <span>Leer Instructivo</span> <i class="fas fa-arrow-right text-xs"></i>
+                    </span>
+                </div>
+            </a>
+        `;
+    }).join('\n');
+
+    const indexHtmlContent = `<!DOCTYPE html>
 <html lang="es">
 
 <head>
     <!-- Google tag (gtag.js) -->
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-9JDB4H3LJ4"></script>
     <script>
-        window.dataLayer = window.dataLayer || [];
-        function gtag() { dataLayer.push(arguments); }
-        gtag('js', new Date());
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
 
-        gtag('config', 'G-9JDB4H3LJ4');
+      gtag('config', 'G-9JDB4H3LJ4');
     </script>
-    <script src="../scripts/analytics-events.js"></script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Renders para Remodelación de Oficinas en Samborondón | Render 3D Global</title>
-    <meta name="description" content="Diseño de oficinas corporativas en Samborondón. Renders para remodelación de espacios de trabajo en Plaza Lagos, Xima y La Puntilla. Optimización de espacios.">
-    <link rel="canonical" href="https://render3dglobal.com/servicios/render-remodelacion-oficinas-samborondon.html" />
+    <title>Blog e Instructivos de Optimización 3D | Render 3D Global</title>
+    <meta name="description" content="Aprende buenas prácticas de modelado, creación de proxies en Enscape e inteligencia artificial aplicada al modelado 3D rápido.">
+    <link rel="canonical" href="https://render3dglobal.com/blog/" />
 
     <script src="https://cdn.tailwindcss.com"></script>
     <script>
@@ -111,8 +258,8 @@
                 <div class="hidden md:flex space-x-8 items-center">
                     <a href="../index.html" class="text-gray-600 hover:text-brand-cyan transition-colors">Inicio</a>
                     <a href="../proyectos/" class="text-gray-600 hover:text-brand-cyan transition-colors">Portafolio</a>
-                    <a href="../servicios/" class="text-brand-cyan font-bold">Servicios</a>
-                    <a href="../blog/" class="text-gray-600 hover:text-brand-cyan transition-colors">Blog</a>
+                    <a href="../servicios/" class="text-gray-600 hover:text-brand-cyan transition-colors">Servicios</a>
+                    <a href="index.html" class="text-brand-cyan font-bold">Blog</a>
                     <a href="../nosotros.html"
                         class="text-gray-600 hover:text-brand-cyan transition-colors">Nosotros</a>
                     <!-- Botón CTA en Menú -->
@@ -139,9 +286,9 @@
                 <a href="../proyectos/"
                     class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Portafolio</a>
                 <a href="../servicios/"
-                    class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Servicios</a>
-                <a href="../blog/"
-                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Blog</a>
+                    class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Servicios</a>
+                <a href="index.html"
+                    class="block px-3 py-3 text-brand-cyan font-bold bg-gray-50 rounded">Blog</a>
                 <a href="../nosotros.html"
                     class="block px-3 py-3 text-gray-700 hover:text-brand-cyan hover:bg-gray-50 rounded">Nosotros</a>
                 <a href="../contacto.html"
@@ -152,64 +299,21 @@
         </div>
     </nav>
 
-    <main class="flex-grow pt-24 pb-12">
-        <div class="max-w-5xl mx-auto px-4 py-8 w-full">
-            <div class="flex items-center gap-2 mb-8 text-sm">
-                <a href="index.html" class="text-gray-500 hover:text-brand-cyan transition-colors"><i
-                        class="fas fa-arrow-left mr-1"></i> Volver a Servicios</a>
-            </div>
+    <!-- INTRO SECTOR -->
+    <header class="bg-gray-50 pt-36 pb-16 border-b border-gray-100">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h1 class="text-4xl md:text-5xl font-bold text-brand-dark mb-4">Blog y Guías de Optimización</h1>
+            <p class="text-lg text-gray-600 font-light max-w-2xl mx-auto leading-relaxed">
+                Buenas prácticas, flujos de trabajo eficientes e instructivos paso a paso para arquitectos y diseñadores que buscan potenciar su productividad.
+            </p>
+        </div>
+    </header>
 
-            <h1 class="text-4xl font-bold text-brand-dark mb-4">Renders para Remodelación de Oficinas en Samborondón</h1>
-            <p class="text-xl text-gray-600 mb-8 max-w-3xl">Transforma espacios corporativos. Visualización 3D para oficinas en Plaza Lagos, Xima y La Puntilla.</p>
-
-            
-            <div class="bg-gray-50 p-6 rounded-lg mb-10 border-l-4 border-brand-cyan">
-                <p class="text-lg text-gray-700">Diseño interior corporativo de alto nivel. Muestra a tus clientes cómo quedará su nueva oficina antes de iniciar la obra.</p>
-                <!-- SEO Oculto -->
-                <div class="hidden">Especialistas en <strong>renders de oficinas</strong> para empresas en Samborondón y Guayaquil. Diseño de recepción, sala de juntas y espacios de coworking. Visualización para remodelación de locales en edificios corporativos. Optimización de espacios de trabajo.</div>
-            </div>
-          
-
-            <div class="mb-12 rounded-xl overflow-hidden shadow-2xl">
-                <img src="../assets/projects/render-oficina-flexible-auditorio-salas/render-oficina-flexible-auditorio-salas-08.webp" alt="Oficinas Samborondón" class="w-full h-auto object-cover max-h-[600px]"
-                    loading="lazy">
-            </div>
-
-            <div class="grid md:grid-cols-2 gap-12 mb-12">
-                <div>
-                    <h2 class="text-2xl font-bold text-brand-dark mb-4">Soluciones Corporativas</h2>
-                    <ul class="space-y-3 text-gray-700">
-                        
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Visualización de mobiliario ergonómico.
-            </li>
-          
-
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Iluminación y acabados.
-            </li>
-          
-
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Renders 360 para aprobación gerencial.
-            </li>
-          
-
-            <li class="flex items-start gap-2">
-                <i class="fas fa-check text-brand-cyan mt-1"></i> Entrega rápida para cumplir cronogramas.
-            </li>
-          
-                    </ul>
-                </div>
-                <div
-                    class="bg-brand-gray/50 p-8 rounded-xl border border-gray-100 flex flex-col justify-center text-center">
-                    <h2 class="text-2xl font-bold text-brand-dark mb-4">¿Remodelando la oficina?</h2>
-                    <p class="mb-6 text-gray-600">Visualiza el cambio antes de invertir.</p>
-                    <a href="../contacto.html"
-                        class="inline-block bg-brand-cyan text-white font-bold py-4 px-8 rounded hover:bg-brand-dark transition-colors shadow-lg">
-                        Cotizar Diseño de Oficina
-                    </a>
-                </div>
+    <!-- BLOG CARDS LIST -->
+    <main class="flex-grow py-16 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid md:grid-cols-2 gap-8 max-w-5xl mx-auto">
+                ${postCardsHtml}
             </div>
         </div>
     </main>
@@ -222,7 +326,6 @@
                 <div class="col-span-1 md:col-span-1">
                     <img src="../assets/branding/render-3d-global-logo-cuadrado-3d.jpg" alt="Render 3D Global Logo"
                         class="h-16 w-auto mb-6 rounded shadow-sm opacity-90" loading="lazy">
-                    <!-- Usando el logo cuadrado pequeño -->
                     <p class="text-gray-400 text-sm leading-relaxed">
                         El puente entre el arquitecto, el cliente y el maestro de obra en Cualquier parte del Mundo.
                         Visualización rápida y funcional.
@@ -238,7 +341,8 @@
                         <li><a href="../proyectos/"
                                 class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Portafolio</a>
                         </li>
-                        <li><a href="../servicios/" class="text-brand-cyan text-sm transition-colors">Servicios</a></li>
+                        <li><a href="../servicios/" class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Servicios</a></li>
+                        <li><a href="index.html" class="text-brand-cyan text-sm transition-colors">Blog</a></li>
                         <li><a href="../nosotros.html"
                                 class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Sobre Nosotros</a>
                         </li>
@@ -249,15 +353,12 @@
                 <div>
                     <h4 class="text-white font-bold mb-4 uppercase tracking-wider text-sm">Servicios</h4>
                     <ul class="space-y-2">
-                        <li><a href="renders-express-para-stands-comerciales.html"
-                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders
-                                Comerciales</a></li>
-                        <li><a href="visualizacion-para-disenadores-interiores.html"
-                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores &
-                                Oficinas</a></li>
-                        <li><a href="visualizacion-arquitectonica-para-contratistas.html"
-                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y
-                                Obra</a></li>
+                        <li><a href="../servicios/renders-express-para-stands-comerciales.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Renders Comerciales</a></li>
+                        <li><a href="../servicios/visualizacion-para-disenadores-interiores.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Interiores & Oficinas</a></li>
+                        <li><a href="../servicios/visualizacion-arquitectonica-para-contratistas.html"
+                                class="text-gray-400 hover:text-brand-cyan text-sm transition-colors">Contratistas y Obra</a></li>
                     </ul>
                 </div>
 
@@ -267,8 +368,7 @@
                     <ul class="space-y-4">
                         <li class="flex items-start gap-3">
                             <i class="fas fa-map-marker-alt mt-1 text-brand-cyan"></i>
-                            <span class="text-gray-400 text-sm">Cualquier parte del Mundo, Global<br>Servicio
-                                Global</span>
+                            <span class="text-gray-400 text-sm">Cualquier parte del Mundo, Global<br>Servicio Global</span>
                         </li>
                         <li class="flex items-center gap-3">
                             <i class="fas fa-envelope text-brand-cyan"></i>
@@ -290,40 +390,6 @@
         </div>
     </footer>
 
-    <!-- Floating WhatsApp CTA -->
-    <div class="fixed bottom-6 right-6 z-50 flex flex-col gap-3">
-        <!-- WhatsApp Button -->
-        <a href="https://wa.me/573132060072?text=Hola%2C%20cotizaci%C3%B3n%20remodelaci%C3%B3n%20oficina" target="_blank"
-            class="bg-green-500 text-white w-14 h-14 rounded-full shadow-2xl flex items-center justify-center hover:bg-green-600 hover:scale-110 transition-all duration-300 animate-bounce-slow"
-            title="Chatear por WhatsApp">
-            <i class="fab fa-whatsapp text-3xl"></i>
-        </a>
-    </div>
-    <style>
-        .animate-bounce-slow {
-            animation: bounce 3s infinite;
-        }
-
-        @keyframes bounce {
-
-            0%,
-            20%,
-            50%,
-            80%,
-            100% {
-                transform: translateY(0);
-            }
-
-            40% {
-                transform: translateY(-10px);
-            }
-
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-    </style>
-
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -344,4 +410,12 @@
     </script>
 </body>
 
-</html>
+</html>`;
+
+    fs.writeFileSync(path.join(BLOG_DIR, 'index.html'), indexHtmlContent, 'utf8');
+    console.log('Generated blog index page: blog/index.html');
+};
+
+generateBlogIndex();
+
+console.log('Blog Build Complete successfully!');

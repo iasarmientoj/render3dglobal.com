@@ -268,6 +268,7 @@ const generatePage = (data, isGlobal = false) => {
     content = replaceAll(content, 'assets/', relativePath + 'assets/');
     content = replaceAll(content, 'proyectos/', relativePath + 'proyectos/');
     content = replaceAll(content, 'servicios/', relativePath + 'servicios/');
+    content = replaceAll(content, 'blog/', relativePath + 'blog/');
     content = replaceAll(content, 'nosotros.html', relativePath + 'nosotros.html');
     content = replaceAll(content, 'contacto.html', relativePath + 'contacto.html');
     content = replaceAll(content, 'href="index.html"', 'href="' + relativePath + 'index.html"');
@@ -276,6 +277,7 @@ const generatePage = (data, isGlobal = false) => {
     content = replaceAll(content, 'href="index.html"', 'href="' + relativePath + 'index.html"');
     content = replaceAll(content, 'href="proyectos/"', 'href="' + relativePath + 'proyectos/"');
     content = replaceAll(content, 'href="servicios/"', 'href="' + relativePath + 'servicios/"');
+    content = replaceAll(content, 'href="blog/"', 'href="' + relativePath + 'blog/"');
     content = replaceAll(content, 'href="nosotros.html"', 'href="' + relativePath + 'nosotros.html"');
     content = replaceAll(content, 'href="contacto.html"', 'href="' + relativePath + 'contacto.html"');
     // Global Link (Explicitly "Global" in nav often links to index.html)
