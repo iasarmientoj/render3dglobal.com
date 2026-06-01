@@ -136,39 +136,37 @@ const generateRedirectScript = (citiesData) => {
 
     const mappingJson = JSON.stringify(mapping);
 
-    // 2. Return the script string including the Modal HTML/CSS/JS
+    // 2. Return the script string including the Banner HTML/CSS/JS
     // This solves the Google Ads "cloaking" issue by asking the user instead of auto-redirecting.
     return `
-    <!-- Geo-Location Modal -->
-    <div id="geo-modal" class="fixed inset-0 z-[9999] hidden flex items-center justify-center bg-black/60 backdrop-blur-sm p-4 transition-opacity duration-300 opacity-0 font-sans">
-        <div class="bg-white rounded-2xl shadow-2xl max-w-md w-full overflow-hidden transform scale-95 transition-transform duration-300 mobile-modal-fix">
-            <div class="bg-gray-900 p-6 text-white relative overflow-hidden">
-                <div class="absolute top-0 right-0 -mt-4 -mr-4 w-24 h-24 bg-cyan-500 rounded-full opacity-20 blur-xl"></div>
-                <h3 class="text-xl font-bold relative z-10 flex items-center gap-2">
-                    <i class="fas fa-map-marker-alt text-cyan-400"></i> 
-                    Ubicación Detectada
-                </h3>
+    <!-- Geo-Location Recommendation Popup -->
+    <div id="geo-modal" class="fixed bottom-6 left-1/2 z-[9999] hidden max-w-md w-[calc(100%-2rem)] bg-white/95 backdrop-blur-md border border-gray-200/80 rounded-2xl shadow-2xl p-4 sm:p-5 font-sans transition-all duration-500" style="transform: translate(-50%, 24px); opacity: 0;">
+        <div class="flex items-start gap-4">
+            <div class="bg-cyan-50 text-cyan-500 p-3 rounded-xl flex-shrink-0">
+                <i class="fas fa-map-marker-alt text-xl"></i>
             </div>
-            <div class="p-6">
-                <p class="text-gray-600 mb-8 text-lg leading-relaxed">
-                    Hemos detectado que nos visitas desde <span id="geo-city-name" class="font-bold text-gray-900">tu ciudad</span>. 
-                    <br>
-                    ¿Te gustaría ver la versión personalizada para tu ubicación?
+            <div class="flex-grow">
+                <h4 class="text-sm font-bold text-gray-900 mb-1">¿Estás en <span id="geo-city-name" class="text-brand-cyan">tu ubicación</span>?</h4>
+                <p class="text-xs text-gray-600 leading-relaxed mb-3">
+                    Hemos detectado que nos visitas desde <span id="geo-city-detected" class="font-semibold text-gray-800">tu ubicación</span>. ¿Te gustaría ver la versión personalizada para tu ciudad?
                 </p>
-                <div class="flex flex-col sm:flex-row gap-3">
-                    <button id="geo-confirm-btn" class="flex-1 bg-cyan-500 text-white font-bold py-3 px-4 rounded-xl hover:bg-cyan-600 transition-colors shadow-lg hover:shadow-cyan-500/30 flex justify-center items-center gap-2 group">
-                        <span>Sí, ir allí</span> <i class="fas fa-arrow-right group-hover:translate-x-1 transition-transform"></i>
+                <div class="flex items-center gap-3">
+                    <button id="geo-confirm-btn" class="bg-cyan-500 text-white text-xs font-bold py-2.5 px-4 rounded-xl hover:bg-cyan-600 transition-all flex items-center gap-1.5 group cursor-pointer border-0 shadow-lg hover:shadow-cyan-500/20" style="background-color: #00AEEF;">
+                        <span>Sí, ir allí</span> <i class="fas fa-arrow-right group-hover:translate-x-0.5 transition-transform text-[10px]"></i>
                     </button>
-                    <button id="geo-cancel-btn" class="flex-1 bg-gray-100 text-gray-600 font-bold py-3 px-4 rounded-xl hover:bg-gray-200 transition-colors">
-                        No, quedarme aquí
+                    <button id="geo-cancel-btn" class="text-gray-500 hover:text-gray-800 text-xs font-medium py-2 px-3 rounded-lg hover:bg-gray-50 transition-colors cursor-pointer border-0 bg-transparent">
+                        No, seguir aquí
                     </button>
                 </div>
             </div>
         </div>
     </div>
     <style>
-        #geo-modal.visible { display: flex; opacity: 1; }
-        #geo-modal.visible .mobile-modal-fix { transform: scale(100%); }
+        #geo-modal.visible {
+            display: block !important;
+            opacity: 1 !important;
+            transform: translate(-50%, 0) !important;
+        }
     </style>
 
     <script>
@@ -179,6 +177,7 @@ const generateRedirectScript = (citiesData) => {
             function showGeoModal(city, url) {
                 const modal = document.getElementById('geo-modal');
                 const citySpan = document.getElementById('geo-city-name');
+                const cityDetectedSpan = document.getElementById('geo-city-detected');
                 const confirmBtn = document.getElementById('geo-confirm-btn');
                 const cancelBtn = document.getElementById('geo-cancel-btn');
 
@@ -186,6 +185,7 @@ const generateRedirectScript = (citiesData) => {
 
                 // Set text
                 citySpan.textContent = city;
+                cityDetectedSpan.textContent = city;
 
                 // Setup actions
                 confirmBtn.onclick = function() {
@@ -196,16 +196,18 @@ const generateRedirectScript = (citiesData) => {
                     modal.classList.remove('visible');
                     setTimeout(() => {
                         modal.classList.add('hidden');
-                    }, 300);
+                    }, 500);
                     // Optional: Remember choice in sessionStorage so we don't annoy them again this session
                     sessionStorage.setItem('geo-choice-made', 'true');
                 };
 
                 // Show modal
                 modal.classList.remove('hidden');
-                // Small delay to allow display:flex to apply before opacity transition
+                // Small delay to allow display:block to apply before opacity transition
                 requestAnimationFrame(() => {
-                    modal.classList.add('visible');
+                    requestAnimationFrame(() => {
+                        modal.classList.add('visible');
+                    });
                 });
             }
 
@@ -219,12 +221,15 @@ const generateRedirectScript = (citiesData) => {
                 .then(data => {
                     if (data && data.city) {
                         const userCity = data.city.toUpperCase();
+                        
+                        // If they are in Bogotá, we DO NOT show the popup (since index.html has Bogotá content)
+                        if (userCity === 'BOGOTÁ' || userCity === 'BOGOTA') {
+                            console.log('User is in Bogotá, skipping location modal.');
+                            return;
+                        }
+                        
                         // Direct City Match
                         if (cityMapping[userCity]) {
-                            // Check if we are ALREADY on that page? 
-                            // This script is only injected in GLOBAL index, so we are likely not on the city page.
-                            // But just in case, logic handles it by design (script only in global).
-                            
                             console.log('Location matched:', userCity);
                             showGeoModal(data.city, cityMapping[userCity]);
                         } 
