@@ -90,6 +90,7 @@ blogPosts.forEach(post => {
     content = content.replace(/{{READ_TIME}}/g, post.readTime);
     content = content.replace(/{{INTRO}}/g, post.intro);
     content = content.replace(/{{STEPS_HTML}}/g, stepsHtml);
+    content = content.replace(/{{SEO_RICH_CONTENT}}/g, post.seoRichContent || '');
 
     // Write File
     const fileName = `${post.id}.html`;
