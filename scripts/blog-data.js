@@ -6,7 +6,7 @@ const blogPosts = [
         category: "IA & Modelado",
         date: "1 de Junio, 2026",
         readTime: "5 min lectura",
-        heroImage: "assets/blog/crear-objetos-3d-ia/hero.webp",
+        heroImage: "assets/blog/crear-objetos-3d-ia/min.jpg",
         intro: "Modelar desde cero puede ser un proceso lento cuando se necesitan decenas de elementos complementarios para una escena. En esta guía rápida aprenderás un flujo de trabajo ágil y profesional para convertir una imagen en un modelo 3D optimizado utilizando herramientas de Inteligencia Artificial de última generación.",
         steps: [
             {
@@ -99,7 +99,7 @@ const blogPosts = [
         category: "Enscape & Render",
         date: "1 de Junio, 2026",
         readTime: "3 min lectura",
-        heroImage: "assets/blog/crear-proxies-enscape/hero.webp",
+        heroImage: "assets/blog/crear-proxies-enscape/min.jpg",
         intro: "Trabajar con geometría de alta densidad en SketchUp puede ralentizar tu flujo de trabajo de forma drástica. Utilizar proxies de Enscape te permite tener representaciones livianas en tu modelo de SketchUp mientras que a la hora de renderizar se cargan los modelos FBX fotorrealistas originales.",
         steps: [
             {
