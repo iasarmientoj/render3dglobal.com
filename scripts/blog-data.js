@@ -104,33 +104,65 @@ const blogPosts = [
         steps: [
             {
                 stepNumber: 1,
-                title: "Configurar las carpetas de almacenamiento local",
-                text: "Define y configura las carpetas en tu disco de forma organizada. Lo recomendado es establecer una ruta limpia como 'Enscape 3D v4 Offline Assets' con dos subcarpetas esenciales: '/assets' y '/exported'. Esto asegurará que el motor localice siempre las texturas sin problemas.",
-                image: "assets/blog/crear-proxies-enscape/paso-1.webp"
+                title: "Ajustar dimensiones y limpiar el archivo",
+                text: "Abre el archivo del objeto generado con IA en tu software de modelado 3D (como SketchUp), ajusta su tamaño de acuerdo a las dimensiones reales y elimina cualquier geometría residual u otros objetos secundarios para dejar la escena completamente limpia.",
+                image: "assets/blog/crear-proxies-enscape/1.jpg"
             },
             {
                 stepNumber: 2,
-                title: "Iniciar el Custom Asset Creator",
-                text: "Abre SketchUp, ingresa al panel de Custom Asset Editor de Enscape y haz clic en el botón de añadir (+). Esto iniciará el asistente de configuración para tu nuevo asset personalizado.",
-                image: "assets/blog/crear-proxies-enscape/paso-2.webp"
+                title: "Exportar en formato FBX",
+                text: "Exporta el objeto limpio y escalado a dimensiones reales como un archivo .fbx. Este formato es ideal porque empaqueta de forma ordenada la malla poligonal y preserva las coordenadas del mapeado de materiales.",
+                image: "assets/blog/crear-proxies-enscape/2.jpg"
             },
             {
                 stepNumber: 3,
-                title: "Importar geometría (FBX)",
-                text: "Haz clic en la opción 'Import Geometry' y selecciona el archivo .fbx de alta densidad que exportaste en tu flujo de modelado (por ejemplo, el generado en el instructivo de IA). Enscape cargará la geometría y sus materiales asociados.",
-                image: "assets/blog/crear-proxies-enscape/paso-3.webp"
+                title: "Configurar almacenamiento local en SketchUp",
+                text: "Abre el archivo del proyecto principal o un nuevo modelo en SketchUp. Configura la ruta de guardado en el panel de Enscape Custom Asset Editor seleccionando carpetas locales organizadas, tales como: 'Enscape 3D v4 Offline Assets' con las subcarpetas '/assets' y '/exported'.",
+                image: "assets/blog/crear-proxies-enscape/3.jpg"
             },
             {
                 stepNumber: 4,
-                title: "Capturar la miniatura representativa",
-                text: "Usa la cámara integrada del editor para tomar una captura del objeto, o carga una imagen personalizada para el visor. Esta miniatura (thumbnail) será la que verás en tu biblioteca de assets dentro de SketchUp.",
-                image: "assets/blog/crear-proxies-enscape/paso-4.webp"
+                title: "Crear un nuevo Custom Asset",
+                text: "Haz clic en el botón de agregar (+) en el Custom Asset Editor de Enscape para iniciar el asistente de creación de tu marcador o proxy personalizado.",
+                image: "assets/blog/crear-proxies-enscape/4.jpg"
             },
             {
                 stepNumber: 5,
-                title: "Guardar y exportar el Proxie",
-                text: "Haz clic en guardar. Enscape creará un componente proxy liviano que podrás colocar ilimitadas veces en SketchUp. Al momento de presionar el botón de renderizado, Enscape reemplazará automáticamente estas cajas simples por el archivo .fbx fotorrealista de alto detalle, manteniendo tu SketchUp súper rápido.",
-                image: "assets/blog/crear-proxies-enscape/paso-5.webp"
+                title: "Definir metadatos e importar geometría",
+                text: "Asigna un título y una categoría temática a tu nuevo asset para mantenerlo organizado. Luego, haz clic en el botón 'Import Geometry' y selecciona el archivo .fbx de alta fidelidad que exportaste previamente en el Paso 2.",
+                image: "assets/blog/crear-proxies-enscape/5.jpg"
+            },
+            {
+                stepNumber: 6,
+                title: "Optimizar texturas y propiedades de materiales",
+                text: "Configura minuciosamente el aspecto y realismo de los materiales de tu asset en el editor. Ajusta el tono del albedo, el relieve (Bump map), la rugosidad (Roughness) y la reflexión (Specular) para lograr un acabado fotorrealista excelente.",
+                images: [
+                    "assets/blog/crear-proxies-enscape/6.jpg",
+                    "assets/blog/crear-proxies-enscape/6a.jpg",
+                    "assets/blog/crear-proxies-enscape/6b.jpg"
+                ]
+            },
+            {
+                stepNumber: 7,
+                title: "Capturar miniatura del Asset",
+                text: "Utiliza la herramienta de captura integrada en el creador de assets de Enscape para tomar una miniatura (thumbnail) de tu modelo, o sube una imagen personalizada que sirva como previsualización visual en la biblioteca local de SketchUp.",
+                image: "assets/blog/crear-proxies-enscape/7.jpg"
+            },
+            {
+                stepNumber: 8,
+                title: "Guardar y exportar el Proxy",
+                text: "Haz clic en el botón 'Save changes and export' para procesar el asset y exportar el componente proxy liviano. Una vez finalizado el proceso de exportación, puedes cerrar el asistente de Enscape.",
+                image: "assets/blog/crear-proxies-enscape/8.jpg"
+            },
+            {
+                stepNumber: 9,
+                title: "Importar a la escena principal de SketchUp",
+                text: "Haz clic en el botón verde de tu asset personalizado recién creado para colocarlo en tu escena de SketchUp. Notarás que se carga un modelo proxy ultra liviano para mantener el viewport fluido, el cual se renderizará automáticamente en tiempo real con la máxima geometría detallada del FBX.",
+                images: [
+                    "assets/blog/crear-proxies-enscape/9.jpg",
+                    "assets/blog/crear-proxies-enscape/9a.jpg",
+                    "assets/blog/crear-proxies-enscape/9b.jpg"
+                ]
             }
         ],
         seoRichContent: `
