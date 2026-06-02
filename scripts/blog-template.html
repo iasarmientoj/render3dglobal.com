@@ -282,6 +282,18 @@
         </div>
     </footer>
 
+    <!-- Modal de Zoom de Imagen -->
+    <div id="image-zoom-modal" class="fixed inset-0 z-50 hidden bg-brand-dark/95 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <!-- Botón de Cerrar (X) -->
+        <button id="modal-close-btn" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl focus:outline-none p-2 transition-colors duration-200" aria-label="Cerrar vista completa">
+            <i class="fas fa-times"></i>
+        </button>
+        <!-- Contenedor de Imagen -->
+        <div class="relative w-full h-full flex items-center justify-center p-2 sm:p-6 md:p-10 select-none">
+            <img id="modal-zoom-img" src="" alt="Vista ampliada" class="max-w-[96vw] max-h-[92vh] sm:max-h-[96vh] object-contain rounded-xl shadow-2xl border border-white/10 transition-transform duration-300">
+        </div>
+    </div>
+
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -298,6 +310,61 @@
             } else {
                 navbar.classList.remove('shadow-md');
             }
+        });
+
+        // Funcionalidad de Zoom de Imagen para Renders/Tutoriales
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('image-zoom-modal');
+            const modalImg = document.getElementById('modal-zoom-img');
+            const closeBtn = document.getElementById('modal-close-btn');
+
+            // Añadir estilos interactivos a todas las imágenes de los pasos
+            const stepImages = document.querySelectorAll('main img');
+            stepImages.forEach(img => {
+                // Excluir logos/avatares si hubiera
+                if (!img.closest('footer') && !img.closest('nav')) {
+                    img.classList.add('cursor-zoom-in', 'transition-transform', 'duration-300', 'hover:scale-[1.02]');
+                    img.addEventListener('click', () => {
+                        openModal(img.src, img.alt);
+                    });
+                }
+            });
+
+            function openModal(src, alt) {
+                modalImg.src = src;
+                modalImg.alt = alt || 'Vista ampliada';
+                modal.classList.remove('hidden');
+                // Pequeño timeout para permitir la animación CSS
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modal.classList.add('opacity-100');
+                }, 10);
+                document.body.classList.add('overflow-hidden'); // Evitar scroll de fondo
+            }
+
+            function closeModal() {
+                modal.classList.remove('opacity-100');
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modalImg.src = '';
+                }, 300);
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            // Cerrar al hacer clic en cualquier parte excepto en la imagen misma (cierra al hacer clic en fondo, X, etc.)
+            modal.addEventListener('click', (e) => {
+                if (e.target !== modalImg) {
+                    closeModal();
+                }
+            });
+
+            // Cerrar con tecla Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
         });
     </script>
 </body>

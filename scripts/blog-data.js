@@ -12,58 +12,71 @@ const blogPosts = [
             {
                 stepNumber: 1,
                 title: "Conseguir la imagen de referencia",
-                text: "Busca o genera una imagen clara, nítida y bien iluminada del objeto que deseas crear en 3D. Cuanto más definida esté la silueta y los detalles, mejor será el resultado tridimensional.",
-                image: "assets/blog/crear-objetos-3d-ia/paso-1.webp"
+                text: "Busca o genera una imagen clara y bien iluminada del objeto que deseas crear en 3D. Por ejemplo, puedes seleccionar un diseño desde un catálogo en línea como el Catálogo de Mesas de Alcira Guevara (https://alciraguevara.com/catalogo/catalogo-mesas/).",
+                image: "assets/blog/crear-objetos-3d-ia/1.jpg"
             },
             {
                 stepNumber: 2,
-                title: "Aislar el fondo del objeto",
-                text: "Si tu imagen de referencia tiene un fondo complejo, debes aislar el objeto. Puedes lograrlo fácilmente subiendo la imagen a Gemini (https://gemini.google.com/) o utilizando herramientas de recorte automático como Nanobanana.",
-                image: "assets/blog/crear-objetos-3d-ia/paso-2.webp"
+                title: "Aislar y mejorar la imagen con IA",
+                text: "Si el objeto no está aislado de su fondo o la imagen tiene baja resolución, utiliza Inteligencia Artificial para prepararla. Puedes subir la imagen a Gemini (https://gemini.google.com/app) y usar los siguientes prompts:\n\n• Para mejorar la calidad: \"Aumenta la calidad de esta imagen de una mesa, manteniendo su estructura y detalles\"\n\n• Para aislar el objeto: \"Aisla esta mesa de su contexto y generala sobre fondo blanco, manteniendo su estructura y detalles\"",
+                image: "assets/blog/crear-objetos-3d-ia/2.jpg"
             },
             {
                 stepNumber: 3,
                 title: "Subir a Hunyuan 3D Studio",
-                text: "Sube la imagen aislada y recortada a la plataforma de generación 3D Hunyuan (https://3d.hunyuanglobal.com/studio/creation/role/geo). Ajusta la configuración de generación a un mínimo de 50,000 polígonos para asegurar que se capturen correctamente las formas base y el relieve.",
-                image: "assets/blog/crear-objetos-3d-ia/paso-3.webp"
+                text: "Ingresa a la plataforma de generación 3D Hunyuan (https://3d.hunyuanglobal.com/studio/creation/role/geo) y sube tu imagen aislada. Ajusta el recuento de caras base a un mínimo de 50,000 polígonos para asegurar que capture todos los relieves y la estructura principal del objeto.",
+                image: "assets/blog/crear-objetos-3d-ia/3.jpg"
             },
             {
                 stepNumber: 4,
                 title: "Realizar la retopología automática con IA",
-                text: "Las mallas iniciales generadas por IA suelen ser desorganizadas y sumamente pesadas (hasta 1.5M polígonos). Para solucionarlo, ve al panel de 'Retopology' en Hunyuan 3D Studio (https://3d.hunyuanglobal.com/studio/creation/role/poly). Selecciona topología de cuadriláteros ('Quads') o triángulos, elige la densidad deseada (por ejemplo, 'Medium' de 50k polígonos) y haz clic en 'Generate Now' para que la IA realice la retopología automáticamente en segundos.",
-                image: "assets/blog/crear-objetos-3d-ia/paso-4.webp"
+                text: "Las mallas generadas por IA suelen ser desorganizadas y pesadas. Dirígete a la pestaña 'Retopology' en Hunyuan 3D Studio. Elige topología de cuadriláteros ('Quads') o triángulos, define la densidad (como calidad 'Medium' de 50k polígonos) y haz clic en 'Generate Now' para que la IA ordene la malla automáticamente en segundos.",
+                image: "assets/blog/crear-objetos-3d-ia/4.jpg"
             },
             {
                 stepNumber: 5,
-                title: "Proyección y mapeado de texturas",
-                text: "Si la retopología del paso anterior quedó limpia y con un buen flujo de caras, proyecta la textura directamente sobre esta nueva malla. Si no, aplica y hornea la textura en la malla de alta densidad original.",
-                image: "assets/blog/crear-objetos-3d-ia/paso-5.webp"
+                title: "Proyección de texturas (Original vs Retopología)",
+                text: "Si la retopología de la IA quedó perfectamente limpia, proyecta la textura sobre ella. Si necesitas el máximo detalle porque el objeto es protagonista o muy importante en tu escena, regresa al objeto original sin retopología para generarle la textura con la máxima fidelidad.",
+                image: "assets/blog/crear-objetos-3d-ia/5.jpg"
             },
             {
                 stepNumber: 6,
-                title: "Exportar formatos GLB y FBX",
-                text: "Descarga el modelo final en formatos .glb y .fbx. Conservar ambos formatos es vital, ya que el .glb te servirá para previsualizaciones rápidas de texturas y el .fbx será ideal para la creación posterior del proxie de Enscape.",
-                image: "assets/blog/crear-objetos-3d-ia/paso-6.webp"
+                title: "Descargar el archivo en formato GLB",
+                text: "Una vez finalizada la generación de la textura y conforme con el resultado, procede a descargar el modelo 3D únicamente en formato .glb para su posterior importación.",
+                image: "assets/blog/crear-objetos-3d-ia/6.jpg"
             },
             {
                 stepNumber: 7,
-                title: "Importación directa a SketchUp (Casos rápidos)",
-                text: "Si vas a colocar pocos objetos generados en tu escena o tienes mucho afán y estos objetos aparecerán en segundo plano, puedes importar directamente el archivo (.fbx o .dae) a tu modelo de SketchUp.",
-                image: "assets/blog/crear-objetos-3d-ia/paso-7.webp"
+                title: "Importación directa a SketchUp",
+                text: "Si vas a utilizar pocos objetos de este tipo en la escena o tienes mucho afán porque aparecen en segundo plano, importa el archivo (.glb) directamente a tu modelo de SketchUp.",
+                images: [
+                    "assets/blog/crear-objetos-3d-ia/7.jpg",
+                    "assets/blog/crear-objetos-3d-ia/7a.jpg"
+                ]
             },
             {
                 stepNumber: 8,
-                title: "Creación de Proxies en Enscape (Recomendado)",
-                text: "Si vas a repetir el objeto múltiples veces en la escena (como vegetación, sillería o decoración), no lo importes directamente. En su lugar, debes crear un proxie de Enscape para mantener el rendimiento al máximo (sigue las instrucciones en el siguiente tutorial).",
-                image: "assets/blog/crear-objetos-3d-ia/paso-8.webp"
+                title: "Escalar a dimensiones reales",
+                text: "Crea un cubo de referencia con las dimensiones reales en SketchUp y escala tu objeto importado de acuerdo con él. En este caso, al conocer únicamente la altura estándar de la mesa (0.75m), escalamos el modelo importado en función de esa altura exacta.",
+                images: [
+                    "assets/blog/crear-objetos-3d-ia/8.jpg",
+                    "assets/blog/crear-objetos-3d-ia/8a.jpg",
+                    "assets/blog/crear-objetos-3d-ia/8b.jpg"
+                ]
+            },
+            {
+                stepNumber: 9,
+                title: "Creación de Proxies (Escenas complejas)",
+                text: "Si vas a repetir esta mesa o múltiples objetos similares muchas veces en tu escena, no los importes directamente de forma masiva. En su lugar, debes crear proxies en Enscape para mantener tu SketchUp ultra fluido (sigue los pasos en el tutorial: https://render3dglobal.com/blog/crear-proxies-enscape.html).",
+                image: ""
             }
         ],
         seoRichContent: `
             <h2 class="text-3xl font-extrabold text-brand-dark mt-12 mb-6">El Impacto de la Inteligencia Artificial en la Creación de Modelos 3D Gratuitos</h2>
-            <p class="mb-6">El ecosistema de la visualización arquitectónica y el diseño de videojuegos está experimentando una revolución sin precedentes impulsada por la <strong>Inteligencia Artificial 3D</strong>. Anteriormente, modelar un objeto con un nivel de detalle medio o alto requería horas de trabajo manual, desde la creación de geometrías básicas hasta el mapeado UV detallado. Hoy en día, gracias a herramientas avanzadas de generación a partir de imágenes como <strong>Hunyuan 3D Studio</strong>, es posible obtener <strong>modelos 3D gratis</strong> en cuestión de segundos, listos para ser pulidos y comercializados.</p>
+            <p class="mb-6">El ecosistema de la visualización arquitectónica y el diseño está experimentando una revolución sin precedentes impulsada por la <strong>Inteligencia Artificial 3D</strong>. Anteriormente, modelar un objeto con un nivel de detalle medio o alto requería horas de trabajo manual, desde la creación de geometrías básicas hasta el mapeado UV detallado. Hoy en día, gracias a herramientas avanzadas de generación a partir de imágenes como <strong>Hunyuan 3D Studio</strong>, es posible obtener <strong>modelos 3D gratis</strong> en cuestión de segundos, listos para ser pulidos y comercializados.</p>
 
             <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">¿Cómo funciona el flujo de trabajo ágil con IA?</h3>
-            <p class="mb-6">El secreto para pasar de una simple imagen bidimensional a un archivo tridimensional apto para motores de renderizado profesional reside en la combinación estratégica de herramientas. El primer paso crucial es el aislamiento de la imagen. La IA generativa de modelado necesita comprender perfectamente los límites del objeto, por lo que utilizar asistentes como <strong>Gemini</strong> o sistemas dedicados para eliminar el fondo resulta fundamental. Una vez limpio el contorno, plataformas como Hunyuan 3D analizan la profundidad, generan la malla inicial (normalmente con una densidad de hasta 1.5M polígonos) y aplican texturas automáticas de alta fidelidad.</p>
+            <p class="mb-6">El secreto para pasar de una simple imagen de catálogo (como las mesas de Alcira Guevara) a un archivo tridimensional apto para motores de renderizado profesional reside en la combinación estratégica de herramientas. El primer paso crucial es la mejora y aislamiento de la imagen. La IA generativa de modelado necesita comprender perfectamente los límites y detalles del objeto. Utilizar asistentes conversacionales avanzados como <strong>Gemini</strong> con instrucciones precisas de prompts permite aumentar la resolución y aislar el fondo en un color blanco puro, reduciendo el ruido visual para optimizar el procesamiento en Hunyuan 3D.</p>
 
             <div class="my-8 bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-brand-cyan p-6 rounded-r-2xl">
                 <h4 class="font-bold text-brand-dark mb-2 text-lg">💡 Consejo de Monetización 3D</h4>
@@ -73,11 +86,8 @@ const blogPosts = [
             <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">La importancia crítica de la Retopología con IA y la Aplicación de Texturas</h3>
             <p class="mb-6">Cualquier profesional del sector sabe que una malla generada por IA sin procesar (que suele tener hasta 1.5 millones de polígonos) es completamente inutilizable en proyectos arquitectónicos o de diseño. Saturaría por completo la memoria de programas como SketchUp, Revit o Blender. Por suerte, plataformas avanzadas como <strong>Hunyuan 3D Studio</strong> ahora integran un módulo de <strong>retopología automática con IA</strong>. Este módulo simplifica y ordena la estructura de la malla en segundos, permitiendo elegir una topología basada en cuadriláteros (Quads) o triángulos, y ajustar la densidad a niveles óptimos (como 50k polígonos en calidad media). De esta manera, el proceso se automatiza por completo con inteligencia artificial, logrando un modelo extremadamente ligero, limpio y listo para recibir texturas impecables sin necesidad de modelado manual.</p>
 
-            <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">¿Por qué exportar en formatos GLB y FBX?</h3>
-            <ul class="list-disc pl-6 mb-8 space-y-3">
-                <li><strong>GLB (gITF Binary):</strong> Ideal para la visualización en la web, previsualizaciones móviles y entornos interactivos de realidad aumentada. Almacena geometría, texturas y luces en un solo archivo altamente comprimido.</li>
-                <li><strong>FBX (Filmbox):</strong> El formato estándar de la industria para el intercambio de datos en 3D. Mantiene la jerarquía de los materiales y es perfecto para exportar a SketchUp o preparar proxies optimizados para motores de renderizado como Enscape, Lumion o V-Ray.</li>
-            </ul>
+            <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">¿Por qué exportar y trabajar en formato GLB?</h3>
+            <p class="mb-6">El formato <strong>GLB (gITF Binary)</strong> se ha convertido en el estándar indiscutible para la transferencia rápida de assets 3D en la web y aplicaciones interactivas. Almacena la geometría, las texturas PBR y las propiedades de materiales en un único archivo binario altamente optimizado. Esto facilita una importación fluida a SketchUp y asegura que las coordenadas de textura se mantengan intactas, permitiendo escalar el modelo según referencias de dimensiones reales (como un cubo de 0.75m de altura) con total precisión y rapidez.</p>
 
             <p class="mb-6">Integrar la <strong>Inteligencia Artificial</strong> en tu flujo diario no reemplaza tu talento; multiplica tu velocidad y capacidad de entrega, permitiéndote tomar más clientes simultáneamente y elevar las ganancias de tu estudio de visualización.</p>
         `

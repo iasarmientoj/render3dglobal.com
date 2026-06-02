@@ -193,21 +193,13 @@
                         Conseguir la imagen de referencia
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Busca o genera una imagen clara, nítida y bien iluminada del objeto que deseas crear en 3D. Cuanto más definida esté la silueta y los detalles, mejor será el resultado tridimensional.
+                        Busca o genera una imagen clara y bien iluminada del objeto que deseas crear en 3D. Por ejemplo, puedes seleccionar un diseño desde un catálogo en línea como el Catálogo de Mesas de Alcira Guevara (<a href="https://alciraguevara.com/catalogo/catalogo-mesas/" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">https://alciraguevara.com/catalogo/catalogo-mesas/</a>).
                     </p>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                        <img src="../assets/blog/crear-objetos-3d-ia/1.jpg" alt="Conseguir la imagen de referencia" class="w-full h-auto object-cover" loading="lazy">
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 1</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Conseguir la imagen de referencia</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-1.webp</code>
-                </div>
-            
+                
                 </div>
             </div>
         
@@ -220,24 +212,20 @@
                 <!-- Step Details -->
                 <div class="flex-grow space-y-4">
                     <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
-                        Aislar el fondo del objeto
+                        Aislar y mejorar la imagen con IA
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Si tu imagen de referencia tiene un fondo complejo, debes aislar el objeto. Puedes lograrlo fácilmente subiendo la imagen a Gemini (<a href="https://gemini.google.com/" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">https://gemini.google.com/</a>) o utilizando herramientas de recorte automático como Nanobanana.
+                        Si el objeto no está aislado de su fondo o la imagen tiene baja resolución, utiliza Inteligencia Artificial para prepararla. Puedes subir la imagen a Gemini (<a href="https://gemini.google.com/app" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">https://gemini.google.com/app</a>) y usar los siguientes prompts:
+
+• Para mejorar la calidad: "Aumenta la calidad de esta imagen de una mesa, manteniendo su estructura y detalles"
+
+• Para aislar el objeto: "Aisla esta mesa de su contexto y generala sobre fondo blanco, manteniendo su estructura y detalles"
                     </p>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                        <img src="../assets/blog/crear-objetos-3d-ia/2.jpg" alt="Aislar y mejorar la imagen con IA" class="w-full h-auto object-cover" loading="lazy">
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 2</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Aislar el fondo del objeto</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-2.webp</code>
-                </div>
-            
+                
                 </div>
             </div>
         
@@ -253,21 +241,13 @@
                         Subir a Hunyuan 3D Studio
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Sube la imagen aislada y recortada a la plataforma de generación 3D Hunyuan (<a href="https://3d.hunyuanglobal.com/studio/creation/role/geo" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">https://3d.hunyuanglobal.com/studio/creation/role/geo</a>). Ajusta la configuración de generación a un mínimo de 50,000 polígonos para asegurar que se capturen correctamente las formas base y el relieve.
+                        Ingresa a la plataforma de generación 3D Hunyuan (<a href="https://3d.hunyuanglobal.com/studio/creation/role/geo" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">https://3d.hunyuanglobal.com/studio/creation/role/geo</a>) y sube tu imagen aislada. Ajusta el recuento de caras base a un mínimo de 50,000 polígonos para asegurar que capture todos los relieves y la estructura principal del objeto.
                     </p>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                        <img src="../assets/blog/crear-objetos-3d-ia/3.jpg" alt="Subir a Hunyuan 3D Studio" class="w-full h-auto object-cover" loading="lazy">
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 3</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Subir a Hunyuan 3D Studio</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-3.webp</code>
-                </div>
-            
+                
                 </div>
             </div>
         
@@ -283,21 +263,13 @@
                         Realizar la retopología automática con IA
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Las mallas iniciales generadas por IA suelen ser desorganizadas y sumamente pesadas (hasta 1.5M polígonos). Para solucionarlo, ve al panel de 'Retopology' en Hunyuan 3D Studio (<a href="https://3d.hunyuanglobal.com/studio/creation/role/poly" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">https://3d.hunyuanglobal.com/studio/creation/role/poly</a>). Selecciona topología de cuadriláteros ('Quads') o triángulos, elige la densidad deseada (por ejemplo, 'Medium' de 50k polígonos) y haz clic en 'Generate Now' para que la IA realice la retopología automáticamente en segundos.
+                        Las mallas generadas por IA suelen ser desorganizadas y pesadas. Dirígete a la pestaña 'Retopology' en Hunyuan 3D Studio. Elige topología de cuadriláteros ('Quads') o triángulos, define la densidad (como calidad 'Medium' de 50k polígonos) y haz clic en 'Generate Now' para que la IA ordene la malla automáticamente en segundos.
                     </p>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                        <img src="../assets/blog/crear-objetos-3d-ia/4.jpg" alt="Realizar la retopología automática con IA" class="w-full h-auto object-cover" loading="lazy">
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 4</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Realizar la retopología automática con IA</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-4.webp</code>
-                </div>
-            
+                
                 </div>
             </div>
         
@@ -310,24 +282,16 @@
                 <!-- Step Details -->
                 <div class="flex-grow space-y-4">
                     <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
-                        Proyección y mapeado de texturas
+                        Proyección de texturas (Original vs Retopología)
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Si la retopología del paso anterior quedó limpia y con un buen flujo de caras, proyecta la textura directamente sobre esta nueva malla. Si no, aplica y hornea la textura en la malla de alta densidad original.
+                        Si la retopología de la IA quedó perfectamente limpia, proyecta la textura sobre ella. Si necesitas el máximo detalle porque el objeto es protagonista o muy importante en tu escena, regresa al objeto original sin retopología para generarle la textura con la máxima fidelidad.
                     </p>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                        <img src="../assets/blog/crear-objetos-3d-ia/5.jpg" alt="Proyección de texturas (Original vs Retopología)" class="w-full h-auto object-cover" loading="lazy">
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 5</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Proyección y mapeado de texturas</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-5.webp</code>
-                </div>
-            
+                
                 </div>
             </div>
         
@@ -340,24 +304,16 @@
                 <!-- Step Details -->
                 <div class="flex-grow space-y-4">
                     <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
-                        Exportar formatos GLB y FBX
+                        Descargar el archivo en formato GLB
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Descarga el modelo final en formatos .glb y .fbx. Conservar ambos formatos es vital, ya que el .glb te servirá para previsualizaciones rápidas de texturas y el .fbx será ideal para la creación posterior del proxie de Enscape.
+                        Una vez finalizada la generación de la textura y conforme con el resultado, procede a descargar el modelo 3D únicamente en formato .glb para su posterior importación.
                     </p>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                        <img src="../assets/blog/crear-objetos-3d-ia/6.jpg" alt="Descargar el archivo en formato GLB" class="w-full h-auto object-cover" loading="lazy">
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 6</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Exportar formatos GLB y FBX</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-6.webp</code>
-                </div>
-            
+                
                 </div>
             </div>
         
@@ -370,24 +326,21 @@
                 <!-- Step Details -->
                 <div class="flex-grow space-y-4">
                     <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
-                        Importación directa a SketchUp (Casos rápidos)
+                        Importación directa a SketchUp
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Si vas a colocar pocos objetos generados en tu escena o tienes mucho afán y estos objetos aparecerán en segundo plano, puedes importar directamente el archivo (.fbx o .dae) a tu modelo de SketchUp.
+                        Si vas a utilizar pocos objetos de este tipo en la escena o tienes mucho afán porque aparecen en segundo plano, importa el archivo (.glb) directamente a tu modelo de SketchUp.
                     </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                        <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px] flex-1 min-w-[280px]">
+                            <img src="../assets/blog/crear-objetos-3d-ia/7.jpg" alt="Importación directa a SketchUp" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+
+                        <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px] flex-1 min-w-[280px]">
+                            <img src="../assets/blog/crear-objetos-3d-ia/7a.jpg" alt="Importación directa a SketchUp" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 7</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Importación directa a SketchUp (Casos rápidos)</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-7.webp</code>
-                </div>
-            
                 </div>
             </div>
         
@@ -400,24 +353,44 @@
                 <!-- Step Details -->
                 <div class="flex-grow space-y-4">
                     <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
-                        Creación de Proxies en Enscape (Recomendado)
+                        Escalar a dimensiones reales
                     </h2>
                     <p class="text-gray-600 text-base leading-relaxed font-light">
-                        Si vas a repetir el objeto múltiples veces en la escena (como vegetación, sillería o decoración), no lo importes directamente. En su lugar, debes crear un proxie de Enscape para mantener el rendimiento al máximo (sigue las instrucciones en el siguiente tutorial).
+                        Crea un cubo de referencia con las dimensiones reales en SketchUp y escala tu objeto importado de acuerdo con él. En este caso, al conocer únicamente la altura estándar de la mesa (0.75m), escalamos el modelo importado en función de esa altura exacta.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-4 mt-2">
+                        <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px] flex-1 min-w-[280px]">
+                            <img src="../assets/blog/crear-objetos-3d-ia/8.jpg" alt="Escalar a dimensiones reales" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
+                    
+
+                        <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px] flex-1 min-w-[280px]">
+                            <img src="../assets/blog/crear-objetos-3d-ia/8a.jpg" alt="Escalar a dimensiones reales" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
+                    
+
+                        <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px] flex-1 min-w-[280px]">
+                            <img src="../assets/blog/crear-objetos-3d-ia/8b.jpg" alt="Escalar a dimensiones reales" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        
+
+            <div class="flex flex-col md:flex-row gap-8 items-start relative group">
+                <!-- Step Counter Badging -->
+                <div class="flex-shrink-0 w-12 h-12 rounded-2xl bg-gradient-to-br from-brand-cyan to-cyan-600 text-white font-bold flex items-center justify-center shadow-lg shadow-cyan-500/20 text-lg">
+                    9
+                </div>
+                <!-- Step Details -->
+                <div class="flex-grow space-y-4">
+                    <h2 class="text-2xl font-bold text-brand-dark group-hover:text-brand-cyan transition-colors duration-300">
+                        Creación de Proxies (Escenas complejas)
+                    </h2>
+                    <p class="text-gray-600 text-base leading-relaxed font-light">
+                        Si vas a repetir esta mesa o múltiples objetos similares muchas veces en tu escena, no los importes directamente de forma masiva. En su lugar, debes crear proxies en Enscape para mantener tu SketchUp ultra fluido (sigue los pasos en el tutorial: <a href="https://render3dglobal.com/blog/crear-proxies-enscape.html" target="_blank" class="text-brand-cyan hover:underline break-all font-medium">https://render3dglobal.com/blog/crear-proxies-enscape.html</a>).
                     </p>
                     
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
-                    </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso 8</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">Creación de Proxies en Enscape (Recomendado)</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">assets/blog/crear-objetos-3d-ia/paso-8.webp</code>
-                </div>
-            
                 </div>
             </div>
         
@@ -427,10 +400,10 @@
             <div class="mt-20 border-t border-gray-100 pt-16 max-w-3xl mx-auto prose prose-cyan text-gray-700 leading-relaxed font-light text-base">
                 
             <h2 class="text-3xl font-extrabold text-brand-dark mt-12 mb-6">El Impacto de la Inteligencia Artificial en la Creación de Modelos 3D Gratuitos</h2>
-            <p class="mb-6">El ecosistema de la visualización arquitectónica y el diseño de videojuegos está experimentando una revolución sin precedentes impulsada por la <strong>Inteligencia Artificial 3D</strong>. Anteriormente, modelar un objeto con un nivel de detalle medio o alto requería horas de trabajo manual, desde la creación de geometrías básicas hasta el mapeado UV detallado. Hoy en día, gracias a herramientas avanzadas de generación a partir de imágenes como <strong>Hunyuan 3D Studio</strong>, es posible obtener <strong>modelos 3D gratis</strong> en cuestión de segundos, listos para ser pulidos y comercializados.</p>
+            <p class="mb-6">El ecosistema de la visualización arquitectónica y el diseño está experimentando una revolución sin precedentes impulsada por la <strong>Inteligencia Artificial 3D</strong>. Anteriormente, modelar un objeto con un nivel de detalle medio o alto requería horas de trabajo manual, desde la creación de geometrías básicas hasta el mapeado UV detallado. Hoy en día, gracias a herramientas avanzadas de generación a partir de imágenes como <strong>Hunyuan 3D Studio</strong>, es posible obtener <strong>modelos 3D gratis</strong> en cuestión de segundos, listos para ser pulidos y comercializados.</p>
 
             <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">¿Cómo funciona el flujo de trabajo ágil con IA?</h3>
-            <p class="mb-6">El secreto para pasar de una simple imagen bidimensional a un archivo tridimensional apto para motores de renderizado profesional reside en la combinación estratégica de herramientas. El primer paso crucial es el aislamiento de la imagen. La IA generativa de modelado necesita comprender perfectamente los límites del objeto, por lo que utilizar asistentes como <strong>Gemini</strong> o sistemas dedicados para eliminar el fondo resulta fundamental. Una vez limpio el contorno, plataformas como Hunyuan 3D analizan la profundidad, generan la malla inicial (normalmente con una densidad de hasta 1.5M polígonos) y aplican texturas automáticas de alta fidelidad.</p>
+            <p class="mb-6">El secreto para pasar de una simple imagen de catálogo (como las mesas de Alcira Guevara) a un archivo tridimensional apto para motores de renderizado profesional reside en la combinación estratégica de herramientas. El primer paso crucial es la mejora y aislamiento de la imagen. La IA generativa de modelado necesita comprender perfectamente los límites y detalles del objeto. Utilizar asistentes conversacionales avanzados como <strong>Gemini</strong> con instrucciones precisas de prompts permite aumentar la resolución y aislar el fondo en un color blanco puro, reduciendo el ruido visual para optimizar el procesamiento en Hunyuan 3D.</p>
 
             <div class="my-8 bg-gradient-to-r from-cyan-50 to-blue-50 border-l-4 border-brand-cyan p-6 rounded-r-2xl">
                 <h4 class="font-bold text-brand-dark mb-2 text-lg">💡 Consejo de Monetización 3D</h4>
@@ -440,11 +413,8 @@
             <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">La importancia crítica de la Retopología con IA y la Aplicación de Texturas</h3>
             <p class="mb-6">Cualquier profesional del sector sabe que una malla generada por IA sin procesar (que suele tener hasta 1.5 millones de polígonos) es completamente inutilizable en proyectos arquitectónicos o de diseño. Saturaría por completo la memoria de programas como SketchUp, Revit o Blender. Por suerte, plataformas avanzadas como <strong>Hunyuan 3D Studio</strong> ahora integran un módulo de <strong>retopología automática con IA</strong>. Este módulo simplifica y ordena la estructura de la malla en segundos, permitiendo elegir una topología basada en cuadriláteros (Quads) o triángulos, y ajustar la densidad a niveles óptimos (como 50k polígonos en calidad media). De esta manera, el proceso se automatiza por completo con inteligencia artificial, logrando un modelo extremadamente ligero, limpio y listo para recibir texturas impecables sin necesidad de modelado manual.</p>
 
-            <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">¿Por qué exportar en formatos GLB y FBX?</h3>
-            <ul class="list-disc pl-6 mb-8 space-y-3">
-                <li><strong>GLB (gITF Binary):</strong> Ideal para la visualización en la web, previsualizaciones móviles y entornos interactivos de realidad aumentada. Almacena geometría, texturas y luces en un solo archivo altamente comprimido.</li>
-                <li><strong>FBX (Filmbox):</strong> El formato estándar de la industria para el intercambio de datos en 3D. Mantiene la jerarquía de los materiales y es perfecto para exportar a SketchUp o preparar proxies optimizados para motores de renderizado como Enscape, Lumion o V-Ray.</li>
-            </ul>
+            <h3 class="text-2xl font-bold text-brand-dark mt-10 mb-4">¿Por qué exportar y trabajar en formato GLB?</h3>
+            <p class="mb-6">El formato <strong>GLB (gITF Binary)</strong> se ha convertido en el estándar indiscutible para la transferencia rápida de assets 3D en la web y aplicaciones interactivas. Almacena la geometría, las texturas PBR y las propiedades de materiales en un único archivo binario altamente optimizado. Esto facilita una importación fluida a SketchUp y asegura que las coordenadas de textura se mantengan intactas, permitiendo escalar el modelo según referencias de dimensiones reales (como un cubo de 0.75m de altura) con total precisión y rapidez.</p>
 
             <p class="mb-6">Integrar la <strong>Inteligencia Artificial</strong> en tu flujo diario no reemplaza tu talento; multiplica tu velocidad y capacidad de entrega, permitiéndote tomar más clientes simultáneamente y elevar las ganancias de tu estudio de visualización.</p>
         
@@ -543,6 +513,18 @@
         </div>
     </footer>
 
+    <!-- Modal de Zoom de Imagen -->
+    <div id="image-zoom-modal" class="fixed inset-0 z-50 hidden bg-brand-dark/95 backdrop-blur-md flex items-center justify-center p-4 transition-all duration-300 opacity-0">
+        <!-- Botón de Cerrar (X) -->
+        <button id="modal-close-btn" class="absolute top-6 right-6 text-white/70 hover:text-white text-3xl focus:outline-none p-2 transition-colors duration-200" aria-label="Cerrar vista completa">
+            <i class="fas fa-times"></i>
+        </button>
+        <!-- Contenedor de Imagen -->
+        <div class="relative w-full h-full flex items-center justify-center p-2 sm:p-6 md:p-10 select-none">
+            <img id="modal-zoom-img" src="" alt="Vista ampliada" class="max-w-[96vw] max-h-[92vh] sm:max-h-[96vh] object-contain rounded-xl shadow-2xl border border-white/10 transition-transform duration-300">
+        </div>
+    </div>
+
     <script>
         const btn = document.getElementById('mobile-menu-btn');
         const menu = document.getElementById('mobile-menu');
@@ -559,6 +541,61 @@
             } else {
                 navbar.classList.remove('shadow-md');
             }
+        });
+
+        // Funcionalidad de Zoom de Imagen para Renders/Tutoriales
+        document.addEventListener('DOMContentLoaded', () => {
+            const modal = document.getElementById('image-zoom-modal');
+            const modalImg = document.getElementById('modal-zoom-img');
+            const closeBtn = document.getElementById('modal-close-btn');
+
+            // Añadir estilos interactivos a todas las imágenes de los pasos
+            const stepImages = document.querySelectorAll('main img');
+            stepImages.forEach(img => {
+                // Excluir logos/avatares si hubiera
+                if (!img.closest('footer') && !img.closest('nav')) {
+                    img.classList.add('cursor-zoom-in', 'transition-transform', 'duration-300', 'hover:scale-[1.02]');
+                    img.addEventListener('click', () => {
+                        openModal(img.src, img.alt);
+                    });
+                }
+            });
+
+            function openModal(src, alt) {
+                modalImg.src = src;
+                modalImg.alt = alt || 'Vista ampliada';
+                modal.classList.remove('hidden');
+                // Pequeño timeout para permitir la animación CSS
+                setTimeout(() => {
+                    modal.classList.remove('opacity-0');
+                    modal.classList.add('opacity-100');
+                }, 10);
+                document.body.classList.add('overflow-hidden'); // Evitar scroll de fondo
+            }
+
+            function closeModal() {
+                modal.classList.remove('opacity-100');
+                modal.classList.add('opacity-0');
+                setTimeout(() => {
+                    modal.classList.add('hidden');
+                    modalImg.src = '';
+                }, 300);
+                document.body.classList.remove('overflow-hidden');
+            }
+
+            // Cerrar al hacer clic en cualquier parte excepto en la imagen misma (cierra al hacer clic en fondo, X, etc.)
+            modal.addEventListener('click', (e) => {
+                if (e.target !== modalImg) {
+                    closeModal();
+                }
+            });
+
+            // Cerrar con tecla Escape
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape' && !modal.classList.contains('hidden')) {
+                    closeModal();
+                }
+            });
         });
     </script>
 </body>

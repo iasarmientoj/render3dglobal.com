@@ -32,32 +32,53 @@ blogPosts.forEach(post => {
 
     // Generate Steps HTML
     const stepsHtml = post.steps.map(step => {
-        // Check if the image file exists locally
-        const localImagePath = path.join(__dirname, '../', step.image);
         let imageElementHtml = '';
 
-        if (fs.existsSync(localImagePath)) {
-            // Image exists! Render normal img tag
-            imageElementHtml = `
-                <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
-                    <img src="../${step.image}" alt="${step.title}" class="w-full h-auto object-cover" loading="lazy">
-                </div>
-            `;
-        } else {
-            // Image is missing! Show a beautiful gradient card placeholder
-            imageElementHtml = `
-                <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
-                    <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
-                        <i class="fas fa-image text-xl"></i>
+        if (step.images && Array.isArray(step.images)) {
+            // Render multiple images in a responsive grid
+            const imagesListHtml = step.images.map(imgSrc => {
+                const localImagePath = path.join(__dirname, '../', imgSrc);
+                if (fs.existsSync(localImagePath)) {
+                    return `
+                        <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px] flex-1 min-w-[280px]">
+                            <img src="../${imgSrc}" alt="${step.title}" class="w-full h-auto object-cover" loading="lazy">
+                        </div>
+                    `;
+                } else {
+                    return `
+                        <div class="flex-1 min-w-[280px] min-h-[250px] bg-gradient-to-br from-slate-900 to-slate-800 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-4 text-center">
+                            <i class="fas fa-image text-brand-cyan/40 text-lg mb-2"></i>
+                            <code class="bg-black/40 px-2 py-1 rounded text-white border border-white/5 text-[9px] font-mono">${imgSrc}</code>
+                        </div>
+                    `;
+                }
+            }).join('\n');
+            imageElementHtml = `<div class="flex flex-col sm:flex-row gap-4 mt-2">${imagesListHtml}</div>`;
+        } else if (step.image) {
+            const localImagePath = path.join(__dirname, '../', step.image);
+            if (fs.existsSync(localImagePath)) {
+                // Image exists! Render normal img tag
+                imageElementHtml = `
+                    <div class="rounded-2xl overflow-hidden shadow-lg border border-gray-100 max-h-[500px]">
+                        <img src="../${step.image}" alt="${step.title}" class="w-full h-auto object-cover" loading="lazy">
                     </div>
-                    <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso ${step.stepNumber}</span>
-                    <h4 class="text-sm font-semibold text-white/95 mb-3">${step.title}</h4>
-                    <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
-                        Sube tu captura en formato WebP, JPG o PNG a la ruta:
-                    </p>
-                    <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">${step.image}</code>
-                </div>
-            `;
+                `;
+            } else {
+                // Image is missing! Show a beautiful gradient card placeholder
+                imageElementHtml = `
+                    <div class="w-full min-h-[320px] bg-gradient-to-br from-slate-900 via-cyan-950 to-slate-900 border border-cyan-900/60 rounded-2xl flex flex-col items-center justify-center p-6 text-center select-none shadow-md">
+                        <div class="w-12 h-12 rounded-full bg-brand-cyan/20 border border-brand-cyan/30 flex items-center justify-center mb-4 text-brand-cyan">
+                            <i class="fas fa-image text-xl"></i>
+                        </div>
+                        <span class="text-xs font-bold uppercase tracking-wider text-brand-cyan mb-1">Imagen del Paso ${step.stepNumber}</span>
+                        <h4 class="text-sm font-semibold text-white/95 mb-3">${step.title}</h4>
+                        <p class="text-xs text-slate-400 max-w-xs leading-relaxed mb-1">
+                            Sube tu captura en formato WebP, JPG o PNG a la ruta:
+                        </p>
+                        <code class="bg-black/40 px-3 py-1.5 rounded text-white border border-white/5 select-all mt-1 inline-block text-[10px] font-mono leading-none tracking-normal">${step.image}</code>
+                    </div>
+                `;
+            }
         }
 
         return `
